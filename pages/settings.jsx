@@ -1,3 +1,10 @@
 import React from 'react';
+import Layout from '../lib/layout';
 
-export default () => <p>Welcome to Settings!</p>;
+const Settings = () => (
+  <Layout title="Rearn - settings">
+    <p>Welcome to Settings!</p>
+  </Layout>
+);
+
+export default Settings;

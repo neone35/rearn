@@ -3,14 +3,14 @@ import React from 'react';
 import { linkStyle } from './SharedStyles';
 
 const Header = () => (
-  <div>
+  <nav>
     <Link href="/">
       <a style={linkStyle}>Home</a>
     </Link>
     <Link href="/settings">
       <a style={linkStyle}>Settings</a>
     </Link>
-  </div>
+  </nav>
 );
 
 export default Header;

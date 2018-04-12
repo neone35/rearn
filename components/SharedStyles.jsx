@@ -8,7 +8,7 @@ const layoutStyle = {
   border: '1px solid #DDD',
 };
 
-module.exports = {
+export {
   linkStyle,
   layoutStyle,
 };
