@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -288,7 +288,7 @@ exports.default = Layout;
 
 /***/ }),
 
-/***/ "./pages/index.jsx":
+/***/ "./pages/cardset.jsx":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -297,13 +297,7 @@ exports.default = Layout;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _jsxFileName = 'C:\\Users\\aarta\\Documents\\PersonalFiles\\Projects\\WEBprojects\\rearn\\pages\\index.jsx';
-
-var _reactstrap = __webpack_require__("reactstrap");
-
-var _link = __webpack_require__("next/link");
-
-var _link2 = _interopRequireDefault(_link);
+var _jsxFileName = 'C:\\Users\\aarta\\Documents\\PersonalFiles\\Projects\\WEBprojects\\rearn\\pages\\cardset.jsx';
 
 var _react = __webpack_require__("react");
 
@@ -315,79 +309,47 @@ var _layout2 = _interopRequireDefault(_layout);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var CardsetLink = function CardsetLink(props) {
+var Cardset = function Cardset(props) {
   return _react2.default.createElement(
-    'li',
+    _layout2.default,
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 7
+        lineNumber: 5
       }
     },
+    console.log(props.url),
     _react2.default.createElement(
-      _link2.default,
-      { href: '/cardset?title=' + props.title, __source: {
+      'h1',
+      {
+        __source: {
           fileName: _jsxFileName,
-          lineNumber: 8
+          lineNumber: 7
         }
       },
-      _react2.default.createElement(
-        'a',
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 9
-          }
-        },
-        props.title
-      )
-    )
-  );
-};
-
-var Index = function Index() {
-  return _react2.default.createElement(
-    _layout2.default,
-    { title: 'Rearn - index', __source: {
-        fileName: _jsxFileName,
-        lineNumber: 15
-      }
-    },
+      props.url.query.title
+    ),
     _react2.default.createElement(
       'p',
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 16
+          lineNumber: 8
         }
       },
-      'Hello Rearn!'
-    ),
-    _react2.default.createElement(CardsetLink, { title: 'Physics1', __source: {
-        fileName: _jsxFileName,
-        lineNumber: 17
-      }
-    }),
-    _react2.default.createElement(
-      _reactstrap.Button,
-      { className: 'bg-secondary text-white', size: 'sm', __source: {
-          fileName: _jsxFileName,
-          lineNumber: 18
-        }
-      },
-      'Button test'
+      'This is the blog post content.'
     )
   );
 };
 
-exports.default = Index;
+exports.default = Cardset;
 
 /***/ }),
 
-/***/ 2:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("./pages/index.jsx");
+module.exports = __webpack_require__("./pages/cardset.jsx");
 
 
 /***/ }),
@@ -411,14 +373,7 @@ module.exports = require("next/link");
 
 module.exports = require("react");
 
-/***/ }),
-
-/***/ "reactstrap":
-/***/ (function(module, exports) {
-
-module.exports = require("reactstrap");
-
 /***/ })
 
 /******/ });
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=cardset.js.map

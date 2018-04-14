@@ -93,10 +93,6 @@ var _document = __webpack_require__("next/document");
 
 var _document2 = _interopRequireDefault(_document);
 
-var _jquery = __webpack_require__("jquery");
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -121,7 +117,7 @@ var MyDocument = function (_Document) {
         'html',
         { lang: 'en', __source: {
             fileName: _jsxFileName,
-            lineNumber: 17
+            lineNumber: 16
           }
         },
         _react2.default.createElement(
@@ -129,20 +125,25 @@ var MyDocument = function (_Document) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 18
+              lineNumber: 17
             }
           },
           _react2.default.createElement('meta', { name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no', __source: {
               fileName: _jsxFileName,
+              lineNumber: 18
+            }
+          }),
+          _react2.default.createElement('link', { rel: 'manifest', href: '/static/manifest.json', __source: {
+              fileName: _jsxFileName,
               lineNumber: 19
             }
           }),
-          _react2.default.createElement('link', { rel: 'stylesheet', href: 'https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css', integrity: 'sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX', crossOrigin: 'anonymous', __source: {
+          _react2.default.createElement('link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons', __source: {
               fileName: _jsxFileName,
               lineNumber: 20
             }
           }),
-          _react2.default.createElement('link', { rel: 'manifest', href: '/static/manifest.json', __source: {
+          _react2.default.createElement('link', { rel: 'stylesheet', href: 'https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css', integrity: 'sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX', crossOrigin: 'anonymous', __source: {
               fileName: _jsxFileName,
               lineNumber: 21
             }
@@ -165,21 +166,6 @@ var MyDocument = function (_Document) {
             __source: {
               fileName: _jsxFileName,
               lineNumber: 25
-            }
-          }),
-          _react2.default.createElement('script', { src: 'https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity: 'sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossOrigin: 'anonymous', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 26
-            }
-          }),
-          _react2.default.createElement('script', { src: 'https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js', integrity: 'sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U', crossOrigin: 'anonymous', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 27
-            }
-          }),
-          _react2.default.createElement('script', { src: 'https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js', integrity: 'sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9', crossOrigin: 'anonymous', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 28
             }
           })
         )
@@ -214,13 +200,6 @@ exports.default = MyDocument;
 
 module.exports = __webpack_require__("./pages/_document.jsx");
 
-
-/***/ }),
-
-/***/ "jquery":
-/***/ (function(module, exports) {
-
-module.exports = require("jquery");
 
 /***/ }),
 
