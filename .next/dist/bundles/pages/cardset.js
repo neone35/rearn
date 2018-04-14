@@ -67,85 +67,17 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
-/******/ ({
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
 
-/***/ "./components/Header.jsx":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _jsxFileName = 'C:\\Users\\aarta\\Documents\\PersonalFiles\\Projects\\WEBprojects\\rearn\\components\\Header.jsx';
-
-var _link = __webpack_require__("next/link");
-
-var _link2 = _interopRequireDefault(_link);
-
-var _react = __webpack_require__("react");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _SharedStyles = __webpack_require__("./components/SharedStyles.jsx");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Header = function Header() {
-  return _react2.default.createElement(
-    'nav',
-    {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 6
-      }
-    },
-    _react2.default.createElement(
-      _link2.default,
-      { href: '/', __source: {
-          fileName: _jsxFileName,
-          lineNumber: 7
-        }
-      },
-      _react2.default.createElement(
-        'a',
-        { style: _SharedStyles.linkStyle, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 8
-          }
-        },
-        'Home'
-      )
-    ),
-    _react2.default.createElement(
-      _link2.default,
-      { href: '/settings', __source: {
-          fileName: _jsxFileName,
-          lineNumber: 10
-        }
-      },
-      _react2.default.createElement(
-        'a',
-        { style: _SharedStyles.linkStyle, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 11
-          }
-        },
-        'Settings'
-      )
-    )
-  );
-};
-
-exports.default = Header;
+module.exports = require("react");
 
 /***/ }),
-
-/***/ "./components/SharedStyles.jsx":
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -168,8 +100,13 @@ exports.linkStyle = linkStyle;
 exports.layoutStyle = layoutStyle;
 
 /***/ }),
+/* 2 */
+/***/ (function(module, exports) {
 
-/***/ "./lib/layout.jsx":
+module.exports = require("next/link");
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -178,23 +115,22 @@ exports.layoutStyle = layoutStyle;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _jsxFileName = 'C:\\Users\\aarta\\Documents\\PersonalFiles\\Projects\\WEBprojects\\rearn\\lib\\layout.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _head = __webpack_require__("next/head");
+var _head = __webpack_require__(4);
 
 var _head2 = _interopRequireDefault(_head);
 
-var _react = __webpack_require__("react");
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Header = __webpack_require__("./components/Header.jsx");
+var _Header = __webpack_require__(5);
 
 var _Header2 = _interopRequireDefault(_Header);
 
-var _SharedStyles = __webpack_require__("./components/SharedStyles.jsx");
+var _SharedStyles = __webpack_require__(1);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -221,61 +157,24 @@ var Layout = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { style: _SharedStyles.layoutStyle, __source: {
-            fileName: _jsxFileName,
-            lineNumber: 13
-          }
-        },
+        { style: _SharedStyles.layoutStyle },
         _react2.default.createElement(
           _head2.default,
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 14
-            }
-          },
+          null,
           _react2.default.createElement(
             'title',
-            {
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 15
-              }
-            },
+            null,
             this.props.title
           ),
-          _react2.default.createElement('meta', { charSet: 'utf-8', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 16
-            }
-          }),
-          _react2.default.createElement('meta', { name: 'viewport', content: 'initial-scale=1.0, width=device-width', __source: {
-              fileName: _jsxFileName,
-              lineNumber: 17
-            }
-          })
+          _react2.default.createElement('meta', { charSet: 'utf-8' }),
+          _react2.default.createElement('meta', { name: 'viewport', content: 'initial-scale=1.0, width=device-width' })
         ),
-        _react2.default.createElement(_Header2.default, {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 19
-          }
-        }),
+        _react2.default.createElement(_Header2.default, null),
         this.props.children,
         _react2.default.createElement(
           'footer',
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 21
-            }
-          },
-          _react2.default.createElement('span', {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 22
-            }
-          })
+          null,
+          _react2.default.createElement('span', null)
         )
       );
     }
@@ -287,8 +186,13 @@ var Layout = function (_React$Component) {
 exports.default = Layout;
 
 /***/ }),
+/* 4 */
+/***/ (function(module, exports) {
 
-/***/ "./pages/cardset.jsx":
+module.exports = require("next/head");
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -297,13 +201,72 @@ exports.default = Layout;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var _jsxFileName = 'C:\\Users\\aarta\\Documents\\PersonalFiles\\Projects\\WEBprojects\\rearn\\pages\\cardset.jsx';
 
-var _react = __webpack_require__("react");
+var _link = __webpack_require__(2);
+
+var _link2 = _interopRequireDefault(_link);
+
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _layout = __webpack_require__("./lib/layout.jsx");
+var _SharedStyles = __webpack_require__(1);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = function Header() {
+  return _react2.default.createElement(
+    'nav',
+    null,
+    _react2.default.createElement(
+      _link2.default,
+      { href: '/' },
+      _react2.default.createElement(
+        'a',
+        { style: _SharedStyles.linkStyle },
+        'Home'
+      )
+    ),
+    _react2.default.createElement(
+      _link2.default,
+      { href: '/settings' },
+      _react2.default.createElement(
+        'a',
+        { style: _SharedStyles.linkStyle },
+        'Settings'
+      )
+    )
+  );
+};
+
+exports.default = Header;
+
+/***/ }),
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(10);
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _layout = __webpack_require__(3);
 
 var _layout2 = _interopRequireDefault(_layout);
 
@@ -312,31 +275,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Cardset = function Cardset(props) {
   return _react2.default.createElement(
     _layout2.default,
-    {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 5
-      }
-    },
+    null,
     console.log(props.url),
     _react2.default.createElement(
       'h1',
-      {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 7
-        }
-      },
+      null,
       props.url.query.title
     ),
     _react2.default.createElement(
       'p',
-      {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 8
-        }
-      },
+      null,
       'This is the blog post content.'
     )
   );
@@ -344,36 +292,5 @@ var Cardset = function Cardset(props) {
 
 exports.default = Cardset;
 
-/***/ }),
-
-/***/ 4:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("./pages/cardset.jsx");
-
-
-/***/ }),
-
-/***/ "next/head":
-/***/ (function(module, exports) {
-
-module.exports = require("next/head");
-
-/***/ }),
-
-/***/ "next/link":
-/***/ (function(module, exports) {
-
-module.exports = require("next/link");
-
-/***/ }),
-
-/***/ "react":
-/***/ (function(module, exports) {
-
-module.exports = require("react");
-
 /***/ })
-
-/******/ });
-//# sourceMappingURL=cardset.js.map
+/******/ ]);

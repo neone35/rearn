@@ -4,7 +4,7 @@ module.exports = withOffline({
   workboxOpts: {
     runtimeCaching: [
       {
-        urlPattern: /^\//,
+        urlPattern: /\//,
         handler: 'networkFirst',
         options: {
           cacheName: 'main',
@@ -46,7 +46,9 @@ module.exports = withOffline({
         handler: 'staleWhileRevalidate',
         options: {
           cacheName: 'googleapis',
-          maxEntries: 30,
+          expiration: {
+            maxEntries: 30,
+          },
         },
       },
     ],
