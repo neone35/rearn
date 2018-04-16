@@ -11,16 +11,18 @@ class Layout extends React.Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={rearnTheme}>
-        <Head>
-          <title>{this.props.title}</title>
-          <meta charSet="utf-8" />
-          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        </Head>
-        <Header />
-        {this.props.children}
-        <footer>
-          <span />
-        </footer>
+        <div>
+          <Head>
+            <title>{this.props.title}</title>
+            <meta charSet="utf-8" />
+            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          </Head>
+          <Header />
+          {this.props.children}
+          <footer>
+            <span />
+          </footer>
+        </div>
       </MuiThemeProvider>
     );
   }

@@ -36,7 +36,7 @@ module.exports = withOffline({
       },
       {
         urlPattern: new RegExp('https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css'),
-        handler: 'staleWhileRevalidate',
+        handler: 'cacheFirst',
         options: {
           cacheName: 'bootstrap',
         },
