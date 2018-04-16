@@ -1,10 +1,8 @@
 const linkStyle = {
-  marginRight: 15,
+  color: '#FFF',
 };
 
 const layoutStyle = {
-  margin: 20,
-  padding: 20,
   border: '1px solid #DDD',
 };
 
