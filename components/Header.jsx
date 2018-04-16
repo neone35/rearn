@@ -1,28 +1,43 @@
+import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
+import ActionSearch from 'material-ui/svg-icons/action/search';
+import ActionSettings from 'material-ui/svg-icons/action/settings';
+import AutoComplete from 'material-ui/AutoComplete';
 import Link from 'next/link';
 import React from 'react';
-import { linkStyle } from './SharedStyles';
+import { linkStyle, titleStyle } from './SharedStyles';
 
-const Header = () => (
-  <ul className="nav nav-tabs bg-primary">
-    <Link className="nav-item" href="/">
-      <li className="nav-item">
-        <a className="nav-link" style={linkStyle}>Home</a>
-      </li>
+const rightButtons = (
+  <div>
+    <IconButton tooltip="Search" iconStyle={linkStyle}>
+      <ActionSearch />
+    </IconButton>
+    <Link href="/settings">
+      <IconButton tooltip="Settings" iconStyle={linkStyle}>
+        <ActionSettings />
+      </IconButton>
     </Link>
-    <Link className="nav-item" href="/settings">
-      <li className="nav-item">
-        <a className="nav-link" style={linkStyle}>Settings</a>
-      </li>
-    </Link>
-    <div className="bmd-form-group bmd-collapse-inline pull-xs-left">
-      <button className="btn bmd-btn-icon text-white" htmlFor="search" data-toggle="collapse" data-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search">
-        <i className="material-icons">search</i>
-      </button>
-      <span id="collapse-search" className="collapse">
-        <input className="form-control" type="text" id="search" placeholder="Enter your query..." />
-      </span>
-    </div>
-  </ul>
+  </div>
 );
+
+class Header extends React.Component {
+  componentDidMount() {
+  }
+
+  render() {
+    return (
+      <div>
+        <AppBar
+          title={
+            <Link href="/">
+              <span style={titleStyle}>REARN</span>
+            </Link>
+          }
+          iconElementRight={rightButtons}
+        />
+      </div>
+    );
+  }
+}
 
 export default Header;

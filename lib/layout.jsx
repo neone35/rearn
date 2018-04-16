@@ -1,8 +1,8 @@
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Head from 'next/head';
 import React from 'react';
 import Header from '../components/Header';
-import { layoutStyle } from '../components/SharedStyles';
-
+import rearnTheme from './rearnTheme';
 
 class Layout extends React.Component {
   componentDidMount() {
@@ -10,7 +10,7 @@ class Layout extends React.Component {
 
   render() {
     return (
-      <div style={layoutStyle}>
+      <MuiThemeProvider muiTheme={rearnTheme}>
         <Head>
           <title>{this.props.title}</title>
           <meta charSet="utf-8" />
@@ -21,7 +21,7 @@ class Layout extends React.Component {
         <footer>
           <span />
         </footer>
-      </div>
+      </MuiThemeProvider>
     );
   }
 }
