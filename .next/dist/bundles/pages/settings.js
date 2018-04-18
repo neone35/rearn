@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -268,171 +268,6 @@ var Header = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Header;
-
-/***/ }),
-
-/***/ "./components/StatTabs.jsx":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var _jsxFileName = 'C:\\Users\\aarta\\Documents\\PersonalFiles\\Projects\\WEBprojects\\rearn\\components\\StatTabs.jsx';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__("react");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _router = __webpack_require__("next/router");
-
-var _router2 = _interopRequireDefault(_router);
-
-var _Tabs = __webpack_require__("material-ui/Tabs");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var localLabels = ['8 sets', '235 cards', '2 folders'];
-var localPages = ['/sets', '/cards', '/folders'];
-
-function handleActive(tab) {
-  var dataroute = tab.props.dataroute;
-
-  _router2.default.push(dataroute);
-}
-
-var StatTabs = function (_React$Component) {
-  _inherits(StatTabs, _React$Component);
-
-  function StatTabs(props) {
-    _classCallCheck(this, StatTabs);
-
-    var _this = _possibleConstructorReturn(this, (StatTabs.__proto__ || Object.getPrototypeOf(StatTabs)).call(this, props));
-
-    _this.state = {
-      value: '235 cards'
-    };
-    _this.handleChange = _this.handleChange.bind(_this);
-    return _this;
-  }
-
-  _createClass(StatTabs, [{
-    key: 'handleChange',
-    value: function handleChange(value) {
-      this.setState({
-        value: value
-      });
-    }
-
-    // TODO: replace dataroute=/settings with {propPages[index]}
-
-  }, {
-    key: 'renderTabs',
-    value: function renderTabs() {
-      var _props = this.props,
-          propLabels = _props.propLabels,
-          propPages = _props.propPages;
-
-      var useLabels = propLabels == null ? localLabels : propLabels;
-      var usePages = propPages == null ? localPages : propPages;
-      var tabs = useLabels.map(function (useLabel, index) {
-        return _react2.default.createElement(_Tabs.Tab, {
-          buttonStyle: { backgroundColor: 'white', color: 'grey' },
-          label: useLabel,
-          key: useLabel,
-          onActive: handleActive,
-          dataroute: '/settings',
-          value: useLabel,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 35
-          }
-        });
-      });
-      return _react2.default.createElement(
-        _Tabs.Tabs,
-        {
-          value: this.state.value,
-          onChange: this.handleChange,
-          inkBarStyle: { backgroundColor: 'purple' },
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 45
-          }
-        },
-        tabs
-      );
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 57
-          }
-        },
-        this.renderTabs()
-      );
-    }
-  }]);
-
-  return StatTabs;
-}(_react2.default.Component);
-
-exports.default = StatTabs;
-
-// TODO: replace /settings with {propPages[index]}
-// function StatTabs(props) {
-//   const { propLabels, propPages } = props;
-//   let tabs = null;
-//   if (propLabels != null) {
-//     tabs = propLabels.map((propLabel, index) =>
-//       (
-//         <Tab
-//           label={propLabel}
-//           key={propLabel}
-//           onActive={handleActive}
-//           dataroute="/settings"
-//         >
-//           <div>
-//             <p>{propPages[index]}</p>
-//           </div>
-//         </Tab>
-//       ));
-//   } else {
-//     tabs = localLabels.map((localLabel, index) =>
-//       (
-//         <Tab
-//           label={localLabel}
-//           key={localLabel}
-//           onActive={handleActive}
-//           dataroute="/settings"
-//         >
-//           <div>
-//             <p>{localPages[index]}</p>
-//           </div>
-//         </Tab>
-//       ));
-//   }
-//   return (
-//     <Tabs>{tabs}</Tabs>
-//   );
-// }
-
-// export default StatTabs;
 
 /***/ }),
 
@@ -670,10 +505,6 @@ var _layout = __webpack_require__("./lib/layout.jsx");
 
 var _layout2 = _interopRequireDefault(_layout);
 
-var _StatTabs = __webpack_require__("./components/StatTabs.jsx");
-
-var _StatTabs2 = _interopRequireDefault(_StatTabs);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Settings = function Settings() {
@@ -681,21 +512,15 @@ var Settings = function Settings() {
     _layout2.default,
     { title: 'Rearn - settings', __source: {
         fileName: _jsxFileName,
-        lineNumber: 6
+        lineNumber: 5
       }
     },
-    _react2.default.createElement(_StatTabs2.default, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 7
-      }
-    }),
     _react2.default.createElement(
       'p',
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 8
+          lineNumber: 6
         }
       },
       'Welcome to Settings!'
@@ -707,7 +532,7 @@ exports.default = Settings;
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/settings.jsx");
@@ -733,13 +558,6 @@ module.exports = require("material-ui/AutoComplete");
 /***/ (function(module, exports) {
 
 module.exports = require("material-ui/IconButton");
-
-/***/ }),
-
-/***/ "material-ui/Tabs":
-/***/ (function(module, exports) {
-
-module.exports = require("material-ui/Tabs");
 
 /***/ }),
 
@@ -803,13 +621,6 @@ module.exports = require("next/head");
 /***/ (function(module, exports) {
 
 module.exports = require("next/link");
-
-/***/ }),
-
-/***/ "next/router":
-/***/ (function(module, exports) {
-
-module.exports = require("next/router");
 
 /***/ }),
 

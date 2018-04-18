@@ -1,6 +1,7 @@
 import React from 'react';
 import Router from 'next/router';
 import { Tabs, Tab } from 'material-ui/Tabs';
+import Paper from 'material-ui/Paper';
 
 const localLabels = ['8 sets', '235 cards', '2 folders'];
 const localPages = ['/sets', '/cards', '/folders'];
@@ -14,7 +15,7 @@ class StatTabs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '235 cards',
+      value: (this.props.labels[1] != null) ? this.props.labels[1] : localLabels[1],
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -27,10 +28,10 @@ class StatTabs extends React.Component {
 
   // TODO: replace dataroute=/settings with {propPages[index]}
   renderTabs() {
-    const { propLabels, propPages } = this.props;
-    const useLabels = (propLabels == null) ? localLabels : propLabels;
-    const usePages = (propPages == null) ? localPages : propPages;
-    const tabs = useLabels.map((useLabel, index) =>
+    const { labels, pages } = this.props;
+    const useLabels = (labels == null) ? localLabels : labels;
+    const usePages = (pages == null) ? localPages : pages; // eslint-disable-line
+    const tabs = useLabels.map((useLabel, index) => // eslint-disable-line
       (
         <Tab
           buttonStyle={{ backgroundColor: 'white', color: 'grey' }}
@@ -54,9 +55,9 @@ class StatTabs extends React.Component {
 
   render() {
     return (
-      <div>
+      <Paper zDepth={1} rounded={false}>
         {this.renderTabs()}
-      </div>
+      </Paper>
     );
   }
 }

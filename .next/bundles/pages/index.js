@@ -4,6 +4,197 @@ module.exports =
           var comp = 
       webpackJsonp([3],{
 
+/***/ "./components/DataList.jsx":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = 'C:\\Users\\aarta\\Documents\\PersonalFiles\\Projects\\WEBprojects\\rearn\\components\\DataList.jsx';
+
+var _react = __webpack_require__("./node_modules/react/cjs/react.development.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _List = __webpack_require__("./node_modules/material-ui/List/index.js");
+
+var _Avatar = __webpack_require__("./node_modules/material-ui/Avatar/index.js");
+
+var _Avatar2 = _interopRequireDefault(_Avatar);
+
+var _folder = __webpack_require__("./node_modules/material-ui/svg-icons/file/folder.js");
+
+var _folder2 = _interopRequireDefault(_folder);
+
+var _viewCarousel = __webpack_require__("./node_modules/material-ui/svg-icons/action/view-carousel.js");
+
+var _viewCarousel2 = _interopRequireDefault(_viewCarousel);
+
+var _colors = __webpack_require__("./node_modules/material-ui/styles/colors.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(function () {
+  var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
+
+  enterModule && enterModule(module);
+})();
+
+var DataList = function DataList() {
+  return _react2.default.createElement(
+    'div',
+    {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 9
+      }
+    },
+    _react2.default.createElement(
+      _List.List,
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 10
+        }
+      },
+      _react2.default.createElement(_List.ListItem, {
+        leftAvatar: _react2.default.createElement(_Avatar2.default, { icon: _react2.default.createElement(_folder2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 12
+            }
+          }), backgroundColor: _colors.purple800, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 12
+          }
+        }),
+        rightIcon: _react2.default.createElement(
+          'p',
+          { style: { color: 'blue' }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 13
+            }
+          },
+          '60%'
+        ),
+        primaryText: 'Physics folder',
+        secondaryText: '5 sets',
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 11
+        }
+      }),
+      _react2.default.createElement(_List.ListItem, {
+        leftAvatar: _react2.default.createElement(_Avatar2.default, { icon: _react2.default.createElement(_folder2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 18
+            }
+          }), backgroundColor: _colors.purple800, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 18
+          }
+        }),
+        rightIcon: _react2.default.createElement(
+          'p',
+          { style: { color: 'green' }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 19
+            }
+          },
+          '92%'
+        ),
+        primaryText: 'Flashcard folder long name',
+        secondaryText: '2 sets',
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 17
+        }
+      }),
+      _react2.default.createElement(_List.ListItem, {
+        leftAvatar: _react2.default.createElement(_Avatar2.default, { icon: _react2.default.createElement(_viewCarousel2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 24
+            }
+          }), __source: {
+            fileName: _jsxFileName,
+            lineNumber: 24
+          }
+        }),
+        rightIcon: _react2.default.createElement(
+          'p',
+          { style: { color: 'green' }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 25
+            }
+          },
+          '75%'
+        ),
+        primaryText: 'Geography islands',
+        secondaryText: '88 cards',
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 23
+        }
+      }),
+      _react2.default.createElement(_List.ListItem, {
+        leftAvatar: _react2.default.createElement(_Avatar2.default, { icon: _react2.default.createElement(_viewCarousel2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 30
+            }
+          }), __source: {
+            fileName: _jsxFileName,
+            lineNumber: 30
+          }
+        }),
+        rightIcon: _react2.default.createElement(
+          'p',
+          { style: { color: 'red' }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 31
+            }
+          },
+          '35%'
+        ),
+        primaryText: 'History dates',
+        secondaryText: '25 cards',
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29
+        }
+      })
+    )
+  );
+};
+
+var _default = DataList;
+exports.default = _default;
+;
+
+(function () {
+  var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/index.js").default;
+
+  var leaveModule = __webpack_require__("./node_modules/react-hot-loader/index.js").leaveModule;
+
+  if (!reactHotLoader) {
+    return;
+  }
+
+  reactHotLoader.register(DataList, 'DataList', 'C:/Users/aarta/Documents/PersonalFiles/Projects/WEBprojects/rearn/components/DataList.jsx');
+  reactHotLoader.register(_default, 'default', 'C:/Users/aarta/Documents/PersonalFiles/Projects/WEBprojects/rearn/components/DataList.jsx');
+  leaveModule(module);
+})();
+
+;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/next/node_modules/webpack/buildin/module.js")(module)))
+
+/***/ }),
+
 /***/ "./components/Header.jsx":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -250,6 +441,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _Toolbar = __webpack_require__("./node_modules/material-ui/Toolbar/index.js");
 
+var _link = __webpack_require__("./node_modules/next/link.js");
+
+var _link2 = _interopRequireDefault(_link);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (function () {
@@ -260,44 +455,51 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var LastInfo = function LastInfo(props) {
   return _react2.default.createElement(
-    _Toolbar.Toolbar,
-    {
-      __source: {
+    _link2.default,
+    { href: '/settings', __source: {
         fileName: _jsxFileName,
-        lineNumber: 5
+        lineNumber: 6
       }
     },
     _react2.default.createElement(
-      _Toolbar.ToolbarGroup,
-      {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 6
-        }
-      },
-      _react2.default.createElement(_Toolbar.ToolbarTitle, { text: 'Last studied', style: { color: 'white', fontSize: '0.8em' }, __source: {
+      _Toolbar.Toolbar,
+      { style: { cursor: 'pointer' }, __source: {
           fileName: _jsxFileName,
           lineNumber: 7
         }
-      }),
-      _react2.default.createElement(_Toolbar.ToolbarTitle, { text: props.lastStudied, style: { color: 'white' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 8
-        }
-      })
-    ),
-    _react2.default.createElement(
-      _Toolbar.ToolbarGroup,
-      { lastChild: true, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 10
-        }
       },
-      _react2.default.createElement(_Toolbar.ToolbarTitle, { text: props.lastSet, style: { color: 'white' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 11
-        }
-      })
+      _react2.default.createElement(
+        _Toolbar.ToolbarGroup,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 8
+          }
+        },
+        _react2.default.createElement(_Toolbar.ToolbarTitle, { text: 'Last studied', style: { color: 'white', fontSize: '0.8em' }, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 9
+          }
+        }),
+        _react2.default.createElement(_Toolbar.ToolbarTitle, { text: props.lastStudied, style: { color: 'white' }, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 10
+          }
+        })
+      ),
+      _react2.default.createElement(
+        _Toolbar.ToolbarGroup,
+        { lastChild: true, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 12
+          }
+        },
+        _react2.default.createElement(_Toolbar.ToolbarTitle, { text: props.lastSet, style: { color: 'white' }, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 13
+          }
+        })
+      )
     )
   );
 };
@@ -348,6 +550,10 @@ var _router2 = _interopRequireDefault(_router);
 
 var _Tabs = __webpack_require__("./node_modules/material-ui/Tabs/index.js");
 
+var _Paper = __webpack_require__("./node_modules/material-ui/Paper/index.js");
+
+var _Paper2 = _interopRequireDefault(_Paper);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (function () {
@@ -380,7 +586,7 @@ var StatTabs = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (StatTabs.__proto__ || Object.getPrototypeOf(StatTabs)).call(this, props));
 
     _this.state = {
-      value: '235 cards'
+      value: _this.props.labels[1] != null ? _this.props.labels[1] : localLabels[1]
     };
     _this.handleChange = _this.handleChange.bind(_this);
     return _this;
@@ -400,24 +606,26 @@ var StatTabs = function (_React$Component) {
     key: 'renderTabs',
     value: function renderTabs() {
       var _props = this.props,
-          propLabels = _props.propLabels,
-          propPages = _props.propPages;
+          labels = _props.labels,
+          pages = _props.pages;
 
-      var useLabels = propLabels == null ? localLabels : propLabels;
-      var usePages = propPages == null ? localPages : propPages;
+      var useLabels = labels == null ? localLabels : labels;
+      var usePages = pages == null ? localPages : pages; // eslint-disable-line
       var tabs = useLabels.map(function (useLabel, index) {
-        return _react2.default.createElement(_Tabs.Tab, {
-          buttonStyle: { backgroundColor: 'white', color: 'grey' },
-          label: useLabel,
-          key: useLabel,
-          onActive: handleActive,
-          dataroute: '/settings',
-          value: useLabel,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 35
-          }
-        });
+        return (// eslint-disable-line
+          _react2.default.createElement(_Tabs.Tab, {
+            buttonStyle: { backgroundColor: 'white', color: 'grey' },
+            label: useLabel,
+            key: useLabel,
+            onActive: handleActive,
+            dataroute: '/settings',
+            value: useLabel,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 36
+            }
+          })
+        );
       });
       return _react2.default.createElement(
         _Tabs.Tabs,
@@ -427,7 +635,7 @@ var StatTabs = function (_React$Component) {
           inkBarStyle: { backgroundColor: 'purple' },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 45
+            lineNumber: 46
           }
         },
         tabs
@@ -437,11 +645,10 @@ var StatTabs = function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        {
-          __source: {
+        _Paper2.default,
+        { zDepth: 1, rounded: false, __source: {
             fileName: _jsxFileName,
-            lineNumber: 57
+            lineNumber: 58
           }
         },
         this.renderTabs()
@@ -6781,6 +6988,204 @@ exports.default = _AutoComplete2.default;
 
 /***/ }),
 
+/***/ "./node_modules/material-ui/Avatar/Avatar.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends2 = __webpack_require__("./node_modules/babel-runtime/helpers/extends.js");
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _objectWithoutProperties2 = __webpack_require__("./node_modules/babel-runtime/helpers/objectWithoutProperties.js");
+
+var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
+
+var _getPrototypeOf = __webpack_require__("./node_modules/babel-runtime/core-js/object/get-prototype-of.js");
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__("./node_modules/babel-runtime/helpers/classCallCheck.js");
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__("./node_modules/babel-runtime/helpers/createClass.js");
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__("./node_modules/babel-runtime/helpers/possibleConstructorReturn.js");
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__("./node_modules/babel-runtime/helpers/inherits.js");
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _simpleAssign = __webpack_require__("./node_modules/simple-assign/index.js");
+
+var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+var _react = __webpack_require__("./node_modules/react/cjs/react.development.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__("./node_modules/next/node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function getStyles(props, context) {
+  var backgroundColor = props.backgroundColor,
+      color = props.color,
+      size = props.size;
+  var avatar = context.muiTheme.avatar;
+
+
+  var styles = {
+    root: {
+      color: color || avatar.color,
+      backgroundColor: backgroundColor || avatar.backgroundColor,
+      userSelect: 'none',
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: size / 2,
+      borderRadius: '50%',
+      height: size,
+      width: size
+    },
+    icon: {
+      color: color || avatar.color,
+      width: size * 0.6,
+      height: size * 0.6,
+      fontSize: size * 0.6,
+      margin: size * 0.2
+    }
+  };
+
+  return styles;
+}
+
+var Avatar = function (_Component) {
+  (0, _inherits3.default)(Avatar, _Component);
+
+  function Avatar() {
+    (0, _classCallCheck3.default)(this, Avatar);
+    return (0, _possibleConstructorReturn3.default)(this, (Avatar.__proto__ || (0, _getPrototypeOf2.default)(Avatar)).apply(this, arguments));
+  }
+
+  (0, _createClass3.default)(Avatar, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          backgroundColor = _props.backgroundColor,
+          icon = _props.icon,
+          src = _props.src,
+          style = _props.style,
+          className = _props.className,
+          other = (0, _objectWithoutProperties3.default)(_props, ['backgroundColor', 'icon', 'src', 'style', 'className']);
+      var prepareStyles = this.context.muiTheme.prepareStyles;
+
+      var styles = getStyles(this.props, this.context);
+
+      if (src) {
+        return _react2.default.createElement('img', (0, _extends3.default)({
+          style: prepareStyles((0, _simpleAssign2.default)(styles.root, style))
+        }, other, {
+          src: src,
+          className: className
+        }));
+      } else {
+        return _react2.default.createElement(
+          'div',
+          (0, _extends3.default)({}, other, {
+            style: prepareStyles((0, _simpleAssign2.default)(styles.root, style)),
+            className: className
+          }),
+          icon && _react2.default.cloneElement(icon, {
+            color: styles.icon.color,
+            style: (0, _simpleAssign2.default)(styles.icon, icon.props.style)
+          }),
+          this.props.children
+        );
+      }
+    }
+  }]);
+  return Avatar;
+}(_react.Component);
+
+Avatar.muiName = 'Avatar';
+Avatar.defaultProps = {
+  size: 40
+};
+Avatar.contextTypes = {
+  muiTheme: _propTypes2.default.object.isRequired
+};
+Avatar.propTypes =  true ? {
+  /**
+   * The backgroundColor of the avatar. Does not apply to image avatars.
+   */
+  backgroundColor: _propTypes2.default.string,
+  /**
+   * Can be used, for instance, to render a letter inside the avatar.
+   */
+  children: _propTypes2.default.node,
+  /**
+   * The css class name of the root `div` or `img` element.
+   */
+  className: _propTypes2.default.string,
+  /**
+   * The icon or letter's color.
+   */
+  color: _propTypes2.default.string,
+  /**
+   * This is the SvgIcon or FontIcon to be used inside the avatar.
+   */
+  icon: _propTypes2.default.element,
+  /**
+   * This is the size of the avatar in pixels.
+   */
+  size: _propTypes2.default.number,
+  /**
+   * If passed in, this component will render an img element. Otherwise, a div will be rendered.
+   */
+  src: _propTypes2.default.string,
+  /**
+   * Override the inline-styles of the root element.
+   */
+  style: _propTypes2.default.object
+} : {};
+exports.default = Avatar;
+
+/***/ }),
+
+/***/ "./node_modules/material-ui/Avatar/index.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _Avatar = __webpack_require__("./node_modules/material-ui/Avatar/Avatar.js");
+
+var _Avatar2 = _interopRequireDefault(_Avatar);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _Avatar2.default;
+
+/***/ }),
+
 /***/ "./node_modules/material-ui/Divider/Divider.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -6879,6 +7284,426 @@ var _Divider2 = _interopRequireDefault(_Divider);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _Divider2.default;
+
+/***/ }),
+
+/***/ "./node_modules/material-ui/FloatingActionButton/FloatingActionButton.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends2 = __webpack_require__("./node_modules/babel-runtime/helpers/extends.js");
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _objectWithoutProperties2 = __webpack_require__("./node_modules/babel-runtime/helpers/objectWithoutProperties.js");
+
+var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
+
+var _getPrototypeOf = __webpack_require__("./node_modules/babel-runtime/core-js/object/get-prototype-of.js");
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__("./node_modules/babel-runtime/helpers/classCallCheck.js");
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__("./node_modules/babel-runtime/helpers/createClass.js");
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__("./node_modules/babel-runtime/helpers/possibleConstructorReturn.js");
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__("./node_modules/babel-runtime/helpers/inherits.js");
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _simpleAssign = __webpack_require__("./node_modules/simple-assign/index.js");
+
+var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+var _react = __webpack_require__("./node_modules/react/cjs/react.development.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__("./node_modules/next/node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _transitions = __webpack_require__("./node_modules/material-ui/styles/transitions.js");
+
+var _transitions2 = _interopRequireDefault(_transitions);
+
+var _colorManipulator = __webpack_require__("./node_modules/material-ui/utils/colorManipulator.js");
+
+var _EnhancedButton = __webpack_require__("./node_modules/material-ui/internal/EnhancedButton.js");
+
+var _EnhancedButton2 = _interopRequireDefault(_EnhancedButton);
+
+var _FontIcon = __webpack_require__("./node_modules/material-ui/FontIcon/index.js");
+
+var _FontIcon2 = _interopRequireDefault(_FontIcon);
+
+var _Paper = __webpack_require__("./node_modules/material-ui/Paper/index.js");
+
+var _Paper2 = _interopRequireDefault(_Paper);
+
+var _childUtils = __webpack_require__("./node_modules/material-ui/utils/childUtils.js");
+
+var _warning = __webpack_require__("./node_modules/warning/browser.js");
+
+var _warning2 = _interopRequireDefault(_warning);
+
+var _propTypes3 = __webpack_require__("./node_modules/material-ui/utils/propTypes.js");
+
+var _propTypes4 = _interopRequireDefault(_propTypes3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function getStyles(props, context) {
+  var floatingActionButton = context.muiTheme.floatingActionButton;
+
+
+  var backgroundColor = props.backgroundColor || floatingActionButton.color;
+  var iconColor = floatingActionButton.iconColor;
+
+  if (props.disabled) {
+    backgroundColor = props.disabledColor || floatingActionButton.disabledColor;
+    iconColor = floatingActionButton.disabledTextColor;
+  } else if (props.secondary) {
+    backgroundColor = floatingActionButton.secondaryColor;
+    iconColor = floatingActionButton.secondaryIconColor;
+  }
+
+  return {
+    root: {
+      transition: _transitions2.default.easeOut(),
+      display: 'inline-block',
+      backgroundColor: 'transparent'
+    },
+    container: {
+      backgroundColor: backgroundColor,
+      transition: _transitions2.default.easeOut(),
+      height: floatingActionButton.buttonSize,
+      width: floatingActionButton.buttonSize,
+      padding: 0,
+      overflow: 'hidden',
+      borderRadius: '50%',
+      textAlign: 'center',
+      verticalAlign: 'bottom'
+    },
+    containerWhenMini: {
+      height: floatingActionButton.miniSize,
+      width: floatingActionButton.miniSize
+    },
+    overlay: {
+      transition: _transitions2.default.easeOut(),
+      top: 0
+    },
+    overlayWhenHovered: {
+      backgroundColor: (0, _colorManipulator.fade)(iconColor, 0.4)
+    },
+    icon: {
+      height: floatingActionButton.buttonSize,
+      lineHeight: floatingActionButton.buttonSize + 'px',
+      fill: iconColor,
+      color: iconColor
+    },
+    iconWhenMini: {
+      height: floatingActionButton.miniSize,
+      lineHeight: floatingActionButton.miniSize + 'px'
+    }
+  };
+}
+
+var FloatingActionButton = function (_Component) {
+  (0, _inherits3.default)(FloatingActionButton, _Component);
+
+  function FloatingActionButton() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    (0, _classCallCheck3.default)(this, FloatingActionButton);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = FloatingActionButton.__proto__ || (0, _getPrototypeOf2.default)(FloatingActionButton)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      hovered: false,
+      touch: false,
+      zDepth: undefined
+    }, _this.handleMouseDown = function (event) {
+      // only listen to left clicks
+      if (event.button === 0) {
+        _this.setState({ zDepth: _this.props.zDepth + 1 });
+      }
+      if (_this.props.onMouseDown) _this.props.onMouseDown(event);
+    }, _this.handleMouseUp = function (event) {
+      _this.setState({ zDepth: _this.props.zDepth });
+      if (_this.props.onMouseUp) {
+        _this.props.onMouseUp(event);
+      }
+    }, _this.handleMouseLeave = function (event) {
+      if (!_this.refs.container.isKeyboardFocused()) {
+        _this.setState({ zDepth: _this.props.zDepth, hovered: false });
+      }
+      if (_this.props.onMouseLeave) {
+        _this.props.onMouseLeave(event);
+      }
+    }, _this.handleMouseEnter = function (event) {
+      if (!_this.refs.container.isKeyboardFocused() && !_this.state.touch) {
+        _this.setState({ hovered: true });
+      }
+      if (_this.props.onMouseEnter) {
+        _this.props.onMouseEnter(event);
+      }
+    }, _this.handleTouchStart = function (event) {
+      _this.setState({
+        touch: true,
+        zDepth: _this.props.zDepth + 1
+      });
+      if (_this.props.onTouchStart) {
+        _this.props.onTouchStart(event);
+      }
+    }, _this.handleTouchEnd = function (event) {
+      _this.setState({
+        touch: true,
+        zDepth: _this.props.zDepth
+      });
+      if (_this.props.onTouchEnd) {
+        _this.props.onTouchEnd(event);
+      }
+    }, _this.handleKeyboardFocus = function (event, keyboardFocused) {
+      if (keyboardFocused && !_this.props.disabled) {
+        _this.setState({ zDepth: _this.props.zDepth + 1 });
+        _this.refs.overlay.style.backgroundColor = (0, _colorManipulator.fade)(getStyles(_this.props, _this.context).icon.color, 0.4);
+      } else if (!_this.state.hovered) {
+        _this.setState({ zDepth: _this.props.zDepth });
+        _this.refs.overlay.style.backgroundColor = 'transparent';
+      }
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+  }
+
+  (0, _createClass3.default)(FloatingActionButton, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.setState({
+        zDepth: this.props.disabled ? 0 : this.props.zDepth
+      });
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+       true ? (0, _warning2.default)(!this.props.iconClassName || !this.props.children, 'Material-UI: You have set both an iconClassName and a child icon. ' + 'It is recommended you use only one method when adding ' + 'icons to FloatingActionButtons.') : void 0;
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      var nextState = {};
+
+      if (nextProps.disabled !== this.props.disabled) {
+        nextState.zDepth = nextProps.disabled ? 0 : this.props.zDepth;
+      }
+      if (nextProps.disabled) {
+        nextState.hovered = false;
+      }
+
+      this.setState(nextState);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          backgroundColor = _props.backgroundColor,
+          className = _props.className,
+          childrenProp = _props.children,
+          disabled = _props.disabled,
+          disabledColor = _props.disabledColor,
+          mini = _props.mini,
+          secondary = _props.secondary,
+          iconStyle = _props.iconStyle,
+          iconClassName = _props.iconClassName,
+          zDepth = _props.zDepth,
+          other = (0, _objectWithoutProperties3.default)(_props, ['backgroundColor', 'className', 'children', 'disabled', 'disabledColor', 'mini', 'secondary', 'iconStyle', 'iconClassName', 'zDepth']);
+      var prepareStyles = this.context.muiTheme.prepareStyles;
+
+      var styles = getStyles(this.props, this.context);
+
+      var iconElement = void 0;
+      if (iconClassName) {
+        iconElement = _react2.default.createElement(_FontIcon2.default, {
+          className: iconClassName,
+          style: (0, _simpleAssign2.default)({}, styles.icon, mini && styles.iconWhenMini, iconStyle)
+        });
+      }
+
+      var children = void 0;
+
+      if (childrenProp) {
+        children = (0, _childUtils.extendChildren)(childrenProp, function (child) {
+          return {
+            style: (0, _simpleAssign2.default)({}, styles.icon, mini && styles.iconWhenMini, iconStyle, child.props.style)
+          };
+        });
+      }
+
+      var buttonEventHandlers = disabled ? null : {
+        onMouseDown: this.handleMouseDown,
+        onMouseUp: this.handleMouseUp,
+        onMouseLeave: this.handleMouseLeave,
+        onMouseEnter: this.handleMouseEnter,
+        onTouchStart: this.handleTouchStart,
+        onTouchEnd: this.handleTouchEnd,
+        onKeyboardFocus: this.handleKeyboardFocus
+      };
+
+      return _react2.default.createElement(
+        _Paper2.default,
+        {
+          className: className,
+          style: (0, _simpleAssign2.default)(styles.root, this.props.style),
+          zDepth: this.state.zDepth,
+          circle: true
+        },
+        _react2.default.createElement(
+          _EnhancedButton2.default,
+          (0, _extends3.default)({}, other, buttonEventHandlers, {
+            ref: 'container',
+            disabled: disabled,
+            style: (0, _simpleAssign2.default)(styles.container, this.props.mini && styles.containerWhenMini, iconStyle),
+            focusRippleColor: styles.icon.color,
+            touchRippleColor: styles.icon.color
+          }),
+          _react2.default.createElement(
+            'div',
+            {
+              ref: 'overlay',
+              style: prepareStyles((0, _simpleAssign2.default)(styles.overlay, this.state.hovered && !this.props.disabled && styles.overlayWhenHovered))
+            },
+            iconElement,
+            children
+          )
+        )
+      );
+    }
+  }]);
+  return FloatingActionButton;
+}(_react.Component);
+
+FloatingActionButton.defaultProps = {
+  disabled: false,
+  mini: false,
+  secondary: false,
+  zDepth: 2
+};
+FloatingActionButton.contextTypes = {
+  muiTheme: _propTypes2.default.object.isRequired
+};
+FloatingActionButton.propTypes =  true ? {
+  /**
+   * This value will override the default background color for the button.
+   * However it will not override the default disabled background color.
+   * This has to be set separately using the disabledColor attribute.
+   */
+  backgroundColor: _propTypes2.default.string,
+  /**
+   * This is what displayed inside the floating action button; for example, a SVG Icon.
+   */
+  children: _propTypes2.default.node,
+  /**
+   * The css class name of the root element.
+   */
+  className: _propTypes2.default.string,
+  /**
+   * Disables the button if set to true.
+   */
+  disabled: _propTypes2.default.bool,
+  /**
+   * This value will override the default background color for the button when it is disabled.
+   */
+  disabledColor: _propTypes2.default.string,
+  /**
+   * The URL to link to when the button is clicked.
+   */
+  href: _propTypes2.default.string,
+  /**
+   * The icon within the FloatingActionButton is a FontIcon component.
+   * This property is the classname of the icon to be displayed inside the button.
+   * An alternative to adding an iconClassName would be to manually insert a
+   * FontIcon component or custom SvgIcon component or as a child of FloatingActionButton.
+   */
+  iconClassName: _propTypes2.default.string,
+  /**
+   * This is the equivalent to iconClassName except that it is used for
+   * overriding the inline-styles of the FontIcon component.
+   */
+  iconStyle: _propTypes2.default.object,
+  /**
+   * If true, the button will be a small floating action button.
+   */
+  mini: _propTypes2.default.bool,
+  /**
+   * Callback function fired when the button is clicked.
+   *
+   * @param {object} event Click event targeting the button.
+   */
+  onClick: _propTypes2.default.func,
+  /** @ignore */
+  onMouseDown: _propTypes2.default.func,
+  /** @ignore */
+  onMouseEnter: _propTypes2.default.func,
+  /** @ignore */
+  onMouseLeave: _propTypes2.default.func,
+  /** @ignore */
+  onMouseUp: _propTypes2.default.func,
+  /** @ignore */
+  onTouchEnd: _propTypes2.default.func,
+  /** @ignore */
+  onTouchStart: _propTypes2.default.func,
+  /**
+   * If true, the button will use the secondary button colors.
+   */
+  secondary: _propTypes2.default.bool,
+  /**
+   * Override the inline-styles of the root element.
+   */
+  style: _propTypes2.default.object,
+  /**
+   * The zDepth of the underlying `Paper` component.
+   */
+  zDepth: _propTypes4.default.zDepth
+} : {};
+exports.default = FloatingActionButton;
+
+/***/ }),
+
+/***/ "./node_modules/material-ui/FloatingActionButton/index.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+
+var _FloatingActionButton = __webpack_require__("./node_modules/material-ui/FloatingActionButton/FloatingActionButton.js");
+
+var _FloatingActionButton2 = _interopRequireDefault(_FloatingActionButton);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _FloatingActionButton2.default;
 
 /***/ }),
 
@@ -8415,6 +9240,217 @@ NestedList.propTypes =  true ? {
 } : {};
 
 exports.default = NestedList;
+
+/***/ }),
+
+/***/ "./node_modules/material-ui/List/index.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.makeSelectable = exports.ListItem = exports.List = undefined;
+
+var _List2 = __webpack_require__("./node_modules/material-ui/List/List.js");
+
+var _List3 = _interopRequireDefault(_List2);
+
+var _ListItem2 = __webpack_require__("./node_modules/material-ui/List/ListItem.js");
+
+var _ListItem3 = _interopRequireDefault(_ListItem2);
+
+var _makeSelectable2 = __webpack_require__("./node_modules/material-ui/List/makeSelectable.js");
+
+var _makeSelectable3 = _interopRequireDefault(_makeSelectable2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.List = _List3.default;
+exports.ListItem = _ListItem3.default;
+exports.makeSelectable = _makeSelectable3.default;
+exports.default = _List3.default;
+
+/***/ }),
+
+/***/ "./node_modules/material-ui/List/makeSelectable.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.makeSelectable = undefined;
+
+var _extends2 = __webpack_require__("./node_modules/babel-runtime/helpers/extends.js");
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _objectWithoutProperties2 = __webpack_require__("./node_modules/babel-runtime/helpers/objectWithoutProperties.js");
+
+var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
+
+var _getPrototypeOf = __webpack_require__("./node_modules/babel-runtime/core-js/object/get-prototype-of.js");
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__("./node_modules/babel-runtime/helpers/classCallCheck.js");
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__("./node_modules/babel-runtime/helpers/createClass.js");
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__("./node_modules/babel-runtime/helpers/possibleConstructorReturn.js");
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__("./node_modules/babel-runtime/helpers/inherits.js");
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _simpleAssign = __webpack_require__("./node_modules/simple-assign/index.js");
+
+var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+var _react = __webpack_require__("./node_modules/react/cjs/react.development.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__("./node_modules/next/node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _colorManipulator = __webpack_require__("./node_modules/material-ui/utils/colorManipulator.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var makeSelectable = function makeSelectable(MyComponent) {
+  var _class, _temp2;
+
+  return _temp2 = _class = function (_Component) {
+    (0, _inherits3.default)(_class, _Component);
+
+    function _class() {
+      var _ref;
+
+      var _temp, _this, _ret;
+
+      (0, _classCallCheck3.default)(this, _class);
+
+      for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = _class.__proto__ || (0, _getPrototypeOf2.default)(_class)).call.apply(_ref, [this].concat(args))), _this), _this.hasSelectedDescendant = function (previousValue, child) {
+        if (_react2.default.isValidElement(child) && child.props.nestedItems && child.props.nestedItems.length > 0) {
+          return child.props.nestedItems.reduce(_this.hasSelectedDescendant, previousValue);
+        }
+        return previousValue || _this.isChildSelected(child, _this.props);
+      }, _this.handleItemClick = function (event, item) {
+        var itemValue = item.props.value;
+
+        if (itemValue !== _this.props.value) {
+          if (_this.props.onChange) {
+            _this.props.onChange(event, itemValue);
+          }
+        }
+      }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+    }
+
+    (0, _createClass3.default)(_class, [{
+      key: 'extendChild',
+      value: function extendChild(child, styles, selectedItemStyle) {
+        var _this2 = this;
+
+        if (child && child.type && child.type.muiName === 'ListItem') {
+          var selected = this.isChildSelected(child, this.props);
+          var selectedChildrenStyles = void 0;
+          if (selected) {
+            selectedChildrenStyles = (0, _simpleAssign2.default)({}, styles, selectedItemStyle);
+          }
+
+          var mergedChildrenStyles = (0, _simpleAssign2.default)({}, child.props.style, selectedChildrenStyles);
+
+          this.keyIndex += 1;
+
+          return _react2.default.cloneElement(child, {
+            onClick: function onClick(event) {
+              _this2.handleItemClick(event, child);
+              if (child.props.onClick) {
+                child.props.onClick(event);
+              }
+            },
+            key: this.keyIndex,
+            style: mergedChildrenStyles,
+            nestedItems: child.props.nestedItems.map(function (child) {
+              return _this2.extendChild(child, styles, selectedItemStyle);
+            }),
+            initiallyOpen: this.isInitiallyOpen(child)
+          });
+        } else {
+          return child;
+        }
+      }
+    }, {
+      key: 'isInitiallyOpen',
+      value: function isInitiallyOpen(child) {
+        if (child.props.initiallyOpen) {
+          return child.props.initiallyOpen;
+        }
+        return this.hasSelectedDescendant(false, child);
+      }
+    }, {
+      key: 'isChildSelected',
+      value: function isChildSelected(child, props) {
+        return props.value === child.props.value;
+      }
+    }, {
+      key: 'render',
+      value: function render() {
+        var _this3 = this;
+
+        var _props = this.props,
+            children = _props.children,
+            selectedItemStyle = _props.selectedItemStyle,
+            other = (0, _objectWithoutProperties3.default)(_props, ['children', 'selectedItemStyle']);
+
+
+        this.keyIndex = 0;
+        var styles = {};
+
+        if (!selectedItemStyle) {
+          var textColor = this.context.muiTheme.baseTheme.palette.textColor;
+          styles.backgroundColor = (0, _colorManipulator.fade)(textColor, 0.2);
+        }
+
+        return _react2.default.createElement(
+          MyComponent,
+          (0, _extends3.default)({}, other, this.state),
+          _react.Children.map(children, function (child) {
+            return _this3.extendChild(child, styles, selectedItemStyle);
+          })
+        );
+      }
+    }]);
+    return _class;
+  }(_react.Component), _class.propTypes = {
+    children: _propTypes2.default.node,
+    onChange: _propTypes2.default.func,
+    selectedItemStyle: _propTypes2.default.object,
+    value: _propTypes2.default.any
+  }, _class.contextTypes = {
+    muiTheme: _propTypes2.default.object.isRequired
+  }, _temp2;
+};
+
+exports.makeSelectable = makeSelectable;
+exports.default = makeSelectable;
 
 /***/ }),
 
@@ -17325,6 +18361,123 @@ exports.default = ActionSettings;
 
 /***/ }),
 
+/***/ "./node_modules/material-ui/svg-icons/action/view-carousel.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__("./node_modules/react/cjs/react.development.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _pure = __webpack_require__("./node_modules/recompose/pure.js");
+
+var _pure2 = _interopRequireDefault(_pure);
+
+var _SvgIcon = __webpack_require__("./node_modules/material-ui/SvgIcon/index.js");
+
+var _SvgIcon2 = _interopRequireDefault(_SvgIcon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ActionViewCarousel = function ActionViewCarousel(props) {
+  return _react2.default.createElement(
+    _SvgIcon2.default,
+    props,
+    _react2.default.createElement('path', { d: 'M7 19h10V4H7v15zm-5-2h4V6H2v11zM18 6v11h4V6h-4z' })
+  );
+};
+ActionViewCarousel = (0, _pure2.default)(ActionViewCarousel);
+ActionViewCarousel.displayName = 'ActionViewCarousel';
+ActionViewCarousel.muiName = 'SvgIcon';
+
+exports.default = ActionViewCarousel;
+
+/***/ }),
+
+/***/ "./node_modules/material-ui/svg-icons/content/add.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__("./node_modules/react/cjs/react.development.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _pure = __webpack_require__("./node_modules/recompose/pure.js");
+
+var _pure2 = _interopRequireDefault(_pure);
+
+var _SvgIcon = __webpack_require__("./node_modules/material-ui/SvgIcon/index.js");
+
+var _SvgIcon2 = _interopRequireDefault(_SvgIcon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ContentAdd = function ContentAdd(props) {
+  return _react2.default.createElement(
+    _SvgIcon2.default,
+    props,
+    _react2.default.createElement('path', { d: 'M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z' })
+  );
+};
+ContentAdd = (0, _pure2.default)(ContentAdd);
+ContentAdd.displayName = 'ContentAdd';
+ContentAdd.muiName = 'SvgIcon';
+
+exports.default = ContentAdd;
+
+/***/ }),
+
+/***/ "./node_modules/material-ui/svg-icons/file/folder.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__("./node_modules/react/cjs/react.development.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _pure = __webpack_require__("./node_modules/recompose/pure.js");
+
+var _pure2 = _interopRequireDefault(_pure);
+
+var _SvgIcon = __webpack_require__("./node_modules/material-ui/SvgIcon/index.js");
+
+var _SvgIcon2 = _interopRequireDefault(_SvgIcon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var FileFolder = function FileFolder(props) {
+  return _react2.default.createElement(
+    _SvgIcon2.default,
+    props,
+    _react2.default.createElement('path', { d: 'M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z' })
+  );
+};
+FileFolder = (0, _pure2.default)(FileFolder);
+FileFolder.displayName = 'FileFolder';
+FileFolder.muiName = 'SvgIcon';
+
+exports.default = FileFolder;
+
+/***/ }),
+
 /***/ "./node_modules/material-ui/svg-icons/navigation/check.js":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19533,6 +20686,14 @@ var _RaisedButton = __webpack_require__("./node_modules/material-ui/RaisedButton
 
 var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
+var _FloatingActionButton = __webpack_require__("./node_modules/material-ui/FloatingActionButton/index.js");
+
+var _FloatingActionButton2 = _interopRequireDefault(_FloatingActionButton);
+
+var _add = __webpack_require__("./node_modules/material-ui/svg-icons/content/add.js");
+
+var _add2 = _interopRequireDefault(_add);
+
 var _link = __webpack_require__("./node_modules/next/link.js");
 
 var _link2 = _interopRequireDefault(_link);
@@ -19553,6 +20714,12 @@ var _LastInfo = __webpack_require__("./components/LastInfo.jsx");
 
 var _LastInfo2 = _interopRequireDefault(_LastInfo);
 
+var _DataList = __webpack_require__("./components/DataList.jsx");
+
+var _DataList2 = _interopRequireDefault(_DataList);
+
+var _colors = __webpack_require__("./node_modules/material-ui/styles/colors.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (function () {
@@ -19567,14 +20734,14 @@ var CardsetLink = function CardsetLink(props) {
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 9
+        lineNumber: 13
       }
     },
     _react2.default.createElement(
       _link2.default,
       { href: '/cardset?title=' + props.title, __source: {
           fileName: _jsxFileName,
-          lineNumber: 10
+          lineNumber: 14
         }
       },
       _react2.default.createElement(
@@ -19582,7 +20749,7 @@ var CardsetLink = function CardsetLink(props) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 11
+            lineNumber: 15
           }
         },
         props.title
@@ -19596,40 +20763,62 @@ var Index = function Index() {
     _layout2.default,
     { title: 'Rearn - index', __source: {
         fileName: _jsxFileName,
-        lineNumber: 17
+        lineNumber: 21
       }
     },
     _react2.default.createElement(_StatTabs2.default, {
+      labels: ['10 sets', '612 cards', '8 folders'],
+      pages: ['/sets', '/cards', '/folders'],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 18
+        lineNumber: 22
       }
     }),
-    _react2.default.createElement(_LastInfo2.default, { lastStudied: 'Mar10 14:38', lastSet: 'Flashcard folder 1', __source: {
+    _react2.default.createElement(_LastInfo2.default, { lastStudied: 'MAR10 14:38', lastSet: 'Flashcard folder 1', __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 26
       }
     }),
-    _react2.default.createElement(
-      'p',
-      {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 20
-        }
-      },
-      'Hello Rearn!'
-    ),
+    _react2.default.createElement(_DataList2.default, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27
+      }
+    }),
     _react2.default.createElement(CardsetLink, { title: 'Physics1', __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 28
       }
     }),
     _react2.default.createElement(_RaisedButton2.default, { label: 'Button test', __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 29
       }
-    })
+    }),
+    _react2.default.createElement(
+      _FloatingActionButton2.default,
+      {
+        backgroundColor: _colors.green800,
+        style: {
+          margin: 0,
+          top: 'auto',
+          right: 160,
+          bottom: 20,
+          left: 'auto',
+          position: 'fixed'
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 30
+        }
+      },
+      _react2.default.createElement(_add2.default, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 41
+        }
+      })
+    )
   );
 };
 

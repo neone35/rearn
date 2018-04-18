@@ -72,6 +72,172 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./components/DataList.jsx":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = 'C:\\Users\\aarta\\Documents\\PersonalFiles\\Projects\\WEBprojects\\rearn\\components\\DataList.jsx';
+
+var _react = __webpack_require__("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _List = __webpack_require__("material-ui/List");
+
+var _Avatar = __webpack_require__("material-ui/Avatar");
+
+var _Avatar2 = _interopRequireDefault(_Avatar);
+
+var _folder = __webpack_require__("material-ui/svg-icons/file/folder");
+
+var _folder2 = _interopRequireDefault(_folder);
+
+var _viewCarousel = __webpack_require__("material-ui/svg-icons/action/view-carousel");
+
+var _viewCarousel2 = _interopRequireDefault(_viewCarousel);
+
+var _colors = __webpack_require__("material-ui/styles/colors");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var DataList = function DataList() {
+  return _react2.default.createElement(
+    'div',
+    {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 9
+      }
+    },
+    _react2.default.createElement(
+      _List.List,
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 10
+        }
+      },
+      _react2.default.createElement(_List.ListItem, {
+        leftAvatar: _react2.default.createElement(_Avatar2.default, { icon: _react2.default.createElement(_folder2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 12
+            }
+          }), backgroundColor: _colors.purple800, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 12
+          }
+        }),
+        rightIcon: _react2.default.createElement(
+          'p',
+          { style: { color: 'blue' }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 13
+            }
+          },
+          '60%'
+        ),
+        primaryText: 'Physics folder',
+        secondaryText: '5 sets',
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 11
+        }
+      }),
+      _react2.default.createElement(_List.ListItem, {
+        leftAvatar: _react2.default.createElement(_Avatar2.default, { icon: _react2.default.createElement(_folder2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 18
+            }
+          }), backgroundColor: _colors.purple800, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 18
+          }
+        }),
+        rightIcon: _react2.default.createElement(
+          'p',
+          { style: { color: 'green' }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 19
+            }
+          },
+          '92%'
+        ),
+        primaryText: 'Flashcard folder long name',
+        secondaryText: '2 sets',
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 17
+        }
+      }),
+      _react2.default.createElement(_List.ListItem, {
+        leftAvatar: _react2.default.createElement(_Avatar2.default, { icon: _react2.default.createElement(_viewCarousel2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 24
+            }
+          }), __source: {
+            fileName: _jsxFileName,
+            lineNumber: 24
+          }
+        }),
+        rightIcon: _react2.default.createElement(
+          'p',
+          { style: { color: 'green' }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 25
+            }
+          },
+          '75%'
+        ),
+        primaryText: 'Geography islands',
+        secondaryText: '88 cards',
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 23
+        }
+      }),
+      _react2.default.createElement(_List.ListItem, {
+        leftAvatar: _react2.default.createElement(_Avatar2.default, { icon: _react2.default.createElement(_viewCarousel2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 30
+            }
+          }), __source: {
+            fileName: _jsxFileName,
+            lineNumber: 30
+          }
+        }),
+        rightIcon: _react2.default.createElement(
+          'p',
+          { style: { color: 'red' }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 31
+            }
+          },
+          '35%'
+        ),
+        primaryText: 'History dates',
+        secondaryText: '25 cards',
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29
+        }
+      })
+    )
+  );
+};
+
+exports.default = DataList;
+
+/***/ }),
+
 /***/ "./components/Header.jsx":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -288,48 +454,59 @@ var _react2 = _interopRequireDefault(_react);
 
 var _Toolbar = __webpack_require__("material-ui/Toolbar");
 
+var _link = __webpack_require__("next/link");
+
+var _link2 = _interopRequireDefault(_link);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var LastInfo = function LastInfo(props) {
   return _react2.default.createElement(
-    _Toolbar.Toolbar,
-    {
-      __source: {
+    _link2.default,
+    { href: '/settings', __source: {
         fileName: _jsxFileName,
-        lineNumber: 5
+        lineNumber: 6
       }
     },
     _react2.default.createElement(
-      _Toolbar.ToolbarGroup,
-      {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 6
-        }
-      },
-      _react2.default.createElement(_Toolbar.ToolbarTitle, { text: 'Last studied', style: { color: 'white', fontSize: '0.8em' }, __source: {
+      _Toolbar.Toolbar,
+      { style: { cursor: 'pointer' }, __source: {
           fileName: _jsxFileName,
           lineNumber: 7
         }
-      }),
-      _react2.default.createElement(_Toolbar.ToolbarTitle, { text: props.lastStudied, style: { color: 'white' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 8
-        }
-      })
-    ),
-    _react2.default.createElement(
-      _Toolbar.ToolbarGroup,
-      { lastChild: true, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 10
-        }
       },
-      _react2.default.createElement(_Toolbar.ToolbarTitle, { text: props.lastSet, style: { color: 'white' }, __source: {
-          fileName: _jsxFileName,
-          lineNumber: 11
-        }
-      })
+      _react2.default.createElement(
+        _Toolbar.ToolbarGroup,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 8
+          }
+        },
+        _react2.default.createElement(_Toolbar.ToolbarTitle, { text: 'Last studied', style: { color: 'white', fontSize: '0.8em' }, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 9
+          }
+        }),
+        _react2.default.createElement(_Toolbar.ToolbarTitle, { text: props.lastStudied, style: { color: 'white' }, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 10
+          }
+        })
+      ),
+      _react2.default.createElement(
+        _Toolbar.ToolbarGroup,
+        { lastChild: true, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 12
+          }
+        },
+        _react2.default.createElement(_Toolbar.ToolbarTitle, { text: props.lastSet, style: { color: 'white' }, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 13
+          }
+        })
+      )
     )
   );
 };
@@ -361,6 +538,10 @@ var _router2 = _interopRequireDefault(_router);
 
 var _Tabs = __webpack_require__("material-ui/Tabs");
 
+var _Paper = __webpack_require__("material-ui/Paper");
+
+var _Paper2 = _interopRequireDefault(_Paper);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -387,7 +568,7 @@ var StatTabs = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (StatTabs.__proto__ || Object.getPrototypeOf(StatTabs)).call(this, props));
 
     _this.state = {
-      value: '235 cards'
+      value: _this.props.labels[1] != null ? _this.props.labels[1] : localLabels[1]
     };
     _this.handleChange = _this.handleChange.bind(_this);
     return _this;
@@ -407,24 +588,26 @@ var StatTabs = function (_React$Component) {
     key: 'renderTabs',
     value: function renderTabs() {
       var _props = this.props,
-          propLabels = _props.propLabels,
-          propPages = _props.propPages;
+          labels = _props.labels,
+          pages = _props.pages;
 
-      var useLabels = propLabels == null ? localLabels : propLabels;
-      var usePages = propPages == null ? localPages : propPages;
+      var useLabels = labels == null ? localLabels : labels;
+      var usePages = pages == null ? localPages : pages; // eslint-disable-line
       var tabs = useLabels.map(function (useLabel, index) {
-        return _react2.default.createElement(_Tabs.Tab, {
-          buttonStyle: { backgroundColor: 'white', color: 'grey' },
-          label: useLabel,
-          key: useLabel,
-          onActive: handleActive,
-          dataroute: '/settings',
-          value: useLabel,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 35
-          }
-        });
+        return (// eslint-disable-line
+          _react2.default.createElement(_Tabs.Tab, {
+            buttonStyle: { backgroundColor: 'white', color: 'grey' },
+            label: useLabel,
+            key: useLabel,
+            onActive: handleActive,
+            dataroute: '/settings',
+            value: useLabel,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 36
+            }
+          })
+        );
       });
       return _react2.default.createElement(
         _Tabs.Tabs,
@@ -434,7 +617,7 @@ var StatTabs = function (_React$Component) {
           inkBarStyle: { backgroundColor: 'purple' },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 45
+            lineNumber: 46
           }
         },
         tabs
@@ -444,11 +627,10 @@ var StatTabs = function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        {
-          __source: {
+        _Paper2.default,
+        { zDepth: 1, rounded: false, __source: {
             fileName: _jsxFileName,
-            lineNumber: 57
+            lineNumber: 58
           }
         },
         this.renderTabs()
@@ -733,6 +915,14 @@ var _RaisedButton = __webpack_require__("material-ui/RaisedButton");
 
 var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
+var _FloatingActionButton = __webpack_require__("material-ui/FloatingActionButton");
+
+var _FloatingActionButton2 = _interopRequireDefault(_FloatingActionButton);
+
+var _add = __webpack_require__("material-ui/svg-icons/content/add");
+
+var _add2 = _interopRequireDefault(_add);
+
 var _link = __webpack_require__("next/link");
 
 var _link2 = _interopRequireDefault(_link);
@@ -753,6 +943,12 @@ var _LastInfo = __webpack_require__("./components/LastInfo.jsx");
 
 var _LastInfo2 = _interopRequireDefault(_LastInfo);
 
+var _DataList = __webpack_require__("./components/DataList.jsx");
+
+var _DataList2 = _interopRequireDefault(_DataList);
+
+var _colors = __webpack_require__("material-ui/styles/colors");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CardsetLink = function CardsetLink(props) {
@@ -761,14 +957,14 @@ var CardsetLink = function CardsetLink(props) {
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 9
+        lineNumber: 13
       }
     },
     _react2.default.createElement(
       _link2.default,
       { href: '/cardset?title=' + props.title, __source: {
           fileName: _jsxFileName,
-          lineNumber: 10
+          lineNumber: 14
         }
       },
       _react2.default.createElement(
@@ -776,7 +972,7 @@ var CardsetLink = function CardsetLink(props) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 11
+            lineNumber: 15
           }
         },
         props.title
@@ -790,40 +986,62 @@ var Index = function Index() {
     _layout2.default,
     { title: 'Rearn - index', __source: {
         fileName: _jsxFileName,
-        lineNumber: 17
+        lineNumber: 21
       }
     },
     _react2.default.createElement(_StatTabs2.default, {
+      labels: ['10 sets', '612 cards', '8 folders'],
+      pages: ['/sets', '/cards', '/folders'],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 18
+        lineNumber: 22
       }
     }),
-    _react2.default.createElement(_LastInfo2.default, { lastStudied: 'Mar10 14:38', lastSet: 'Flashcard folder 1', __source: {
+    _react2.default.createElement(_LastInfo2.default, { lastStudied: 'MAR10 14:38', lastSet: 'Flashcard folder 1', __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 26
       }
     }),
-    _react2.default.createElement(
-      'p',
-      {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 20
-        }
-      },
-      'Hello Rearn!'
-    ),
+    _react2.default.createElement(_DataList2.default, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27
+      }
+    }),
     _react2.default.createElement(CardsetLink, { title: 'Physics1', __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 28
       }
     }),
     _react2.default.createElement(_RaisedButton2.default, { label: 'Button test', __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 29
       }
-    })
+    }),
+    _react2.default.createElement(
+      _FloatingActionButton2.default,
+      {
+        backgroundColor: _colors.green800,
+        style: {
+          margin: 0,
+          top: 'auto',
+          right: 160,
+          bottom: 20,
+          left: 'auto',
+          position: 'fixed'
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 30
+        }
+      },
+      _react2.default.createElement(_add2.default, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 41
+        }
+      })
+    )
   );
 };
 
@@ -853,10 +1071,38 @@ module.exports = require("material-ui/AutoComplete");
 
 /***/ }),
 
+/***/ "material-ui/Avatar":
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/Avatar");
+
+/***/ }),
+
+/***/ "material-ui/FloatingActionButton":
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/FloatingActionButton");
+
+/***/ }),
+
 /***/ "material-ui/IconButton":
 /***/ (function(module, exports) {
 
 module.exports = require("material-ui/IconButton");
+
+/***/ }),
+
+/***/ "material-ui/List":
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/List");
+
+/***/ }),
+
+/***/ "material-ui/Paper":
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/Paper");
 
 /***/ }),
 
@@ -920,6 +1166,27 @@ module.exports = require("material-ui/svg-icons/action/search");
 /***/ (function(module, exports) {
 
 module.exports = require("material-ui/svg-icons/action/settings");
+
+/***/ }),
+
+/***/ "material-ui/svg-icons/action/view-carousel":
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/svg-icons/action/view-carousel");
+
+/***/ }),
+
+/***/ "material-ui/svg-icons/content/add":
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/svg-icons/content/add");
+
+/***/ }),
+
+/***/ "material-ui/svg-icons/file/folder":
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/svg-icons/file/folder");
 
 /***/ }),
 
