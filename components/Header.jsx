@@ -6,7 +6,7 @@ import AutoComplete from 'material-ui/AutoComplete';
 import Fade from 'react-reveal/Zoom';
 import Link from 'next/link';
 import React from 'react';
-import { linkStyle, titleStyle } from './SharedStyles';
+import { linkStyle, titleStyle } from '../lib/sharedStyles';
 
 
 class Header extends React.Component {

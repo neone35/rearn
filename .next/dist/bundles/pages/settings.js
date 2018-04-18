@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -117,7 +117,7 @@ var _react = __webpack_require__("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _SharedStyles = __webpack_require__("./components/SharedStyles.jsx");
+var _sharedStyles = __webpack_require__("./lib/sharedStyles.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -176,7 +176,7 @@ var Header = function (_React$Component) {
             },
             _react2.default.createElement(
               'span',
-              { style: _SharedStyles.titleStyle, __source: {
+              { style: _sharedStyles.titleStyle, __source: {
                   fileName: _jsxFileName,
                   lineNumber: 42
                 }
@@ -221,7 +221,7 @@ var Header = function (_React$Component) {
             ) : null,
             _react2.default.createElement(
               _IconButton2.default,
-              { tooltip: 'Search', iconStyle: _SharedStyles.linkStyle, __source: {
+              { tooltip: 'Search', iconStyle: _sharedStyles.linkStyle, __source: {
                   fileName: _jsxFileName,
                   lineNumber: 60
                 }
@@ -241,7 +241,7 @@ var Header = function (_React$Component) {
               },
               _react2.default.createElement(
                 _IconButton2.default,
-                { tooltip: 'Settings', iconStyle: _SharedStyles.linkStyle, __source: {
+                { tooltip: 'Settings', iconStyle: _sharedStyles.linkStyle, __source: {
                     fileName: _jsxFileName,
                     lineNumber: 64
                   }
@@ -268,34 +268,6 @@ var Header = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Header;
-
-/***/ }),
-
-/***/ "./components/SharedStyles.jsx":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var linkStyle = {
-  color: '#FFF'
-};
-
-var layoutStyle = {
-  border: '1px solid #DDD'
-};
-
-var titleStyle = {
-  cursor: 'pointer',
-  fontWeight: 'bold'
-};
-
-exports.linkStyle = linkStyle;
-exports.layoutStyle = layoutStyle;
-exports.titleStyle = titleStyle;
 
 /***/ }),
 
@@ -361,6 +333,9 @@ var StatTabs = function (_React$Component) {
         value: value
       });
     }
+
+    // TODO: replace dataroute=/settings with {propPages[index]}
+
   }, {
     key: 'renderTabs',
     value: function renderTabs() {
@@ -368,90 +343,31 @@ var StatTabs = function (_React$Component) {
           propLabels = _props.propLabels,
           propPages = _props.propPages;
 
-      var tabs = null;
-      if (propLabels != null) {
-        tabs = propLabels.map(function (propLabel, index) {
-          return _react2.default.createElement(
-            _Tabs.Tab,
-            {
-              buttonStyle: { backgroundColor: 'white', textColor: 'grey' },
-              label: propLabel,
-              key: propLabel,
-              onActive: handleActive,
-              dataroute: '/settings',
-              value: propLabel,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 34
-              }
-            },
-            _react2.default.createElement(
-              'div',
-              {
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 42
-                }
-              },
-              _react2.default.createElement(
-                'p',
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 43
-                  }
-                },
-                propPages[index]
-              )
-            )
-          );
+      var useLabels = propLabels == null ? localLabels : propLabels;
+      var usePages = propPages == null ? localPages : propPages;
+      var tabs = useLabels.map(function (useLabel, index) {
+        return _react2.default.createElement(_Tabs.Tab, {
+          buttonStyle: { backgroundColor: 'white', color: 'grey' },
+          label: useLabel,
+          key: useLabel,
+          onActive: handleActive,
+          dataroute: '/settings',
+          value: useLabel,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 35
+          }
         });
-      } else {
-        tabs = localLabels.map(function (localLabel, index) {
-          return _react2.default.createElement(
-            _Tabs.Tab,
-            {
-              buttonStyle: { backgroundColor: 'white', color: 'grey' },
-              label: localLabel,
-              key: localLabel,
-              onActive: handleActive,
-              dataroute: '/settings',
-              value: localLabel,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 50
-              }
-            },
-            _react2.default.createElement(
-              'div',
-              {
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 58
-                }
-              },
-              _react2.default.createElement(
-                'p',
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 59
-                  }
-                },
-                localPages[index]
-              )
-            )
-          );
-        });
-      }
+      });
       return _react2.default.createElement(
         _Tabs.Tabs,
         {
           value: this.state.value,
           onChange: this.handleChange,
+          inkBarStyle: { backgroundColor: 'purple' },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 65
+            lineNumber: 45
           }
         },
         tabs
@@ -465,7 +381,7 @@ var StatTabs = function (_React$Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 76
+            lineNumber: 57
           }
         },
         this.renderTabs()
@@ -686,7 +602,7 @@ var rearnTheme = (0, _getMuiTheme2.default)({
     primary2Color: _colors.purple500,
     primary3Color: _colors.purple200,
     accent1Color: _colors.cyan200,
-    accent2Color: _colors.cyan400,
+    accent2Color: '#33869F',
     accent3Color: _colors.green800,
     textColor: _colors.darkBlack,
     alternateTextColor: _colors.white,
@@ -704,6 +620,34 @@ var rearnTheme = (0, _getMuiTheme2.default)({
 });
 
 exports.default = rearnTheme;
+
+/***/ }),
+
+/***/ "./lib/sharedStyles.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var linkStyle = {
+  color: '#FFF'
+};
+
+var layoutStyle = {
+  border: '1px solid #DDD'
+};
+
+var titleStyle = {
+  cursor: 'pointer',
+  fontWeight: 'bold'
+};
+
+exports.linkStyle = linkStyle;
+exports.layoutStyle = layoutStyle;
+exports.titleStyle = titleStyle;
 
 /***/ }),
 
@@ -763,7 +707,7 @@ exports.default = Settings;
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/settings.jsx");

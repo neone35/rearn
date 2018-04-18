@@ -117,7 +117,7 @@ var _react = __webpack_require__("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _SharedStyles = __webpack_require__("./components/SharedStyles.jsx");
+var _sharedStyles = __webpack_require__("./lib/sharedStyles.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -176,7 +176,7 @@ var Header = function (_React$Component) {
             },
             _react2.default.createElement(
               'span',
-              { style: _SharedStyles.titleStyle, __source: {
+              { style: _sharedStyles.titleStyle, __source: {
                   fileName: _jsxFileName,
                   lineNumber: 42
                 }
@@ -221,7 +221,7 @@ var Header = function (_React$Component) {
             ) : null,
             _react2.default.createElement(
               _IconButton2.default,
-              { tooltip: 'Search', iconStyle: _SharedStyles.linkStyle, __source: {
+              { tooltip: 'Search', iconStyle: _sharedStyles.linkStyle, __source: {
                   fileName: _jsxFileName,
                   lineNumber: 60
                 }
@@ -241,7 +241,7 @@ var Header = function (_React$Component) {
               },
               _react2.default.createElement(
                 _IconButton2.default,
-                { tooltip: 'Settings', iconStyle: _SharedStyles.linkStyle, __source: {
+                { tooltip: 'Settings', iconStyle: _sharedStyles.linkStyle, __source: {
                     fileName: _jsxFileName,
                     lineNumber: 64
                   }
@@ -271,7 +271,7 @@ exports.default = Header;
 
 /***/ }),
 
-/***/ "./components/SharedStyles.jsx":
+/***/ "./components/LastInfo.jsx":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -280,22 +280,61 @@ exports.default = Header;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var linkStyle = {
-  color: '#FFF'
+var _jsxFileName = 'C:\\Users\\aarta\\Documents\\PersonalFiles\\Projects\\WEBprojects\\rearn\\components\\LastInfo.jsx';
+
+var _react = __webpack_require__("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Toolbar = __webpack_require__("material-ui/Toolbar");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var LastInfo = function LastInfo(props) {
+  return _react2.default.createElement(
+    _Toolbar.Toolbar,
+    {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 5
+      }
+    },
+    _react2.default.createElement(
+      _Toolbar.ToolbarGroup,
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 6
+        }
+      },
+      _react2.default.createElement(_Toolbar.ToolbarTitle, { text: 'Last studied', style: { color: 'white', fontSize: '0.8em' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 7
+        }
+      }),
+      _react2.default.createElement(_Toolbar.ToolbarTitle, { text: props.lastStudied, style: { color: 'white' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 8
+        }
+      })
+    ),
+    _react2.default.createElement(
+      _Toolbar.ToolbarGroup,
+      { lastChild: true, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 10
+        }
+      },
+      _react2.default.createElement(_Toolbar.ToolbarTitle, { text: props.lastSet, style: { color: 'white' }, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 11
+        }
+      })
+    )
+  );
 };
 
-var layoutStyle = {
-  border: '1px solid #DDD'
-};
-
-var titleStyle = {
-  cursor: 'pointer',
-  fontWeight: 'bold'
-};
-
-exports.linkStyle = linkStyle;
-exports.layoutStyle = layoutStyle;
-exports.titleStyle = titleStyle;
+exports.default = LastInfo;
 
 /***/ }),
 
@@ -361,6 +400,9 @@ var StatTabs = function (_React$Component) {
         value: value
       });
     }
+
+    // TODO: replace dataroute=/settings with {propPages[index]}
+
   }, {
     key: 'renderTabs',
     value: function renderTabs() {
@@ -368,90 +410,31 @@ var StatTabs = function (_React$Component) {
           propLabels = _props.propLabels,
           propPages = _props.propPages;
 
-      var tabs = null;
-      if (propLabels != null) {
-        tabs = propLabels.map(function (propLabel, index) {
-          return _react2.default.createElement(
-            _Tabs.Tab,
-            {
-              buttonStyle: { backgroundColor: 'white', textColor: 'grey' },
-              label: propLabel,
-              key: propLabel,
-              onActive: handleActive,
-              dataroute: '/settings',
-              value: propLabel,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 34
-              }
-            },
-            _react2.default.createElement(
-              'div',
-              {
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 42
-                }
-              },
-              _react2.default.createElement(
-                'p',
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 43
-                  }
-                },
-                propPages[index]
-              )
-            )
-          );
+      var useLabels = propLabels == null ? localLabels : propLabels;
+      var usePages = propPages == null ? localPages : propPages;
+      var tabs = useLabels.map(function (useLabel, index) {
+        return _react2.default.createElement(_Tabs.Tab, {
+          buttonStyle: { backgroundColor: 'white', color: 'grey' },
+          label: useLabel,
+          key: useLabel,
+          onActive: handleActive,
+          dataroute: '/settings',
+          value: useLabel,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 35
+          }
         });
-      } else {
-        tabs = localLabels.map(function (localLabel, index) {
-          return _react2.default.createElement(
-            _Tabs.Tab,
-            {
-              buttonStyle: { backgroundColor: 'white', color: 'grey' },
-              label: localLabel,
-              key: localLabel,
-              onActive: handleActive,
-              dataroute: '/settings',
-              value: localLabel,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 50
-              }
-            },
-            _react2.default.createElement(
-              'div',
-              {
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 58
-                }
-              },
-              _react2.default.createElement(
-                'p',
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 59
-                  }
-                },
-                localPages[index]
-              )
-            )
-          );
-        });
-      }
+      });
       return _react2.default.createElement(
         _Tabs.Tabs,
         {
           value: this.state.value,
           onChange: this.handleChange,
+          inkBarStyle: { backgroundColor: 'purple' },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 65
+            lineNumber: 45
           }
         },
         tabs
@@ -465,7 +448,7 @@ var StatTabs = function (_React$Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 76
+            lineNumber: 57
           }
         },
         this.renderTabs()
@@ -686,7 +669,7 @@ var rearnTheme = (0, _getMuiTheme2.default)({
     primary2Color: _colors.purple500,
     primary3Color: _colors.purple200,
     accent1Color: _colors.cyan200,
-    accent2Color: _colors.cyan400,
+    accent2Color: '#33869F',
     accent3Color: _colors.green800,
     textColor: _colors.darkBlack,
     alternateTextColor: _colors.white,
@@ -704,6 +687,34 @@ var rearnTheme = (0, _getMuiTheme2.default)({
 });
 
 exports.default = rearnTheme;
+
+/***/ }),
+
+/***/ "./lib/sharedStyles.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var linkStyle = {
+  color: '#FFF'
+};
+
+var layoutStyle = {
+  border: '1px solid #DDD'
+};
+
+var titleStyle = {
+  cursor: 'pointer',
+  fontWeight: 'bold'
+};
+
+exports.linkStyle = linkStyle;
+exports.layoutStyle = layoutStyle;
+exports.titleStyle = titleStyle;
 
 /***/ }),
 
@@ -738,6 +749,10 @@ var _StatTabs = __webpack_require__("./components/StatTabs.jsx");
 
 var _StatTabs2 = _interopRequireDefault(_StatTabs);
 
+var _LastInfo = __webpack_require__("./components/LastInfo.jsx");
+
+var _LastInfo2 = _interopRequireDefault(_LastInfo);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CardsetLink = function CardsetLink(props) {
@@ -746,14 +761,14 @@ var CardsetLink = function CardsetLink(props) {
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 8
+        lineNumber: 9
       }
     },
     _react2.default.createElement(
       _link2.default,
       { href: '/cardset?title=' + props.title, __source: {
           fileName: _jsxFileName,
-          lineNumber: 9
+          lineNumber: 10
         }
       },
       _react2.default.createElement(
@@ -761,7 +776,7 @@ var CardsetLink = function CardsetLink(props) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 10
+            lineNumber: 11
           }
         },
         props.title
@@ -775,13 +790,18 @@ var Index = function Index() {
     _layout2.default,
     { title: 'Rearn - index', __source: {
         fileName: _jsxFileName,
-        lineNumber: 16
+        lineNumber: 17
       }
     },
     _react2.default.createElement(_StatTabs2.default, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 17
+        lineNumber: 18
+      }
+    }),
+    _react2.default.createElement(_LastInfo2.default, { lastStudied: 'Mar10 14:38', lastSet: 'Flashcard folder 1', __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19
       }
     }),
     _react2.default.createElement(
@@ -789,19 +809,19 @@ var Index = function Index() {
       {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18
+          lineNumber: 20
         }
       },
       'Hello Rearn!'
     ),
     _react2.default.createElement(CardsetLink, { title: 'Physics1', __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 21
       }
     }),
     _react2.default.createElement(_RaisedButton2.default, { label: 'Button test', __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 22
       }
     })
   );
@@ -851,6 +871,13 @@ module.exports = require("material-ui/RaisedButton");
 /***/ (function(module, exports) {
 
 module.exports = require("material-ui/Tabs");
+
+/***/ }),
+
+/***/ "material-ui/Toolbar":
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/Toolbar");
 
 /***/ }),
 

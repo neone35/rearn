@@ -2,7 +2,7 @@ module.exports =
 
         __NEXT_REGISTER_PAGE('/settings', function() {
           var comp = 
-      webpackJsonp([4],{
+      webpackJsonp([5],{
 
 /***/ "./components/Header.jsx":
 /***/ (function(module, exports, __webpack_require__) {
@@ -49,7 +49,7 @@ var _react = __webpack_require__("./node_modules/react/cjs/react.development.js"
 
 var _react2 = _interopRequireDefault(_react);
 
-var _SharedStyles = __webpack_require__("./components/SharedStyles.jsx");
+var _sharedStyles = __webpack_require__("./lib/sharedStyles.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -114,7 +114,7 @@ var Header = function (_React$Component) {
             },
             _react2.default.createElement(
               'span',
-              { style: _SharedStyles.titleStyle, __source: {
+              { style: _sharedStyles.titleStyle, __source: {
                   fileName: _jsxFileName,
                   lineNumber: 42
                 }
@@ -159,7 +159,7 @@ var Header = function (_React$Component) {
             ) : null,
             _react2.default.createElement(
               _IconButton2.default,
-              { tooltip: 'Search', iconStyle: _SharedStyles.linkStyle, __source: {
+              { tooltip: 'Search', iconStyle: _sharedStyles.linkStyle, __source: {
                   fileName: _jsxFileName,
                   lineNumber: 60
                 }
@@ -179,7 +179,7 @@ var Header = function (_React$Component) {
               },
               _react2.default.createElement(
                 _IconButton2.default,
-                { tooltip: 'Settings', iconStyle: _SharedStyles.linkStyle, __source: {
+                { tooltip: 'Settings', iconStyle: _sharedStyles.linkStyle, __source: {
                     fileName: _jsxFileName,
                     lineNumber: 64
                   }
@@ -225,60 +225,6 @@ exports.default = _default;
 
   reactHotLoader.register(Header, 'Header', 'C:/Users/aarta/Documents/PersonalFiles/Projects/WEBprojects/rearn/components/Header.jsx');
   reactHotLoader.register(_default, 'default', 'C:/Users/aarta/Documents/PersonalFiles/Projects/WEBprojects/rearn/components/Header.jsx');
-  leaveModule(module);
-})();
-
-;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/next/node_modules/webpack/buildin/module.js")(module)))
-
-/***/ }),
-
-/***/ "./components/SharedStyles.jsx":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-(function () {
-  var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
-
-  enterModule && enterModule(module);
-})();
-
-var linkStyle = {
-  color: '#FFF'
-};
-
-var layoutStyle = {
-  border: '1px solid #DDD'
-};
-
-var titleStyle = {
-  cursor: 'pointer',
-  fontWeight: 'bold'
-};
-
-exports.linkStyle = linkStyle;
-exports.layoutStyle = layoutStyle;
-exports.titleStyle = titleStyle;
-;
-
-(function () {
-  var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/index.js").default;
-
-  var leaveModule = __webpack_require__("./node_modules/react-hot-loader/index.js").leaveModule;
-
-  if (!reactHotLoader) {
-    return;
-  }
-
-  reactHotLoader.register(linkStyle, 'linkStyle', 'C:/Users/aarta/Documents/PersonalFiles/Projects/WEBprojects/rearn/components/SharedStyles.jsx');
-  reactHotLoader.register(layoutStyle, 'layoutStyle', 'C:/Users/aarta/Documents/PersonalFiles/Projects/WEBprojects/rearn/components/SharedStyles.jsx');
-  reactHotLoader.register(titleStyle, 'titleStyle', 'C:/Users/aarta/Documents/PersonalFiles/Projects/WEBprojects/rearn/components/SharedStyles.jsx');
   leaveModule(module);
 })();
 
@@ -355,6 +301,9 @@ var StatTabs = function (_React$Component) {
         value: value
       });
     }
+
+    // TODO: replace dataroute=/settings with {propPages[index]}
+
   }, {
     key: 'renderTabs',
     value: function renderTabs() {
@@ -362,90 +311,31 @@ var StatTabs = function (_React$Component) {
           propLabels = _props.propLabels,
           propPages = _props.propPages;
 
-      var tabs = null;
-      if (propLabels != null) {
-        tabs = propLabels.map(function (propLabel, index) {
-          return _react2.default.createElement(
-            _Tabs.Tab,
-            {
-              buttonStyle: { backgroundColor: 'white', textColor: 'grey' },
-              label: propLabel,
-              key: propLabel,
-              onActive: handleActive,
-              dataroute: '/settings',
-              value: propLabel,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 34
-              }
-            },
-            _react2.default.createElement(
-              'div',
-              {
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 42
-                }
-              },
-              _react2.default.createElement(
-                'p',
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 43
-                  }
-                },
-                propPages[index]
-              )
-            )
-          );
+      var useLabels = propLabels == null ? localLabels : propLabels;
+      var usePages = propPages == null ? localPages : propPages;
+      var tabs = useLabels.map(function (useLabel, index) {
+        return _react2.default.createElement(_Tabs.Tab, {
+          buttonStyle: { backgroundColor: 'white', color: 'grey' },
+          label: useLabel,
+          key: useLabel,
+          onActive: handleActive,
+          dataroute: '/settings',
+          value: useLabel,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 35
+          }
         });
-      } else {
-        tabs = localLabels.map(function (localLabel, index) {
-          return _react2.default.createElement(
-            _Tabs.Tab,
-            {
-              buttonStyle: { backgroundColor: 'white', color: 'grey' },
-              label: localLabel,
-              key: localLabel,
-              onActive: handleActive,
-              dataroute: '/settings',
-              value: localLabel,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 50
-              }
-            },
-            _react2.default.createElement(
-              'div',
-              {
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 58
-                }
-              },
-              _react2.default.createElement(
-                'p',
-                {
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 59
-                  }
-                },
-                localPages[index]
-              )
-            )
-          );
-        });
-      }
+      });
       return _react2.default.createElement(
         _Tabs.Tabs,
         {
           value: this.state.value,
           onChange: this.handleChange,
+          inkBarStyle: { backgroundColor: 'purple' },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 65
+            lineNumber: 45
           }
         },
         tabs
@@ -459,7 +349,7 @@ var StatTabs = function (_React$Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 76
+            lineNumber: 57
           }
         },
         this.renderTabs()
@@ -744,7 +634,7 @@ var rearnTheme = (0, _getMuiTheme2.default)({
     primary2Color: _colors.purple500,
     primary3Color: _colors.purple200,
     accent1Color: _colors.cyan200,
-    accent2Color: _colors.cyan400,
+    accent2Color: '#33869F',
     accent3Color: _colors.green800,
     textColor: _colors.darkBlack,
     alternateTextColor: _colors.white,
@@ -776,6 +666,60 @@ exports.default = _default;
 
   reactHotLoader.register(rearnTheme, 'rearnTheme', 'C:/Users/aarta/Documents/PersonalFiles/Projects/WEBprojects/rearn/lib/rearnTheme.js');
   reactHotLoader.register(_default, 'default', 'C:/Users/aarta/Documents/PersonalFiles/Projects/WEBprojects/rearn/lib/rearnTheme.js');
+  leaveModule(module);
+})();
+
+;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/next/node_modules/webpack/buildin/module.js")(module)))
+
+/***/ }),
+
+/***/ "./lib/sharedStyles.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+(function () {
+  var enterModule = __webpack_require__("./node_modules/react-hot-loader/index.js").enterModule;
+
+  enterModule && enterModule(module);
+})();
+
+var linkStyle = {
+  color: '#FFF'
+};
+
+var layoutStyle = {
+  border: '1px solid #DDD'
+};
+
+var titleStyle = {
+  cursor: 'pointer',
+  fontWeight: 'bold'
+};
+
+exports.linkStyle = linkStyle;
+exports.layoutStyle = layoutStyle;
+exports.titleStyle = titleStyle;
+;
+
+(function () {
+  var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/index.js").default;
+
+  var leaveModule = __webpack_require__("./node_modules/react-hot-loader/index.js").leaveModule;
+
+  if (!reactHotLoader) {
+    return;
+  }
+
+  reactHotLoader.register(linkStyle, 'linkStyle', 'C:/Users/aarta/Documents/PersonalFiles/Projects/WEBprojects/rearn/lib/sharedStyles.js');
+  reactHotLoader.register(layoutStyle, 'layoutStyle', 'C:/Users/aarta/Documents/PersonalFiles/Projects/WEBprojects/rearn/lib/sharedStyles.js');
+  reactHotLoader.register(titleStyle, 'titleStyle', 'C:/Users/aarta/Documents/PersonalFiles/Projects/WEBprojects/rearn/lib/sharedStyles.js');
   leaveModule(module);
 })();
 
@@ -18444,7 +18388,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/settings.jsx");
@@ -18452,7 +18396,7 @@ module.exports = __webpack_require__("./pages/settings.jsx");
 
 /***/ })
 
-},[3])
+},[4])
           return { page: comp.default }
         })
       ;

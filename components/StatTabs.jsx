@@ -25,46 +25,27 @@ class StatTabs extends React.Component {
     });
   }
 
+  // TODO: replace dataroute=/settings with {propPages[index]}
   renderTabs() {
     const { propLabels, propPages } = this.props;
-    let tabs = null;
-    if (propLabels != null) {
-      tabs = propLabels.map((propLabel, index) =>
-        (
-          <Tab
-            buttonStyle={{ backgroundColor: 'white', textColor: 'grey' }}
-            label={propLabel}
-            key={propLabel}
-            onActive={handleActive}
-            dataroute="/settings"
-            value={propLabel}
-          >
-            <div>
-              <p>{propPages[index]}</p>
-            </div>
-          </Tab>
-        ));
-    } else {
-      tabs = localLabels.map((localLabel, index) =>
-        (
-          <Tab
-            buttonStyle={{ backgroundColor: 'white', color: 'grey' }}
-            label={localLabel}
-            key={localLabel}
-            onActive={handleActive}
-            dataroute="/settings"
-            value={localLabel}
-          >
-            <div>
-              <p>{localPages[index]}</p>
-            </div>
-          </Tab>
-        ));
-    }
+    const useLabels = (propLabels == null) ? localLabels : propLabels;
+    const usePages = (propPages == null) ? localPages : propPages;
+    const tabs = useLabels.map((useLabel, index) =>
+      (
+        <Tab
+          buttonStyle={{ backgroundColor: 'white', color: 'grey' }}
+          label={useLabel}
+          key={useLabel}
+          onActive={handleActive}
+          dataroute="/settings"
+          value={useLabel}
+        />
+      ));
     return (
       <Tabs
         value={this.state.value}
         onChange={this.handleChange}
+        inkBarStyle={{ backgroundColor: 'purple' }}
       >
         {tabs}
       </Tabs>
