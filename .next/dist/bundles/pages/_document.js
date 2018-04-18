@@ -67,27 +67,12 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 18);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 0:
-/***/ (function(module, exports) {
-
-module.exports = require("react");
-
-/***/ }),
-
-/***/ 18:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(19);
-
-
-/***/ }),
-
-/***/ 19:
+/***/ "./pages/_document.jsx":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -96,14 +81,15 @@ module.exports = __webpack_require__(19);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var _jsxFileName = 'C:\\Users\\aarta\\Documents\\PersonalFiles\\Projects\\WEBprojects\\rearn\\pages\\_document.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _document = __webpack_require__(20);
+var _document = __webpack_require__("next/document");
 
 var _document2 = _interopRequireDefault(_document);
 
@@ -129,20 +115,59 @@ var MyDocument = function (_Document) {
     value: function render() {
       return _react2.default.createElement(
         'html',
-        { lang: 'en' },
+        { lang: 'en', __source: {
+            fileName: _jsxFileName,
+            lineNumber: 16
+          }
+        },
         _react2.default.createElement(
           _document.Head,
-          null,
-          _react2.default.createElement('meta', { name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' }),
-          _react2.default.createElement('link', { rel: 'manifest', href: '/static/manifest.json' }),
-          _react2.default.createElement('link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }),
-          _react2.default.createElement('link', { rel: 'stylesheet', href: 'https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css', integrity: 'sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX', crossOrigin: 'anonymous' })
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 17
+            }
+          },
+          _react2.default.createElement('meta', { name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 18
+            }
+          }),
+          _react2.default.createElement('link', { rel: 'manifest', href: '/static/manifest.json', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 19
+            }
+          }),
+          _react2.default.createElement('link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 20
+            }
+          }),
+          _react2.default.createElement('link', { rel: 'stylesheet', href: 'https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css', integrity: 'sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX', crossOrigin: 'anonymous', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 21
+            }
+          })
         ),
         _react2.default.createElement(
           'body',
-          { className: 'container' },
-          _react2.default.createElement(_document.Main, null),
-          _react2.default.createElement(_document.NextScript, null)
+          { className: 'container', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 23
+            }
+          },
+          _react2.default.createElement(_document.Main, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 24
+            }
+          }),
+          _react2.default.createElement(_document.NextScript, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 25
+            }
+          })
         )
       );
     }
@@ -170,11 +195,27 @@ exports.default = MyDocument;
 
 /***/ }),
 
-/***/ 20:
+/***/ 0:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("./pages/_document.jsx");
+
+
+/***/ }),
+
+/***/ "next/document":
 /***/ (function(module, exports) {
 
 module.exports = require("next/document");
 
+/***/ }),
+
+/***/ "react":
+/***/ (function(module, exports) {
+
+module.exports = require("react");
+
 /***/ })
 
 /******/ });
+//# sourceMappingURL=_document.js.map

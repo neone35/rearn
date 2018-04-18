@@ -67,23 +67,12 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 23);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
+/******/ ({
 
-module.exports = require("react");
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-module.exports = require("next/link");
-
-/***/ }),
-/* 2 */
+/***/ "./components/Header.jsx":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -92,144 +81,43 @@ module.exports = require("next/link");
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var _jsxFileName = 'C:\\Users\\aarta\\Documents\\PersonalFiles\\Projects\\WEBprojects\\rearn\\components\\Header.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _MuiThemeProvider = __webpack_require__(3);
-
-var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
-
-var _head = __webpack_require__(4);
-
-var _head2 = _interopRequireDefault(_head);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Header = __webpack_require__(5);
-
-var _Header2 = _interopRequireDefault(_Header);
-
-var _rearnTheme = __webpack_require__(13);
-
-var _rearnTheme2 = _interopRequireDefault(_rearnTheme);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Layout = function (_React$Component) {
-  _inherits(Layout, _React$Component);
-
-  function Layout() {
-    _classCallCheck(this, Layout);
-
-    return _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).apply(this, arguments));
-  }
-
-  _createClass(Layout, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {}
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        _MuiThemeProvider2.default,
-        { muiTheme: _rearnTheme2.default },
-        _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(
-            _head2.default,
-            null,
-            _react2.default.createElement(
-              'title',
-              null,
-              this.props.title
-            ),
-            _react2.default.createElement('meta', { charSet: 'utf-8' }),
-            _react2.default.createElement('meta', { name: 'viewport', content: 'initial-scale=1.0, width=device-width' })
-          ),
-          _react2.default.createElement(_Header2.default, null),
-          this.props.children,
-          _react2.default.createElement(
-            'footer',
-            null,
-            _react2.default.createElement('span', null)
-          )
-        )
-      );
-    }
-  }]);
-
-  return Layout;
-}(_react2.default.Component);
-
-exports.default = Layout;
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-module.exports = require("material-ui/styles/MuiThemeProvider");
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-module.exports = require("next/head");
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _AppBar = __webpack_require__(6);
+var _AppBar = __webpack_require__("material-ui/AppBar");
 
 var _AppBar2 = _interopRequireDefault(_AppBar);
 
-var _IconButton = __webpack_require__(7);
+var _IconButton = __webpack_require__("material-ui/IconButton");
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
-var _search = __webpack_require__(8);
+var _search = __webpack_require__("material-ui/svg-icons/action/search");
 
 var _search2 = _interopRequireDefault(_search);
 
-var _settings = __webpack_require__(9);
+var _settings = __webpack_require__("material-ui/svg-icons/action/settings");
 
 var _settings2 = _interopRequireDefault(_settings);
 
-var _AutoComplete = __webpack_require__(10);
+var _AutoComplete = __webpack_require__("material-ui/AutoComplete");
 
 var _AutoComplete2 = _interopRequireDefault(_AutoComplete);
 
-var _Zoom = __webpack_require__(11);
+var _Zoom = __webpack_require__("react-reveal/Zoom");
 
 var _Zoom2 = _interopRequireDefault(_Zoom);
 
-var _link = __webpack_require__(1);
+var _link = __webpack_require__("next/link");
 
 var _link2 = _interopRequireDefault(_link);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _SharedStyles = __webpack_require__(12);
+var _SharedStyles = __webpack_require__("./components/SharedStyles.jsx");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -272,50 +160,105 @@ var Header = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 38
+          }
+        },
         _react2.default.createElement(_AppBar2.default, {
           title: _react2.default.createElement(
             _link2.default,
-            { href: '/' },
+            { href: '/', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 41
+              }
+            },
             _react2.default.createElement(
               'span',
-              { style: _SharedStyles.titleStyle },
+              { style: _SharedStyles.titleStyle, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 42
+                }
+              },
               'REARN'
             )
           ),
           iconElementRight: _react2.default.createElement(
             'div',
-            null,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 46
+              }
+            },
             this.state.showSearch ? _react2.default.createElement(
               'div',
-              { style: { display: 'inline-block' } },
+              { style: { display: 'inline-block' }, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 48
+                }
+              },
               _react2.default.createElement(
                 _Zoom2.default,
-                { duration: 500, right: true },
+                { duration: 500, right: true, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 49
+                  }
+                },
                 _react2.default.createElement(_AutoComplete2.default, {
                   inputStyle: { color: '#FFF' },
                   hintStyle: { color: '#936dc5' },
                   hintText: 'for what?',
                   dataSource: this.state.dataSource,
-                  onUpdateInput: this.handleUpdateInput
+                  onUpdateInput: this.handleUpdateInput,
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 50
+                  }
                 })
               )
             ) : null,
             _react2.default.createElement(
               _IconButton2.default,
-              { tooltip: 'Search', iconStyle: _SharedStyles.linkStyle },
-              _react2.default.createElement(_search2.default, { onClick: this.handleSearchClick })
+              { tooltip: 'Search', iconStyle: _SharedStyles.linkStyle, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 60
+                }
+              },
+              _react2.default.createElement(_search2.default, { onClick: this.handleSearchClick, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 61
+                }
+              })
             ),
             _react2.default.createElement(
               _link2.default,
-              { href: '/settings' },
+              { href: '/settings', __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 63
+                }
+              },
               _react2.default.createElement(
                 _IconButton2.default,
-                { tooltip: 'Settings', iconStyle: _SharedStyles.linkStyle },
-                _react2.default.createElement(_settings2.default, null)
+                { tooltip: 'Settings', iconStyle: _SharedStyles.linkStyle, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 64
+                  }
+                },
+                _react2.default.createElement(_settings2.default, {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 65
+                  }
+                })
               )
             )
-          )
+          ),
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 39
+          }
         })
       );
     }
@@ -327,43 +270,8 @@ var Header = function (_React$Component) {
 exports.default = Header;
 
 /***/ }),
-/* 6 */
-/***/ (function(module, exports) {
 
-module.exports = require("material-ui/AppBar");
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-module.exports = require("material-ui/IconButton");
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-module.exports = require("material-ui/svg-icons/action/search");
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
-module.exports = require("material-ui/svg-icons/action/settings");
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports) {
-
-module.exports = require("material-ui/AutoComplete");
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-reveal/Zoom");
-
-/***/ }),
-/* 12 */
+/***/ "./components/SharedStyles.jsx":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -390,7 +298,363 @@ exports.layoutStyle = layoutStyle;
 exports.titleStyle = titleStyle;
 
 /***/ }),
-/* 13 */
+
+/***/ "./components/StatTabs.jsx":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = 'C:\\Users\\aarta\\Documents\\PersonalFiles\\Projects\\WEBprojects\\rearn\\components\\StatTabs.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _router = __webpack_require__("next/router");
+
+var _router2 = _interopRequireDefault(_router);
+
+var _Tabs = __webpack_require__("material-ui/Tabs");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var localLabels = ['8 sets', '235 cards', '2 folders'];
+var localPages = ['/sets', '/cards', '/folders'];
+
+function handleActive(tab) {
+  var dataroute = tab.props.dataroute;
+
+  _router2.default.push(dataroute);
+}
+
+var StatTabs = function (_React$Component) {
+  _inherits(StatTabs, _React$Component);
+
+  function StatTabs(props) {
+    _classCallCheck(this, StatTabs);
+
+    var _this = _possibleConstructorReturn(this, (StatTabs.__proto__ || Object.getPrototypeOf(StatTabs)).call(this, props));
+
+    _this.state = {
+      value: '235 cards'
+    };
+    _this.handleChange = _this.handleChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(StatTabs, [{
+    key: 'handleChange',
+    value: function handleChange(value) {
+      this.setState({
+        value: value
+      });
+    }
+  }, {
+    key: 'renderTabs',
+    value: function renderTabs() {
+      var _props = this.props,
+          propLabels = _props.propLabels,
+          propPages = _props.propPages;
+
+      var tabs = null;
+      if (propLabels != null) {
+        tabs = propLabels.map(function (propLabel, index) {
+          return _react2.default.createElement(
+            _Tabs.Tab,
+            {
+              buttonStyle: { backgroundColor: 'white', textColor: 'grey' },
+              label: propLabel,
+              key: propLabel,
+              onActive: handleActive,
+              dataroute: '/settings',
+              value: propLabel,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 34
+              }
+            },
+            _react2.default.createElement(
+              'div',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 42
+                }
+              },
+              _react2.default.createElement(
+                'p',
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 43
+                  }
+                },
+                propPages[index]
+              )
+            )
+          );
+        });
+      } else {
+        tabs = localLabels.map(function (localLabel, index) {
+          return _react2.default.createElement(
+            _Tabs.Tab,
+            {
+              buttonStyle: { backgroundColor: 'white', color: 'grey' },
+              label: localLabel,
+              key: localLabel,
+              onActive: handleActive,
+              dataroute: '/settings',
+              value: localLabel,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 50
+              }
+            },
+            _react2.default.createElement(
+              'div',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 58
+                }
+              },
+              _react2.default.createElement(
+                'p',
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 59
+                  }
+                },
+                localPages[index]
+              )
+            )
+          );
+        });
+      }
+      return _react2.default.createElement(
+        _Tabs.Tabs,
+        {
+          value: this.state.value,
+          onChange: this.handleChange,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 65
+          }
+        },
+        tabs
+      );
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 76
+          }
+        },
+        this.renderTabs()
+      );
+    }
+  }]);
+
+  return StatTabs;
+}(_react2.default.Component);
+
+exports.default = StatTabs;
+
+// TODO: replace /settings with {propPages[index]}
+// function StatTabs(props) {
+//   const { propLabels, propPages } = props;
+//   let tabs = null;
+//   if (propLabels != null) {
+//     tabs = propLabels.map((propLabel, index) =>
+//       (
+//         <Tab
+//           label={propLabel}
+//           key={propLabel}
+//           onActive={handleActive}
+//           dataroute="/settings"
+//         >
+//           <div>
+//             <p>{propPages[index]}</p>
+//           </div>
+//         </Tab>
+//       ));
+//   } else {
+//     tabs = localLabels.map((localLabel, index) =>
+//       (
+//         <Tab
+//           label={localLabel}
+//           key={localLabel}
+//           onActive={handleActive}
+//           dataroute="/settings"
+//         >
+//           <div>
+//             <p>{localPages[index]}</p>
+//           </div>
+//         </Tab>
+//       ));
+//   }
+//   return (
+//     <Tabs>{tabs}</Tabs>
+//   );
+// }
+
+// export default StatTabs;
+
+/***/ }),
+
+/***/ "./lib/layout.jsx":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = 'C:\\Users\\aarta\\Documents\\PersonalFiles\\Projects\\WEBprojects\\rearn\\lib\\layout.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _MuiThemeProvider = __webpack_require__("material-ui/styles/MuiThemeProvider");
+
+var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
+
+var _head = __webpack_require__("next/head");
+
+var _head2 = _interopRequireDefault(_head);
+
+var _react = __webpack_require__("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Header = __webpack_require__("./components/Header.jsx");
+
+var _Header2 = _interopRequireDefault(_Header);
+
+var _rearnTheme = __webpack_require__("./lib/rearnTheme.js");
+
+var _rearnTheme2 = _interopRequireDefault(_rearnTheme);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Layout = function (_React$Component) {
+  _inherits(Layout, _React$Component);
+
+  function Layout() {
+    _classCallCheck(this, Layout);
+
+    return _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).apply(this, arguments));
+  }
+
+  _createClass(Layout, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _MuiThemeProvider2.default,
+        { muiTheme: _rearnTheme2.default, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 13
+          }
+        },
+        _react2.default.createElement(
+          'div',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 14
+            }
+          },
+          _react2.default.createElement(
+            _head2.default,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 15
+              }
+            },
+            _react2.default.createElement(
+              'title',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 16
+                }
+              },
+              this.props.title
+            ),
+            _react2.default.createElement('meta', { charSet: 'utf-8', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 17
+              }
+            }),
+            _react2.default.createElement('meta', { name: 'viewport', content: 'initial-scale=1.0, width=device-width', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 18
+              }
+            })
+          ),
+          _react2.default.createElement(_Header2.default, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 20
+            }
+          }),
+          this.props.children,
+          _react2.default.createElement(
+            'footer',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 22
+              }
+            },
+            _react2.default.createElement('span', {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 23
+              }
+            })
+          )
+        )
+      );
+    }
+  }]);
+
+  return Layout;
+}(_react2.default.Component);
+
+exports.default = Layout;
+
+/***/ }),
+
+/***/ "./lib/rearnTheme.js":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -400,17 +664,17 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _getMuiTheme = __webpack_require__(14);
+var _getMuiTheme = __webpack_require__("material-ui/styles/getMuiTheme");
 
 var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
 
-var _colors = __webpack_require__(15);
+var _colors = __webpack_require__("material-ui/styles/colors");
 
-var _spacing = __webpack_require__(16);
+var _spacing = __webpack_require__("material-ui/styles/spacing");
 
 var _spacing2 = _interopRequireDefault(_spacing);
 
-var _colorManipulator = __webpack_require__(17);
+var _colorManipulator = __webpack_require__("material-ui/utils/colorManipulator");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -442,43 +706,8 @@ var rearnTheme = (0, _getMuiTheme2.default)({
 exports.default = rearnTheme;
 
 /***/ }),
-/* 14 */
-/***/ (function(module, exports) {
 
-module.exports = require("material-ui/styles/getMuiTheme");
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports) {
-
-module.exports = require("material-ui/styles/colors");
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports) {
-
-module.exports = require("material-ui/styles/spacing");
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports) {
-
-module.exports = require("material-ui/utils/colorManipulator");
-
-/***/ }),
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(24);
-
-
-/***/ }),
-/* 24 */
+/***/ "./pages/index.jsx":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -487,39 +716,54 @@ module.exports = __webpack_require__(24);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var _jsxFileName = 'C:\\Users\\aarta\\Documents\\PersonalFiles\\Projects\\WEBprojects\\rearn\\pages\\index.jsx';
 
-var _Toolbar = __webpack_require__(25);
-
-var _Tabs = __webpack_require__(26);
-
-var _RaisedButton = __webpack_require__(27);
+var _RaisedButton = __webpack_require__("material-ui/RaisedButton");
 
 var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
-var _link = __webpack_require__(1);
+var _link = __webpack_require__("next/link");
 
 var _link2 = _interopRequireDefault(_link);
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _layout = __webpack_require__(2);
+var _layout = __webpack_require__("./lib/layout.jsx");
 
 var _layout2 = _interopRequireDefault(_layout);
+
+var _StatTabs = __webpack_require__("./components/StatTabs.jsx");
+
+var _StatTabs2 = _interopRequireDefault(_StatTabs);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var CardsetLink = function CardsetLink(props) {
   return _react2.default.createElement(
     'li',
-    null,
+    {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 8
+      }
+    },
     _react2.default.createElement(
       _link2.default,
-      { href: '/cardset?title=' + props.title },
+      { href: '/cardset?title=' + props.title, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 9
+        }
+      },
       _react2.default.createElement(
         'a',
-        null,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 10
+          }
+        },
         props.title
       )
     )
@@ -529,79 +773,170 @@ var CardsetLink = function CardsetLink(props) {
 var Index = function Index() {
   return _react2.default.createElement(
     _layout2.default,
-    { title: 'Rearn - index' },
-    _react2.default.createElement(
-      _Tabs.Tabs,
-      null,
-      _react2.default.createElement(
-        _Tabs.Tab,
-        { label: '8 sets' },
-        _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(
-            'h2',
-            null,
-            'Tab One'
-          )
-        )
-      ),
-      _react2.default.createElement(
-        _Tabs.Tab,
-        { label: '235 cards' },
-        _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(
-            'h2',
-            null,
-            'Tab Two'
-          )
-        )
-      ),
-      _react2.default.createElement(
-        _Tabs.Tab,
-        { label: '2 folders' },
-        _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(
-            'h2',
-            null,
-            'Tab Three'
-          )
-        )
-      )
-    ),
+    { title: 'Rearn - index', __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16
+      }
+    },
+    _react2.default.createElement(_StatTabs2.default, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 17
+      }
+    }),
     _react2.default.createElement(
       'p',
-      null,
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 18
+        }
+      },
       'Hello Rearn!'
     ),
-    _react2.default.createElement(CardsetLink, { title: 'Physics1' }),
-    _react2.default.createElement(_RaisedButton2.default, { label: 'Button test' })
+    _react2.default.createElement(CardsetLink, { title: 'Physics1', __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19
+      }
+    }),
+    _react2.default.createElement(_RaisedButton2.default, { label: 'Button test', __source: {
+        fileName: _jsxFileName,
+        lineNumber: 20
+      }
+    })
   );
 };
 
 exports.default = Index;
 
 /***/ }),
-/* 25 */
-/***/ (function(module, exports) {
 
-module.exports = require("material-ui/Toolbar");
+/***/ 2:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("./pages/index.jsx");
+
 
 /***/ }),
-/* 26 */
+
+/***/ "material-ui/AppBar":
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/AppBar");
+
+/***/ }),
+
+/***/ "material-ui/AutoComplete":
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/AutoComplete");
+
+/***/ }),
+
+/***/ "material-ui/IconButton":
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/IconButton");
+
+/***/ }),
+
+/***/ "material-ui/RaisedButton":
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/RaisedButton");
+
+/***/ }),
+
+/***/ "material-ui/Tabs":
 /***/ (function(module, exports) {
 
 module.exports = require("material-ui/Tabs");
 
 /***/ }),
-/* 27 */
+
+/***/ "material-ui/styles/MuiThemeProvider":
 /***/ (function(module, exports) {
 
-module.exports = require("material-ui/RaisedButton");
+module.exports = require("material-ui/styles/MuiThemeProvider");
+
+/***/ }),
+
+/***/ "material-ui/styles/colors":
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/styles/colors");
+
+/***/ }),
+
+/***/ "material-ui/styles/getMuiTheme":
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/styles/getMuiTheme");
+
+/***/ }),
+
+/***/ "material-ui/styles/spacing":
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/styles/spacing");
+
+/***/ }),
+
+/***/ "material-ui/svg-icons/action/search":
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/svg-icons/action/search");
+
+/***/ }),
+
+/***/ "material-ui/svg-icons/action/settings":
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/svg-icons/action/settings");
+
+/***/ }),
+
+/***/ "material-ui/utils/colorManipulator":
+/***/ (function(module, exports) {
+
+module.exports = require("material-ui/utils/colorManipulator");
+
+/***/ }),
+
+/***/ "next/head":
+/***/ (function(module, exports) {
+
+module.exports = require("next/head");
+
+/***/ }),
+
+/***/ "next/link":
+/***/ (function(module, exports) {
+
+module.exports = require("next/link");
+
+/***/ }),
+
+/***/ "next/router":
+/***/ (function(module, exports) {
+
+module.exports = require("next/router");
+
+/***/ }),
+
+/***/ "react":
+/***/ (function(module, exports) {
+
+module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-reveal/Zoom":
+/***/ (function(module, exports) {
+
+module.exports = require("react-reveal/Zoom");
 
 /***/ })
-/******/ ]);
+
+/******/ });
+//# sourceMappingURL=index.js.map
