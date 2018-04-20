@@ -2,19 +2,24 @@ import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import ActionSearch from 'material-ui/svg-icons/action/search';
 import ActionSettings from 'material-ui/svg-icons/action/settings';
+import DrawerMenu from 'material-ui/svg-icons/navigation/menu';
+import DrawerClose from 'material-ui/svg-icons/navigation/close';
 import AutoComplete from 'material-ui/AutoComplete';
+import Drawer from 'material-ui/Drawer';
 import Fade from 'react-reveal/Zoom';
 import Link from 'next/link';
 import React from 'react';
 import { linkStyle, titleStyle } from '../lib/sharedStyles';
+import DrawerList from '../components/lists/DrawerList';
 
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { dataSource: [], showSearch: false };
+    this.state = { dataSource: [], showSearch: false, openDrawer: false };
     this.handleUpdateInput = this.handleUpdateInput.bind(this);
     this.handleSearchClick = this.handleSearchClick.bind(this);
+    this.handleDrawer = this.handleDrawer.bind(this);
   }
 
   handleUpdateInput(value) {
@@ -33,6 +38,12 @@ class Header extends React.Component {
     });
   }
 
+  handleDrawer() {
+    this.setState({
+      openDrawer: !this.state.openDrawer,
+    });
+  }
+
   render() {
     return (
       <div>
@@ -41,6 +52,23 @@ class Header extends React.Component {
             <Link href="/">
               <span style={titleStyle}>REARN</span>
             </Link>
+          }
+          iconElementLeft={
+            <div>
+              <IconButton iconStyle={linkStyle} onClick={this.handleDrawer}>
+                { this.state.openDrawer ?
+                  <DrawerClose /> : <DrawerMenu />}
+              </IconButton>
+              <Drawer
+                open={this.state.openDrawer}
+                docked={false}
+                onRequestChange={openDrawer => this.setState({ openDrawer })}
+                width={185}
+                containerStyle={{ top: '50px' }}
+              >
+                <DrawerList />
+              </Drawer>
+            </div>
           }
           iconElementRight={
             <div>

@@ -151,7 +151,8 @@ var MyDocument = function (_Document) {
         ),
         _react2.default.createElement(
           'body',
-          { className: 'container', __source: {
+          {
+            __source: {
               fileName: _jsxFileName,
               lineNumber: 23
             }

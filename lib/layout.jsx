@@ -11,7 +11,7 @@ class Layout extends React.Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={rearnTheme}>
-        <div>
+        <div className="container">
           <Head>
             <title>{this.props.title}</title>
             <meta charSet="utf-8" />

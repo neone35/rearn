@@ -1,13 +1,13 @@
 import RaisedButton from 'material-ui/RaisedButton';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+import { green800 } from 'material-ui/styles/colors';
 import Link from 'next/link';
 import React from 'react';
 import Layout from '../lib/layout';
 import StatTabs from '../components/StatTabs';
 import LastInfo from '../components/LastInfo';
 import DataList from '../components/DataList';
-import { green800 } from 'material-ui/styles/colors';
 
 const CardsetLink = props => (
   <li>
@@ -32,7 +32,7 @@ const Index = () => (
       style={{
         margin: 0,
         top: 'auto',
-        right: 160,
+        right: 20,
         bottom: 20,
         left: 'auto',
         position: 'fixed',
