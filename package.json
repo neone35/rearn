@@ -6,9 +6,9 @@
   "scripts": {
     "build": "next build",
     "test": "eslint pages components lib",
-    "dev": "babel-node server/server.js",
+    "dev": "nodemon server/server.js --watch server --exec babel-node ",
     "port": "next start -p %PORT%",
-    "prod": "yarn build && cross-env NODE_ENV=production node server/server.js",
+    "prod": "yarn build && cross-env NODE_ENV=production babel-node server/server.js",
     "precommit": "yarn test",
     "prepush": "yarn test"
   },

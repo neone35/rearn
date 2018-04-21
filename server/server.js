@@ -1,5 +1,6 @@
 import getRootUrl from '../lib/api/getRootUrl';
 import auth from './google';
+import authRoutes from './routes/authRoutes';
 
 const express = require('express');
 const expressSession = require('express-session');
@@ -38,9 +39,10 @@ app.prepare().then(() => {
   }));
 
   auth({ server, ROOT_URL });
+  authRoutes(server);
 
   server.get('/service-worker.js', (req, res) => {
-    const filePath = join(__dirname, '.next', req.originalUrl);
+    const filePath = join(__dirname, '..', '.next', req.originalUrl);
     app.serveStatic(req, res, filePath);
   });
 
