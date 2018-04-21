@@ -8,10 +8,12 @@ import Link from 'next/link';
 
 const DrawerList = () => (
   <List>
-    <ListItem
-      leftAvatar={<Avatar icon={<AcountCircle />} backgroundColor={purple800} />}
-      primaryText="Login"
-    />
+    <Link href="/auth/google">
+      <ListItem
+        leftAvatar={<Avatar icon={<AcountCircle />} backgroundColor={purple800} />}
+        primaryText="Login"
+      />
+    </Link>
     <Link href="/about">
       <ListItem
         leftAvatar={<Avatar icon={<InfoIcon />} backgroundColor={purple800} />}

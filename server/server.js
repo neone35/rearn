@@ -24,7 +24,7 @@ app.prepare().then(() => {
   const server = express();
 
   server.use(expressSession({ // create session middleware object
-    name: 'rearn.sid', // read session details using 'name'
+    name: 'rearn.sid', // session objectID for browser, used to read from REQ / write to RES
     secret: 'HD2w.)q*VqRT/bgf.4/#NK2M/,E^B)}FED5ftger4-ggh7781WU!dKe[wk',
     store: new MongoSessionStore({ // create 'sessions' collection
       mongooseConnection: mongoose.connection,
@@ -38,8 +38,6 @@ app.prepare().then(() => {
   }));
 
   auth({ server, ROOT_URL });
-
-  console.log(expressSession);
 
   server.get('/service-worker.js', (req, res) => {
     const filePath = join(__dirname, '.next', req.originalUrl);
