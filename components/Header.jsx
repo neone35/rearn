@@ -1,3 +1,4 @@
+import { connect } from 'react-redux';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import ActionSearch from 'material-ui/svg-icons/action/search';
@@ -45,6 +46,7 @@ class Header extends React.Component {
   }
 
   render() {
+    const { user } = this.props;
     return (
       <div>
         <AppBar
@@ -59,15 +61,27 @@ class Header extends React.Component {
                 { this.state.openDrawer ?
                   <DrawerClose /> : <DrawerMenu />}
               </IconButton>
-              <Drawer
-                open={this.state.openDrawer}
-                docked={false}
-                onRequestChange={openDrawer => this.setState({ openDrawer })}
-                width={185}
-                containerStyle={{ top: '50px' }}
-              >
-                <DrawerList />
-              </Drawer>
+              {user ?
+                <Drawer
+                  open={this.state.openDrawer}
+                  docked={false}
+                  onRequestChange={openDrawer => this.setState({ openDrawer })}
+                  width={185}
+                  containerStyle={{ top: '50px' }}
+                >
+                  <DrawerList />
+                </Drawer>
+                :
+                <Drawer
+                  open={this.state.openDrawer}
+                  docked={false}
+                  onRequestChange={openDrawer => this.setState({ openDrawer })}
+                  width={185}
+                  containerStyle={{ top: '50px' }}
+                >
+                  <DrawerList />
+                </Drawer>
+              }
             </div>
           }
           iconElementRight={
@@ -101,4 +115,10 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+function mapStateToProps(state) {
+  return {
+    user: state.user,
+  };
+}
+
+export default connect(mapStateToProps)(Header);

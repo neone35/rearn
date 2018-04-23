@@ -11,7 +11,7 @@ class Layout extends React.Component {
   }
 
   render() {
-    const { lastUpdate, light, user } = this.props;
+    const { user } = this.props;
     return (
       <MuiThemeProvider muiTheme={rearnTheme}>
         <div className="container">
@@ -22,7 +22,6 @@ class Layout extends React.Component {
           </Head>
           <Header />
           <p>{user.googleId}</p>
-          <Clockolo lastUpdate={lastUpdate} light={light} />
           {this.props.children}
           <footer>
             <span />
