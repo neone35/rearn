@@ -1,6 +1,8 @@
 const withOffline = require('next-offline');
+const withSass = require('@zeit/next-sass');
 
-module.exports = withOffline({
+module.exports = withSass(withOffline({
+  cssModules: true,
   workboxOpts: {
     runtimeCaching: [
       {
@@ -35,6 +37,13 @@ module.exports = withOffline({
         },
       },
       {
+        urlPattern: /\.(?:js|css)$/,
+        handler: 'staleWhileRevalidate',
+        options: {
+          cacheName: 'static',
+        },
+      },
+      {
         urlPattern: new RegExp('https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css'),
         handler: 'cacheFirst',
         options: {
@@ -53,4 +62,4 @@ module.exports = withOffline({
       },
     ],
   },
-});
+}));
