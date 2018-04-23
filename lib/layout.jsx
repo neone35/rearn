@@ -11,7 +11,7 @@ class Layout extends React.Component {
   }
 
   render() {
-    const { lastUpdate, light } = this.props;
+    const { lastUpdate, light, user } = this.props;
     return (
       <MuiThemeProvider muiTheme={rearnTheme}>
         <div className="container">
@@ -21,6 +21,7 @@ class Layout extends React.Component {
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           </Head>
           <Header />
+          <p>{user.googleId}</p>
           <Clockolo lastUpdate={lastUpdate} light={light} />
           {this.props.children}
           <footer>
@@ -36,6 +37,7 @@ function mapStateToProps(state) {
   return {
     lastUpdate: state.lastUpdate,
     light: state.light,
+    user: state.user,
   };
 }
 

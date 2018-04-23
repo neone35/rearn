@@ -10,7 +10,7 @@ import Layout from '../lib/layout';
 import StatTabs from '../components/StatTabs';
 import LastInfo from '../components/LastInfo';
 import DataList from '../components/DataList';
-import { initStore, startClock, serverRenderClock } from '../server/store';
+import { initStore, fetchUser } from '../server/store';
 
 
 const CardsetLink = props => (
@@ -23,15 +23,8 @@ const CardsetLink = props => (
 
 class Index extends React.Component {
   static getInitialProps({ store, isServer }) {
-    store.dispatch(serverRenderClock(isServer));
+    store.dispatch(fetchUser());
     return { isServer };
-  }
-
-  componentDidMount() {
-    this.timer = this.props.startClock();
-  }
-  componentWillUnmount() {
-    clearInterval(this.timer);
   }
 
   render() {
@@ -64,7 +57,7 @@ class Index extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  startClock: bindActionCreators(startClock, dispatch),
+  fetchUser: bindActionCreators(fetchUser, dispatch),
 });
 
 export default withRedux(initStore, null, mapDispatchToProps)(Index);
