@@ -1,3 +1,5 @@
+import withRedux from 'next-redux-wrapper';
+import { bindActionCreators } from 'redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
@@ -8,6 +10,8 @@ import Layout from '../lib/layout';
 import StatTabs from '../components/StatTabs';
 import LastInfo from '../components/LastInfo';
 import DataList from '../components/DataList';
+import { initStore, startClock, serverRenderClock } from '../server/store';
+
 
 const CardsetLink = props => (
   <li>
@@ -17,30 +21,50 @@ const CardsetLink = props => (
   </li>
 );
 
-const Index = () => (
-  <Layout title="Rearn - index">
-    <StatTabs
-      labels={['10 sets', '612 cards', '8 folders']}
-      pages={['/sets', '/cards', '/folders']}
-    />
-    <LastInfo lastStudied="MAR10 14:38" lastSet="Flashcard folder 1" />
-    <DataList />
-    <CardsetLink title="Physics1" />
-    <RaisedButton label="Button test" />
-    <FloatingActionButton
-      backgroundColor={green800}
-      style={{
-        margin: 0,
-        top: 'auto',
-        right: 20,
-        bottom: 20,
-        left: 'auto',
-        position: 'fixed',
-      }}
-    >
-      <ContentAdd />
-    </FloatingActionButton>
-  </Layout>
-);
+class Index extends React.Component {
+  static getInitialProps({ store, isServer }) {
+    store.dispatch(serverRenderClock(isServer));
+    return { isServer };
+  }
 
-export default Index;
+  componentDidMount() {
+    this.timer = this.props.startClock();
+  }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  render() {
+    return (
+      <Layout title="Rearn - index">
+        <StatTabs
+          labels={['10 sets', '612 cards', '8 folders']}
+          pages={['/sets', '/cards', '/folders']}
+        />
+        <LastInfo lastStudied="MAR10 14:38" lastSet="Flashcard folder 1" />
+        <DataList />
+        <CardsetLink title="Physics1" />
+        <RaisedButton label="Button test" />
+        <FloatingActionButton
+          backgroundColor={green800}
+          style={{
+            margin: 0,
+            top: 'auto',
+            right: 20,
+            bottom: 20,
+            left: 'auto',
+            position: 'fixed',
+          }}
+        >
+          <ContentAdd />
+        </FloatingActionButton>
+      </Layout>
+    );
+  }
+}
+
+const mapDispatchToProps = dispatch => ({
+  startClock: bindActionCreators(startClock, dispatch),
+});
+
+export default withRedux(initStore, null, mapDispatchToProps)(Index);

@@ -28,6 +28,10 @@ const authRoutes = (server) => {
     // res.send(req.session.passport.user);
     res.send(req.user);
   });
+
+  server.get('/api/current_session', (req, res) => {
+    res.send(req.session);
+  });
 };
 
 export default authRoutes;

@@ -1,5 +1,5 @@
 import getRootUrl from '../lib/api/getRootUrl';
-import auth from './google';
+import authGoogle from './google';
 import authRoutes from './routes/authRoutes';
 
 const express = require('express');
@@ -38,7 +38,7 @@ app.prepare().then(() => {
     },
   }));
 
-  auth({ server, ROOT_URL });
+  authGoogle({ server, ROOT_URL });
   authRoutes(server);
 
   server.get('/service-worker.js', (req, res) => {
