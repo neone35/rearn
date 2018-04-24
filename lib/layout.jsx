@@ -4,7 +4,6 @@ import Head from 'next/head';
 import React from 'react';
 import Header from '../components/Header';
 import rearnTheme from './rearnTheme';
-import Clockolo from '../components/Clockolo';
 
 class Layout extends React.Component {
   componentDidMount() {

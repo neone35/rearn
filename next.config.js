@@ -4,24 +4,16 @@ const withSass = require('@zeit/next-sass');
 module.exports = withSass(withOffline({
   cssModules: true,
   workboxOpts: {
+    skipWaiting: true,
+    clientsClaim: true,
     runtimeCaching: [
       {
-        urlPattern: /\//,
-        handler: 'networkFirst',
-        options: {
-          cacheName: 'main',
-        },
-      },
-      {
-        urlPattern: /api/,
+        urlPattern: new RegExp('/api/'),
         handler: 'networkFirst',
         options: {
           cacheName: 'api',
           cacheableResponse: {
             statuses: [0, 200],
-            headers: {
-              'x-test': 'true',
-            },
           },
         },
       },
@@ -37,17 +29,13 @@ module.exports = withSass(withOffline({
         },
       },
       {
-        urlPattern: /\.(?:js|css)$/,
-        handler: 'staleWhileRevalidate',
-        options: {
-          cacheName: 'static',
-        },
-      },
-      {
         urlPattern: new RegExp('https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css'),
         handler: 'cacheFirst',
         options: {
           cacheName: 'bootstrap',
+          expiration: {
+            maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+          },
         },
       },
       {
@@ -58,6 +46,13 @@ module.exports = withSass(withOffline({
           expiration: {
             maxEntries: 30,
           },
+        },
+      },
+      {
+        urlPattern: /\/?[^_next]/, // root path at / (between true or false of '/' only)
+        handler: 'networkFirst',
+        options: {
+          cacheName: 'main',
         },
       },
     ],
