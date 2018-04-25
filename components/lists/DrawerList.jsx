@@ -7,22 +7,53 @@ import InfoIcon from 'material-ui/svg-icons/action/info';
 import { purple800 } from 'material-ui/styles/colors';
 import Link from 'next/link';
 
-const DrawerList = () => (
-  <List>
-    <Link href="/auth/google">
-      <ListItem
-        leftAvatar={<Avatar icon={<AcountCircle />} backgroundColor={purple800} />}
-        primaryText="Login"
-      />
-    </Link>
-    <Link href="/about">
-      <ListItem
-        leftAvatar={<Avatar icon={<InfoIcon />} backgroundColor={purple800} />}
-        primaryText="About"
-      />
-    </Link>
-  </List>
-);
+
+class DrawerList extends React.Component {
+  renderAuthList() {
+    let authButton = null;
+    const { user } = this.props;
+    if (user) {
+      authButton = (
+        <div>
+          <ListItem
+            leftAvatar={<Avatar src={user.avatarUrl} />}
+            primaryText={user.displayName}
+          />
+          <Link href="/api/logout">
+            <ListItem
+              leftAvatar={<Avatar icon={<AcountCircle />} backgroundColor={purple800} />}
+              primaryText="Logout"
+            />
+          </Link>
+        </div>
+      );
+    } else {
+      authButton = (
+        <Link href="/auth/google">
+          <ListItem
+            leftAvatar={<Avatar icon={<AcountCircle />} backgroundColor={purple800} />}
+            primaryText="Login"
+          />
+        </Link>
+      );
+    }
+    return authButton;
+  }
+
+  render() {
+    return (
+      <List>
+        {this.renderAuthList()}
+        <Link href="/about">
+          <ListItem
+            leftAvatar={<Avatar icon={<InfoIcon />} backgroundColor={purple800} />}
+            primaryText="About"
+          />
+        </Link>
+      </List>
+    );
+  }
+}
 
 function mapStateToProps(state) {
   return {

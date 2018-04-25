@@ -21,7 +21,7 @@ const authRoutes = (server) => {
 
   server.get('/api/logout', (req, res) => {
     req.logout();
-    res.redirect('/login');
+    res.redirect('/');
   });
 
   server.get('/api/current_user', (req, res) => {

@@ -2,7 +2,7 @@ import withRedux from 'next-redux-wrapper';
 import { bindActionCreators } from 'redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
-import { Card, CardHeader, CardText } from 'material-ui/Card';
+import { Card, CardHeader } from 'material-ui/Card';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import { green800 } from 'material-ui/styles/colors';
 import Link from 'next/link';
