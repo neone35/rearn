@@ -1,3 +1,4 @@
+import { connect } from 'react-redux';
 import React from 'react';
 import { List, ListItem } from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
@@ -23,4 +24,10 @@ const DrawerList = () => (
   </List>
 );
 
-export default DrawerList;
+function mapStateToProps(state) {
+  return {
+    user: state.user,
+  };
+}
+
+export default connect(mapStateToProps)(DrawerList);

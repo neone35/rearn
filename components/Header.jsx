@@ -6,11 +6,12 @@ import ActionSettings from 'material-ui/svg-icons/action/settings';
 import DrawerMenu from 'material-ui/svg-icons/navigation/menu';
 import DrawerClose from 'material-ui/svg-icons/navigation/close';
 import AutoComplete from 'material-ui/AutoComplete';
+import Avatar from 'material-ui/Avatar';
 import Drawer from 'material-ui/Drawer';
 import Fade from 'react-reveal/Zoom';
 import Link from 'next/link';
 import React from 'react';
-import { linkStyle, titleStyle } from '../lib/sharedStyles';
+import { linkStyle, titleStyle, avatarStyle } from '../lib/sharedStyles';
 import DrawerList from '../components/lists/DrawerList';
 
 
@@ -45,6 +46,67 @@ class Header extends React.Component {
     });
   }
 
+  renderButtons() {
+    let appBarButtons = null;
+    if (this.props.user) {
+      appBarButtons = (
+        <span>
+          <IconButton tooltip="Search" iconStyle={linkStyle}>
+            <ActionSearch onClick={this.handleSearchClick} />
+          </IconButton>
+          <Link href="/settings">
+            <IconButton tooltip="Settings" iconStyle={linkStyle}>
+              <ActionSettings />
+            </IconButton>
+          </Link>
+        </span>
+      );
+    } else {
+      return appBarButtons;
+    }
+    return appBarButtons;
+  }
+
+  renderDrawer() {
+    const drawer = (
+      <Drawer
+        open={this.state.openDrawer}
+        docked={false}
+        onRequestChange={openDrawer => this.setState({ openDrawer })}
+        width={185}
+        containerStyle={{ top: '50px' }}
+      >
+        <DrawerList />
+      </Drawer>
+    );
+    return drawer;
+  }
+
+  renderAvatarMenu() {
+    const { user } = this.props;
+    const avatarMenu = (
+      <div>
+        { this.state.openDrawer ?
+          <IconButton iconStyle={linkStyle} onClick={this.handleDrawer}>
+            <DrawerClose />
+          </IconButton>
+          :
+          <Avatar src={user.avatarUrl} onClick={this.handleDrawer} style={avatarStyle} />}
+      </div>
+    );
+    return avatarMenu;
+  }
+
+  renderLoginMenu() {
+    const loginMenu = (
+      <IconButton iconStyle={linkStyle} onClick={this.handleDrawer}>
+        { this.state.openDrawer ?
+          <DrawerClose /> : <DrawerMenu /> }
+      </IconButton>
+    );
+    return loginMenu;
+  }
+
   render() {
     const { user } = this.props;
     return (
@@ -57,31 +119,12 @@ class Header extends React.Component {
           }
           iconElementLeft={
             <div>
-              <IconButton iconStyle={linkStyle} onClick={this.handleDrawer}>
-                { this.state.openDrawer ?
-                  <DrawerClose /> : <DrawerMenu />}
-              </IconButton>
               {user ?
-                <Drawer
-                  open={this.state.openDrawer}
-                  docked={false}
-                  onRequestChange={openDrawer => this.setState({ openDrawer })}
-                  width={185}
-                  containerStyle={{ top: '50px' }}
-                >
-                  <DrawerList />
-                </Drawer>
-                :
-                <Drawer
-                  open={this.state.openDrawer}
-                  docked={false}
-                  onRequestChange={openDrawer => this.setState({ openDrawer })}
-                  width={185}
-                  containerStyle={{ top: '50px' }}
-                >
-                  <DrawerList />
-                </Drawer>
+                this.renderAvatarMenu()
+              :
+                this.renderLoginMenu()
               }
+              {this.renderDrawer()}
             </div>
           }
           iconElementRight={
@@ -99,14 +142,7 @@ class Header extends React.Component {
                   </Fade>
                 </div>
                 : null }
-              <IconButton tooltip="Search" iconStyle={linkStyle}>
-                <ActionSearch onClick={this.handleSearchClick} />
-              </IconButton>
-              <Link href="/settings">
-                <IconButton tooltip="Settings" iconStyle={linkStyle}>
-                  <ActionSettings />
-                </IconButton>
-              </Link>
+              {this.renderButtons()}
             </div>
           }
         />

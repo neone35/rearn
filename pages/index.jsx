@@ -2,6 +2,7 @@ import withRedux from 'next-redux-wrapper';
 import { bindActionCreators } from 'redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
+import { Card, CardHeader, CardText } from 'material-ui/Card';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import { green800 } from 'material-ui/styles/colors';
 import Link from 'next/link';
@@ -9,8 +10,10 @@ import React from 'react';
 import Layout from '../lib/layout';
 import StatTabs from '../components/StatTabs';
 import LastInfo from '../components/LastInfo';
-import DataList from '../components/DataList';
+import DemoList from '../components/DemoList';
+import DrawerList from '../components/lists/DrawerList';
 import { initStore, fetchUser } from '../server/store';
+import { floatingBtnStyle } from '../lib/sharedStyles';
 
 
 const CardsetLink = props => (
@@ -41,26 +44,26 @@ class Index extends React.Component {
             pages={['/sets', '/cards', '/folders']}
           />
           <LastInfo lastStudied="MAR10 14:38" lastSet="Flashcard folder 1" />
-          <DataList />
+          <DemoList />
           <CardsetLink title="Physics1" />
           <RaisedButton label="Button test" />
           <FloatingActionButton
             backgroundColor={green800}
-            style={{
-              margin: 0,
-              top: 'auto',
-              right: 20,
-              bottom: 20,
-              left: 'auto',
-              position: 'fixed',
-            }}
+            style={floatingBtnStyle}
           >
             <ContentAdd />
           </FloatingActionButton>
         </div>
       );
     } else {
-      layoutChildren = null;
+      layoutChildren = (
+        <Card>
+          <CardHeader
+            title="Login please"
+          />
+          <DrawerList />
+        </Card>
+      );
     }
     return layoutChildren;
   }
