@@ -36,7 +36,7 @@ class Header extends React.Component {
 
   handleSearchClick() {
     this.setState({
-      showSearch: true,
+      showSearch: !this.state.showSearch,
     });
   }
 

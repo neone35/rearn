@@ -6,26 +6,34 @@ import Header from '../components/Header';
 import rearnTheme from './rearnTheme';
 
 class Layout extends React.Component {
-  componentDidMount() {
+  renderLayoutContent() {
+    let layoutContent = null;
+    const { isMobile } = this.props.agent;
+    layoutContent = (
+      <div style={isMobile ?
+          { width: '100%' }
+          :
+          { width: '80%', margin: '0 auto' }}
+      >
+        <Head>
+          <title>{this.props.title}</title>
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        </Head>
+        <Header />
+        {this.props.children}
+        <footer>
+          <span />
+        </footer>
+      </div>
+    );
+    return layoutContent;
   }
 
   render() {
-    const { user } = this.props;
     return (
-      <MuiThemeProvider muiTheme={rearnTheme}>
-        <div className="container">
-          <Head>
-            <title>{this.props.title}</title>
-            <meta charSet="utf-8" />
-            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          </Head>
-          <Header />
-          <p>{user.googleId}</p>
-          {this.props.children}
-          <footer>
-            <span />
-          </footer>
-        </div>
+      <MuiThemeProvider muiTheme={rearnTheme(this.props.agent)}>
+        {this.renderLayoutContent()}
       </MuiThemeProvider>
     );
   }
@@ -33,9 +41,7 @@ class Layout extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    lastUpdate: state.lastUpdate,
-    light: state.light,
-    user: state.user,
+    agent: state.agent,
   };
 }
 

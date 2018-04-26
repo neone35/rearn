@@ -7,11 +7,13 @@ const initialState = {
   lastUpdate: 0,
   light: false,
   user: 0,
+  agent: 0,
 };
 
 export const actionTypes = {
   TICK: 'TICK',
   FETCH_USER: 'FETCH_USER',
+  USER_AGENT: 'USER_AGENT',
 };
 
 // REDUCERS
@@ -19,9 +21,10 @@ export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.TICK:
       return Object.assign({}, state, { lastUpdate: action.ts, light: !!action.light });
-    case actionTypes.FETCH_USER: {
+    case actionTypes.FETCH_USER:
       return Object.assign({}, state, { user: action.payload });
-    }
+    case actionTypes.USER_AGENT:
+      return Object.assign({}, state, { agent: action.payload });
     default: return state;
   }
 };
@@ -31,6 +34,12 @@ export const fetchUser = () => async (dispatch) => {
   const ROOT_URL = getRootUrl();
   const resUser = await axios.get(`${ROOT_URL}/api/current_user`);
   dispatch({ type: actionTypes.FETCH_USER, payload: resUser.data });
+};
+
+export const getUserAgent = () => async (dispatch) => {
+  const ROOT_URL = getRootUrl();
+  const resAgent = await axios.get(`${ROOT_URL}/api/useragent`);
+  dispatch({ type: actionTypes.USER_AGENT, payload: resAgent.data });
 };
 
 export const serverRenderClock = isServer => dispatch =>

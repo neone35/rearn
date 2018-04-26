@@ -45,10 +45,12 @@ class DrawerList extends React.Component {
       <List>
         {this.renderAuthList()}
         <Link href="/about">
-          <ListItem
-            leftAvatar={<Avatar icon={<InfoIcon />} backgroundColor={purple800} />}
-            primaryText="About"
-          />
+          <a>
+            <ListItem
+              leftAvatar={<Avatar icon={<InfoIcon />} backgroundColor={purple800} />}
+              primaryText="About"
+            />
+          </a>
         </Link>
       </List>
     );

@@ -17,6 +17,7 @@ const handle = app.getRequestHandler();
 const port = process.env.PORT || 4000;
 const ROOT_URL = getRootUrl();
 const { MONGO_URL } = process.env;
+const useragent = require('express-useragent');
 
 mongoose.connect(MONGO_URL);
 
@@ -48,6 +49,11 @@ app.prepare().then(() => {
 
   server.get('/cardset/:title', (req, res) => {
     app.render(req, res);
+  });
+
+  server.use(useragent.express());
+  server.get('/api/useragent', (req, res) => {
+    res.send(req.useragent);
   });
 
   server.get('*', (req, res) => handle(req, res));

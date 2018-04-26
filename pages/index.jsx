@@ -12,9 +12,8 @@ import StatTabs from '../components/StatTabs';
 import LastInfo from '../components/LastInfo';
 import DemoList from '../components/DemoList';
 import DrawerList from '../components/lists/DrawerList';
-import { initStore, fetchUser } from '../server/store';
+import { initStore, fetchUser, getUserAgent } from '../server/store';
 import { floatingBtnStyle } from '../lib/sharedStyles';
-
 
 const CardsetLink = props => (
   <li>
@@ -25,20 +24,22 @@ const CardsetLink = props => (
 );
 
 class Index extends React.Component {
-  static getInitialProps({ store, isServer }) {
-    store.dispatch(fetchUser());
-    return { isServer };
-  }
+  // static getInitialProps({ store, isServer }) {
+  //   store.dispatch(fetchUser());
+  //   store.dispatch(getUserAgent());
+  //   return { isServer };
+  // }
 
   componentDidMount() {
     this.props.fetchUser();
+    this.props.getUserAgent();
   }
 
   renderLayoutChildren() {
     let layoutChildren = null;
     if (this.props.user) {
       layoutChildren = (
-        <div>
+        <div style={{ position: 'relative' }}>
           <StatTabs
             labels={['10 sets', '612 cards', '8 folders']}
             pages={['/sets', '/cards', '/folders']}
@@ -79,11 +80,13 @@ class Index extends React.Component {
 
 const mapDispatchToProps = dispatch => ({
   fetchUser: bindActionCreators(fetchUser, dispatch),
+  getUserAgent: bindActionCreators(getUserAgent, dispatch),
 });
 
 function mapStateToProps(state) {
   return {
     user: state.user,
+    agent: state.agent,
   };
 }
 
