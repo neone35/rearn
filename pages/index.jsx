@@ -5,15 +5,19 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import { Card, CardHeader } from 'material-ui/Card';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import { green800 } from 'material-ui/styles/colors';
+import CloseIcon from 'material-ui/svg-icons/navigation/close';
 import Link from 'next/link';
+import Jump from 'react-reveal/Jump';
+import Fade from 'react-reveal/Fade';
 import React from 'react';
 import Layout from '../lib/layout';
 import StatTabs from '../components/StatTabs';
 import LastInfo from '../components/LastInfo';
 import DemoList from '../components/DemoList';
 import DrawerList from '../components/lists/DrawerList';
+import CreateTabs from '../components/CreateTabs';
 import { initStore, fetchUser, getUserAgent } from '../server/store';
-import { floatingBtnStyle } from '../lib/sharedStyles';
+import { floatingBtnStyle, floatingBtnCloseStyle } from '../lib/sharedStyles';
 
 const CardsetLink = props => (
   <li>
@@ -29,10 +33,52 @@ class Index extends React.Component {
   //   store.dispatch(getUserAgent());
   //   return { isServer };
   // }
+  constructor(props) {
+    super(props);
+    this.state = { floatClicked: false };
+    this.handleFloatClick = this.handleFloatClick.bind(this);
+  }
 
   componentDidMount() {
     this.props.fetchUser();
     this.props.getUserAgent();
+  }
+
+  handleFloatClick() {
+    this.setState({
+      floatClicked: !this.state.floatClicked,
+    });
+  }
+
+  renderCreateTabs() {
+    const createTabs = (
+      <div>
+        { this.state.floatClicked ?
+          <div>
+            <Jump duration={500}>
+              <FloatingActionButton
+                backgroundColor={green800}
+                style={floatingBtnStyle}
+                onClick={this.handleFloatClick}
+              >
+                <CloseIcon />
+              </FloatingActionButton>
+            </Jump>
+            <Fade duration={500} bottom>
+              <CreateTabs />
+            </Fade>
+          </div>
+          :
+          <FloatingActionButton
+            backgroundColor={green800}
+            style={floatingBtnStyle}
+            onClick={this.handleFloatClick}
+          >
+            <ContentAdd />
+          </FloatingActionButton> }
+      </div>
+    );
+    return createTabs;
   }
 
   renderLayoutChildren() {
@@ -46,14 +92,12 @@ class Index extends React.Component {
           />
           <LastInfo lastStudied="MAR10 14:38" lastSet="Flashcard folder 1" />
           <DemoList />
+          { /*
           <CardsetLink title="Physics1" />
           <RaisedButton label="Button test" />
-          <FloatingActionButton
-            backgroundColor={green800}
-            style={floatingBtnStyle}
-          >
-            <ContentAdd />
-          </FloatingActionButton>
+          */
+          }
+          { this.renderCreateTabs() }
         </div>
       );
     } else {

@@ -6,7 +6,7 @@ import Header from '../components/Header';
 import rearnTheme from './rearnTheme';
 
 class Layout extends React.Component {
-  renderLayoutContent() {
+  renderRoot() {
     let layoutContent = null;
     const { isMobile } = this.props.agent;
     layoutContent = (
@@ -33,7 +33,7 @@ class Layout extends React.Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={rearnTheme(this.props.agent)}>
-        {this.renderLayoutContent()}
+        {this.renderRoot()}
       </MuiThemeProvider>
     );
   }
