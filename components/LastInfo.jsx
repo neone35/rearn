@@ -6,11 +6,16 @@ const LastInfo = props => (
   <Link href="/settings">
     <Toolbar style={{ cursor: 'pointer' }}>
       <ToolbarGroup>
-        <ToolbarTitle text="Last studied" style={{ color: 'white', fontSize: '0.8em' }} />
-        <ToolbarTitle text={props.lastStudied} style={{ color: 'white' }} />
+        <ToolbarTitle
+          text={['Last studied', <br />, props.lastStudied]}
+          style={{ color: 'white', fontSize: '0.8em', lineHeight: '1rem' }}
+        />
       </ToolbarGroup>
       <ToolbarGroup lastChild>
-        <ToolbarTitle text={props.lastSet} style={{ color: 'white' }} />
+        <ToolbarTitle
+          text={props.lastSet}
+          style={{ color: 'white', fontVariant: 'small-caps' }}
+        />
       </ToolbarGroup>
     </Toolbar>
   </Link>

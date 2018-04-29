@@ -1,32 +1,33 @@
 import Error from 'next/error';
 import withRedux from 'next-redux-wrapper';
 import React from 'react';
-import Layout from '../lib/layout';
 import { initStore, fetchUser } from '../server/store';
+import Layout from '../lib/layout';
 
-class Settings extends React.Component {
+
+class AddSet extends React.Component {
   componentDidMount() {
     this.props.fetchUser();
   }
 
-  renderSettings() {
+  renderAddSet() {
     const { user } = this.props;
     const statusCode = user ? false : 401;
-    let settingsPage = null;
+    let addset = null;
     if (user) {
-      settingsPage = (
-        <p>Welcome to Settings, {user.displayName}!</p>
+      addset = (
+        <p>You can add set!</p>
       );
     } else {
       return <Error statusCode={statusCode} />;
     }
-    return settingsPage;
+    return addset;
   }
 
   render() {
     return (
-      <Layout title="Rearn - settings">
-        { this.renderSettings() }
+      <Layout title="Rearn - create new set">
+        { this.renderAddSet() }
       </Layout>
     );
   }
@@ -42,5 +43,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(Settings);
-
+export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(AddSet);

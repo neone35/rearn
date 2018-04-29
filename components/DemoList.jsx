@@ -13,14 +13,14 @@ const DemoList = () => (
       {/* folder */}
       <ListItem
         leftAvatar={<Avatar icon={<FileFolder />} backgroundColor={purple800} />}
-        rightIcon={<p style={{ color: 'blue' }}>60%</p>}
+        rightIcon={<p style={{ color: 'blue', marginRight: '1.5em', fontSize: '1.5em' }}>60%</p>}
         primaryText="Physics folder"
         secondaryText="5 sets"
       />
       {/* set */}
       <ListItem
         leftAvatar={<Avatar icon={<ViewCarousel />} backgroundColor="#33869F" />}
-        rightIcon={<p style={{ color: 'green' }}>75%</p>}
+        rightIcon={<p style={{ color: 'green', marginRight: '1.5em', fontSize: '1.5em' }}>75%</p>}
         primaryText="Geography islands"
         secondaryText="88 cards"
       />

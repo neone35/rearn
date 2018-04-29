@@ -1,12 +1,10 @@
 import withRedux from 'next-redux-wrapper';
 import { bindActionCreators } from 'redux';
-import RaisedButton from 'material-ui/RaisedButton';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import { Card, CardHeader } from 'material-ui/Card';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import { green800 } from 'material-ui/styles/colors';
 import CloseIcon from 'material-ui/svg-icons/navigation/close';
-import Link from 'next/link';
 import Jump from 'react-reveal/Jump';
 import Fade from 'react-reveal/Fade';
 import React from 'react';
@@ -17,15 +15,15 @@ import DemoList from '../components/DemoList';
 import DrawerList from '../components/lists/DrawerList';
 import CreateTabs from '../components/CreateTabs';
 import { initStore, fetchUser, getUserAgent } from '../server/store';
-import { floatingBtnStyle, floatingBtnCloseStyle } from '../lib/sharedStyles';
+import { floatingBtnStyle } from '../lib/sharedStyles';
 
-const CardsetLink = props => (
-  <li>
-    <Link href={`/cardset?title=${props.title}`}>
-      <a>{props.title}</a>
-    </Link>
-  </li>
-);
+// const CardsetLink = props => (
+//   <li>
+//     <Link href={`/cardset?title=${props.title}`}>
+//       <a>{props.title}</a>
+//     </Link>
+//   </li>
+// );
 
 class Index extends React.Component {
   // static getInitialProps({ store, isServer }) {

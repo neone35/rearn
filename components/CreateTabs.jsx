@@ -24,7 +24,7 @@ class CreateTabs extends React.Component {
           buttonStyle={{ backgroundColor: green800, color: 'white' }}
           label="Folder"
           value="folder"
-          icon={<FileFolder />}
+          icon={<FileFolder color="white" />}
           onActive={handleActive}
           dataroute="/about"
         />
@@ -32,9 +32,9 @@ class CreateTabs extends React.Component {
           buttonStyle={{ backgroundColor: green800, color: 'white' }}
           label="Set"
           value="set"
-          icon={<ViewCarousel />}
+          icon={<ViewCarousel color="white" />}
           onActive={handleActive}
-          dataroute="/settings"
+          dataroute="/addset"
         />
       </Tabs>
     );
