@@ -1,9 +1,8 @@
 import Error from 'next/error';
 import withRedux from 'next-redux-wrapper';
 import React from 'react';
-import { initStore, fetchUser } from '../server/store';
+import { initStore, fetchUser, submitForm } from '../server/store';
 import Layout from '../lib/layout';
-
 
 class AddSet extends React.Component {
   componentDidMount() {
@@ -35,11 +34,13 @@ class AddSet extends React.Component {
 
 const mapDispatchToProps = dispatch => ({
   fetchUser: () => dispatch(fetchUser()),
+  handleSubmit: () => dispatch(submitForm('addset')),
 });
 
 function mapStateToProps(state) {
   return {
     user: state.user,
+    form: state.form,
   };
 }
 

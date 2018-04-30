@@ -2,23 +2,50 @@ import React from 'react';
 import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
 import Link from 'next/link';
 
-const LastInfo = props => (
-  <Link href="/settings">
-    <Toolbar style={{ cursor: 'pointer' }}>
+
+class LastInfo extends React.Component {
+  renderLastTime() {
+    const { lastStudied } = this.props;
+    let lasttime = null;
+    lasttime = (
       <ToolbarGroup>
         <ToolbarTitle
-          text={['Last studied', <br />, props.lastStudied]}
+          text={[
+            <span key="Last studied">Last studied</span>,
+            <br key="br" />,
+            <span key={lastStudied}>{lastStudied}</span>,
+          ]}
           style={{ color: 'white', fontSize: '0.8em', lineHeight: '1rem' }}
         />
       </ToolbarGroup>
+    );
+    return lasttime;
+  }
+
+  renderLastSetName() {
+    const { lastSet } = this.props;
+    let lastsetname = null;
+    lastsetname = (
       <ToolbarGroup lastChild>
         <ToolbarTitle
-          text={props.lastSet}
+          text={lastSet}
           style={{ color: 'white', fontVariant: 'small-caps' }}
         />
       </ToolbarGroup>
-    </Toolbar>
-  </Link>
-);
+    );
+    return lastsetname;
+  }
+
+  render() {
+    return (
+      <Link href="/settings">
+        <Toolbar style={{ cursor: 'pointer' }}>
+          {this.renderLastTime()}
+          {this.renderLastSetName()}
+        </Toolbar>
+      </Link>
+    );
+  }
+}
 
 export default LastInfo;
