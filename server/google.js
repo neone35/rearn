@@ -3,6 +3,8 @@ import { OAuth2Strategy as GoogleStrategy } from 'passport-google-oauth';
 
 import User from './models/User';
 
+const dev = process.env.NODE_ENV !== 'production';
+
 async function signUp(done, profile) {
   try {
     const newUser = await new User({
@@ -23,8 +25,8 @@ async function signUp(done, profile) {
 export default function auth({ ROOT_URL, server }) {
   passport.use(new GoogleStrategy(
     {
-      clientID: process.env.GoogleClientID,
-      clientSecret: process.env.GoogleClientSecret,
+      clientID: dev ? process.env.GoogleClientIDDev : process.env.GoogleClientIDProd,
+      clientSecret: dev ? process.env.GoogleClientSecretDev : process.env.GoogleClientSecretProd,
       callbackURL: `${ROOT_URL}/oauth2callback`,
     },
     async (accessToken, refreshToken, profile, done) => {

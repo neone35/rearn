@@ -1,8 +1,10 @@
 import Error from 'next/error';
 import withRedux from 'next-redux-wrapper';
 import React from 'react';
-import { initStore, fetchUser, submitForm } from '../server/store';
+import { initStore, fetchUser } from '../server/store';
 import Layout from '../lib/layout';
+import SetForm from '../components/SetForm';
+
 
 class AddSet extends React.Component {
   componentDidMount() {
@@ -11,11 +13,13 @@ class AddSet extends React.Component {
 
   renderAddSet() {
     const { user } = this.props;
+    // console.log(this.props);
+    // console.log(this.props.form);
     const statusCode = user ? false : 401;
     let addset = null;
     if (user) {
       addset = (
-        <p>You can add set!</p>
+        <SetForm onSubmit={values => console.log(values)} />
       );
     } else {
       return <Error statusCode={statusCode} />;
@@ -34,7 +38,6 @@ class AddSet extends React.Component {
 
 const mapDispatchToProps = dispatch => ({
   fetchUser: () => dispatch(fetchUser()),
-  handleSubmit: () => dispatch(submitForm('addset')),
 });
 
 function mapStateToProps(state) {
