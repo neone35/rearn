@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "test": "eslint pages components lib",
     "dev": "nodemon server/server.js --watch server --exec babel-node server/server.js",
     "port": "cross-env PORT=4000 npm start",
