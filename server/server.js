@@ -8,6 +8,7 @@ const next = require('next');
 const { join } = require('path');
 const mongoose = require('mongoose');
 const MongoSessionStore = require('connect-mongo')(expressSession);
+const cors = require('cors');
 
 const dev = process.env.NODE_ENV !== 'production';
 // eslint-disable-next-line
@@ -25,6 +26,7 @@ mongoose.connect(MONGO_URL);
 // Nextjs's server preparation
 app.prepare().then(() => {
   const server = express();
+  server.use(cors());
 
   server.use(expressSession({ // create session middleware object
     name: 'rearn.sid', // session objectID for browser, used to read from REQ / write to RES
