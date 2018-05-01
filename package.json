@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "next build",
-    "start": "cross-env NODE_ENV=production next start -p $PORT",
+    "start": "cross-env NODE_ENV=production babel-node server/server.js -p $PORT",
     "test": "eslint pages components lib",
     "dev": "nodemon server/server.js --watch server --exec babel-node server/server.js",
     "port": "cross-env PORT=4000 npm start",
