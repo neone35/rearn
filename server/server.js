@@ -18,7 +18,7 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 const port = process.env.PORT || 4000;
 const ROOT_URL = getRootUrl();
-const { MONGO_URL } = process.env;
+const { MONGO_URL, SESSION_SECRET } = process.env;
 const useragent = require('express-useragent');
 
 mongoose.connect(MONGO_URL);
@@ -30,7 +30,7 @@ app.prepare().then(() => {
 
   server.use(expressSession({ // create session middleware object
     name: 'rearn.sid', // session objectID for browser, used to read from REQ / write to RES
-    secret: 'HD2w.)q*VqRT/bgf.4/#NK2M/,E^B)}FED5ftger4-ggh7781WU!dKe[wk',
+    secret: SESSION_SECRET,
     store: new MongoSessionStore({ // create 'sessions' collection
       mongooseConnection: mongoose.connection,
     }),

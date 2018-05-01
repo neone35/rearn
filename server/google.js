@@ -23,11 +23,7 @@ async function signUp(done, profile) {
 }
 
 export default function auth({ ROOT_URL, server }) {
-  const googleClientID =
-    dev ? process.env.GoogleClientIDDev : process.env.GoogleClientIDProd;
-  const googleClientSecret =
-    dev ? process.env.GoogleClientSecretDev : process.env.GoogleClientSecretProd;
-  console.log(googleClientID);
+  const { googleClientID, googleClientSecret } = process.env;
   passport.use(new GoogleStrategy(
     {
       clientID: googleClientID,
