@@ -19,6 +19,7 @@ class AddSet extends React.Component {
     let addset = null;
     if (user) {
       addset = (
+        // eslint-disable-next-line
         <SetForm onSubmit={values => console.log(values)} />
       );
     } else {
