@@ -21,11 +21,11 @@ async function signUp(done, profile) {
 }
 
 export default function auth({ ROOT_URL, server }) {
-  const { googleClientID, googleClientSecret } = process.env;
+  const { GoogleClientID, GoogleClientSecret } = process.env;
   passport.use(new GoogleStrategy(
     {
-      clientID: googleClientID,
-      clientSecret: googleClientSecret,
+      clientID: GoogleClientID,
+      clientSecret: GoogleClientSecret,
       callbackURL: `${ROOT_URL}/oauth2callback`,
     },
     async (accessToken, refreshToken, profile, done) => {
