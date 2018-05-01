@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "8.9.3",
+    "npm": "5.8.0"
+  },
   "scripts": {
     "build": "next build",
     "start": "cross-env NODE_ENV=production babel-node server/server.js",
@@ -11,7 +15,8 @@
     "port": "cross-env PORT=4000 npm start",
     "prod": "yarn build && cross-env NODE_ENV=production babel-node server/server.js",
     "precommit": "yarn test",
-    "prepush": "yarn test"
+    "prepush": "yarn test",
+    "heroku-postbuild": "NPM_CONFIG_PROCUCTION=false yarn install && next build"
   },
   "keywords": [],
   "author": "",
