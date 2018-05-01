@@ -5,11 +5,11 @@
   "main": "index.js",
   "engines": {
     "node": "8.9.3",
-    "npm": "5.8.0"
+    "npm": "5.6.0"
   },
   "scripts": {
     "build": "next build",
-    "start": "cross-env NODE_ENV=production babel-node server/server.js",
+    "start": "cross-env NODE_ENV=production node server/server.js",
     "test": "eslint pages components lib",
     "dev": "nodemon server/server.js --watch server --exec babel-node server/server.js",
     "port": "cross-env PORT=4000 npm start",
