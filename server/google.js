@@ -36,6 +36,7 @@ export default function auth({ ROOT_URL, server }) {
     },
     async (accessToken, refreshToken, profile, done) => {
       const existingUser = await User.findOne({ googleId: profile.id });
+      console.log(existingUser);
       // Check if user exists
       if (existingUser) {
         done(null, existingUser); // no error!, here is user

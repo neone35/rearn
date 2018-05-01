@@ -8,7 +8,7 @@
     "start": "cross-env NODE_ENV=production babel-node server/server.js",
     "test": "eslint pages components lib",
     "dev": "nodemon server/server.js --watch server --exec babel-node server/server.js",
-    "port": "cross-env PORT=4000 npm start",
+    "port": "cross-env PORT=4000 yarn start",
     "prod": "yarn build && cross-env NODE_ENV=production babel-node server/server.js",
     "precommit": "yarn test",
     "prepush": "yarn test",
