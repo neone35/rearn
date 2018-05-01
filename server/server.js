@@ -9,9 +9,10 @@ const { join } = require('path');
 const mongoose = require('mongoose');
 const MongoSessionStore = require('connect-mongo')(expressSession);
 
-require('dotenv').config(); // map .env file vars into process.env
-
 const dev = process.env.NODE_ENV !== 'production';
+// eslint-disable-next-line
+if (dev) require('dotenv').config(); // map .env file vars into process.env
+
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const port = process.env.PORT || 4000;
