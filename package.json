@@ -16,7 +16,7 @@
     "prod": "yarn build && cross-env NODE_ENV=production babel-node server/server.js",
     "precommit": "yarn test",
     "prepush": "yarn test",
-    "heroku-postbuild": "NPM_CONFIG_PROCUCTION=false yarn install && next build"
+    "heroku-postbuild": "next build"
   },
   "keywords": [],
   "author": "",
