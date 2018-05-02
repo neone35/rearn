@@ -16,6 +16,7 @@ import DrawerList from '../components/lists/DrawerList';
 import CreateTabs from '../components/CreateTabs';
 import { initStore, fetchUser, getUserAgent } from '../server/store';
 import { floatingBtnStyle } from '../lib/sharedStyles';
+import scss from '../static/style.scss';
 
 // const CardsetLink = props => (
 //   <li>

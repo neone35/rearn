@@ -52,8 +52,6 @@ app.prepare().then(() => {
     app.serveStatic(req, res, filePath);
   });
 
-  server.use('/static', express.static(join(__dirname, '.next/static')));
-
   server.get('/cardset/:title', (req, res) => {
     app.render(req, res);
   });

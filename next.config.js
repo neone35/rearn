@@ -1,8 +1,11 @@
 const withOffline = require('next-offline');
 const withSass = require('@zeit/next-sass');
 
-module.exports = withSass(withOffline({
+const sassOpts = {
   cssModules: true,
+};
+
+const workboxOpts = {
   workboxOpts: {
     skipWaiting: true,
     clientsClaim: true,
@@ -57,4 +60,10 @@ module.exports = withSass(withOffline({
       },
     ],
   },
+};
+
+
+module.exports = withSass(withOffline({
+  sassOpts,
+  workboxOpts,
 }));
