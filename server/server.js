@@ -1,3 +1,4 @@
+// Only ES5 (old) is allowed in this file, but ES6 can be used in required files
 require('babel-register');
 
 const getRootUrl = require('../lib/api/getRootUrl');
@@ -11,6 +12,7 @@ const { join } = require('path');
 const mongoose = require('mongoose');
 const MongoSessionStore = require('connect-mongo')(expressSession);
 const cors = require('cors');
+const compression = require('compression');
 
 const dev = process.env.NODE_ENV !== 'production';
 // eslint-disable-next-line
@@ -28,7 +30,8 @@ mongoose.connect(MONGO_URL);
 // Nextjs's server preparation
 app.prepare().then(() => {
   const server = express();
-  server.use(cors());
+  server.use(cors()); // allow to request files from external domains
+  server.use(compression()); // compress files for faster load of PWA
 
   server.use(expressSession({ // create session middleware object
     name: 'rearn.sid', // session objectID for browser, used to read from REQ / write to RES
