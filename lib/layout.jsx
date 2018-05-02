@@ -8,12 +8,12 @@ import rearnTheme from './rearnTheme';
 class Layout extends React.Component {
   renderRoot() {
     let layoutContent = null;
-    const { isMobile } = this.props.agent;
+    const { isDesktop } = this.props.agent;
     layoutContent = (
-      <div style={isMobile ?
-          { width: '100%' }
+      <div style={isDesktop ?
+        { width: '80%', margin: '0 auto' }
           :
-          { width: '80%', margin: '0 auto' }}
+        { width: '100%' }}
       >
         <Head>
           <title>{this.props.title}</title>

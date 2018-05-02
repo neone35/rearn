@@ -1,6 +1,8 @@
-import getRootUrl from '../lib/api/getRootUrl';
-import authGoogle from './google';
-import authRoutes from './routes/authRoutes';
+require('babel-register');
+
+const getRootUrl = require('../lib/api/getRootUrl');
+const authGoogle = require('./google');
+const authRoutes = require('./routes/authRoutes');
 
 const express = require('express');
 const expressSession = require('express-session');
@@ -49,6 +51,8 @@ app.prepare().then(() => {
     const filePath = join(__dirname, '..', '.next', req.originalUrl);
     app.serveStatic(req, res, filePath);
   });
+
+  server.use('/static', express.static(join(__dirname, '.next/static')));
 
   server.get('/cardset/:title', (req, res) => {
     app.render(req, res);

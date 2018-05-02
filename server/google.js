@@ -20,7 +20,7 @@ async function signUp(done, profile) {
   }
 }
 
-export default function auth({ ROOT_URL, server }) {
+module.exports = function auth({ ROOT_URL, server }) {
   const { GoogleClientID, GoogleClientSecret } = process.env;
   passport.use(new GoogleStrategy(
     {
@@ -51,4 +51,4 @@ export default function auth({ ROOT_URL, server }) {
 
   server.use(passport.initialize());
   server.use(passport.session()); // Use expressSession
-}
+};

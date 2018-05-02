@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build": "next build",
-    "start": "cross-env NODE_ENV=production babel-node server/server.js",
+    "start": "cross-env NODE_ENV=production node server/server.js",
     "test": "eslint pages components lib",
-    "dev": "nodemon server/server.js --watch server --exec babel-node server/server.js",
+    "dev": "nodemon server/server.js --watch server --exec node server/server.js",
     "port": "cross-env PORT=4000 yarn start",
-    "prod": "yarn build && cross-env NODE_ENV=production babel-node server/server.js",
+    "prod": "yarn build && cross-env NODE_ENV=production node server/server.js",
     "precommit": "yarn test",
     "prepush": "yarn test",
     "heroku-postbuild": "yarn build"
@@ -20,8 +20,7 @@
   "dependencies": {
     "@zeit/next-sass": "^0.1.2",
     "axios": "^0.18.0",
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
     "bootstrap": "4.0.0",
     "bootstrap-material-design": "^4.1.1",
     "connect-mongo": "^2.0.1",
@@ -45,17 +44,17 @@
     "react-popper": "^0.10.1",
     "react-redux": "^5.0.7",
     "react-reveal": "^1.2.1",
-    "react-transition-group": "^2.3.0",
     "redux": "^4.0.0",
     "redux-form": "^7.3.0",
     "redux-thunk": "^2.2.0",
-    "styled-jsx": "^2.2.6",
     "workbox-background-sync": "^3.0.1"
   },
   "browserslist": [
     "> 1%"
   ],
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "eslint": "4.9.0",
     "eslint-config-airbnb": "16.1.0",
     "eslint-plugin-compat": "^2.2.0",
