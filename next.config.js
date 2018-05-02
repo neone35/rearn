@@ -62,8 +62,9 @@ const workboxOpts = {
   },
 };
 
+const opts = Object.assign(sassOpts, workboxOpts);
+console.log(opts);
 
 module.exports = withSass(withOffline({
-  sassOpts,
-  workboxOpts,
+  opts,
 }));
