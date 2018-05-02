@@ -9,4 +9,4 @@ deploy:
   provider: heroku
   app: rearn-flashcard-app
   api_key:
-    secure: "77443ae5-06d5-4f0f-96a6-d610737f84b8"
+    secure: $HEROKU_API_KEY
