@@ -70,7 +70,7 @@ class SetForm extends React.Component {
     const { handleSubmit } = this.props;
     return (
       <form onSubmit={handleSubmit(values => console.log(values))}>
-        <div>
+        <div className="container-fluid">
           <CardTitle>
             <Field
               name="setName"
@@ -78,16 +78,28 @@ class SetForm extends React.Component {
               hint="Set name"
             />
           </CardTitle>
-          <Card>
-            <CardText>
-              <Fields
-                names={['cardQuestion', 'cardAnswer', 'cardHint']}
-                hints={['Ask for what?', 'What`s the answer?', 'Some help?']}
-                labels={['Question', 'Answer', 'Hint']}
-                component={renderCard}
-              />
-            </CardText>
-          </Card>
+          <div className="row">
+            <Card className="col-sm">
+              <CardText>
+                <Fields
+                  names={['cardQuestion', 'cardAnswer', 'cardHint']}
+                  hints={['Ask for what?', 'What`s the answer?', 'Some help?']}
+                  labels={['Question', 'Answer', 'Hint']}
+                  component={renderCard}
+                />
+              </CardText>
+            </Card>
+            <Card className="col-sm">
+              <CardText>
+                <Fields
+                  names={['cardQuestion', 'cardAnswer', 'cardHint']}
+                  hints={['Ask for what?', 'What`s the answer?', 'Some help?']}
+                  labels={['Question', 'Answer', 'Hint']}
+                  component={renderCard}
+                />
+              </CardText>
+            </Card>
+          </div>
         </div>
         <button type="submit">Submit</button>
       </form>
