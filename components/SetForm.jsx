@@ -1,54 +1,8 @@
 import React from 'react';
 import { Fields, Field, reduxForm } from 'redux-form';
 import TextField from 'material-ui/TextField';
-import { Card, CardActions, CardTitle, CardText } from 'material-ui/Card';
-
-const renderCard = fields => (
-  <div>
-    <div className="input-row">
-      <TextField
-        id="card-question"
-        {...fields.cardQuestion.input}
-        hintText={fields.hints[0]}
-        floatingLabelText={fields.labels[0]}
-        multiLine
-        fullWidth
-        rows={1}
-        rowsMax={4}
-      />
-      {fields.cardQuestion.meta.touched && fields.cardQuestion.meta.error &&
-      <span className="error">{fields.cardQuestion.meta.error}</span>}
-    </div>
-    <div className="input-row">
-      <TextField
-        id="card-answer"
-        {...fields.cardAnswer.input}
-        hintText={fields.hints[1]}
-        floatingLabelText={fields.labels[1]}
-        multiLine
-        fullWidth
-        rows={1}
-        rowsMax={4}
-      />
-      {fields.cardAnswer.meta.touched && fields.cardAnswer.meta.error &&
-      <span className="error">{fields.cardAnswer.meta.error}</span>}
-    </div>
-    <div className="input-row">
-      <TextField
-        id="card-hint"
-        {...fields.cardHint.input}
-        hintText={fields.hints[2]}
-        floatingLabelText={fields.labels[2]}
-        multiLine
-        fullWidth
-        rows={1}
-        rowsMax={4}
-      />
-      {fields.cardHint.meta.touched && fields.cardHint.meta.error &&
-        <span className="error">{fields.cardHint.meta.error}</span>}
-    </div>
-  </div>
-);
+import { Card, CardTitle, CardText } from 'material-ui/Card';
+import CardForm from '../components/CardForm';
 
 const setName = field => (
   <div className="input-row">
@@ -63,6 +17,12 @@ const setName = field => (
 );
 
 class SetForm extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { showHintInput: false };
+  //   this.handleHint = this.handleHint.bind(this);
+  // }
+
   componentDidMount() {
   }
 
@@ -85,7 +45,7 @@ class SetForm extends React.Component {
                   names={['cardQuestion', 'cardAnswer', 'cardHint']}
                   hints={['Ask for what?', 'What`s the answer?', 'Some help?']}
                   labels={['Question', 'Answer', 'Hint']}
-                  component={renderCard}
+                  component={CardForm}
                 />
               </CardText>
             </Card>
@@ -95,7 +55,7 @@ class SetForm extends React.Component {
                   names={['cardQuestion', 'cardAnswer', 'cardHint']}
                   hints={['Ask for what?', 'What`s the answer?', 'Some help?']}
                   labels={['Question', 'Answer', 'Hint']}
-                  component={renderCard}
+                  component={CardForm}
                 />
               </CardText>
             </Card>
