@@ -1,7 +1,10 @@
 import React from 'react';
-import { Fields, Field, reduxForm } from 'redux-form';
+import { Fields, Field, reduxForm, submit } from 'redux-form';
 import TextField from 'material-ui/TextField';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
+import AddIcon from 'material-ui/svg-icons/content/add';
+import { green800, green600 } from 'material-ui/styles/colors';
 import CardForm from '../components/CardForm';
 
 const setName = field => (
@@ -27,9 +30,9 @@ class SetForm extends React.Component {
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    // console.log(this.props);
     return (
-      <form onSubmit={handleSubmit(values => console.log(values))}>
+      <form>
         <div className="container-fluid">
           <CardTitle>
             <Field
@@ -61,10 +64,22 @@ class SetForm extends React.Component {
             </Card>
           </div>
         </div>
-        <button type="submit">Submit</button>
+        <FlatButton
+          icon={<AddIcon color="white" />}
+          fullWidth
+          backgroundColor={green800}
+          hoverColor={green600}
+        />
       </form>
     );
   }
 }
 
-export default reduxForm({ form: 'addset' })(SetForm);
+const customSubmit = (values) => {
+  console.log(values);
+};
+
+export default reduxForm({
+  form: 'addset',
+  onSubmit: customSubmit,
+})(SetForm);

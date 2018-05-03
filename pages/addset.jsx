@@ -1,4 +1,5 @@
 import Error from 'next/error';
+import { submit } from 'redux-form';
 import withRedux from 'next-redux-wrapper';
 import React from 'react';
 import DoneIcon from 'material-ui/svg-icons/navigation/check';
@@ -26,15 +27,13 @@ class AddSet extends React.Component {
   handleDialogClose() { this.setState({ dialogOpen: false }); }
 
   renderAddSet() {
-    const { user } = this.props;
-    // console.log(this.props.form);
+    const { user, submitSet } = this.props;
     const statusCode = user ? false : 401;
     let addset = null;
     if (user) {
       addset = (
         <div>
           <NavToolbar
-            rightLink="/settings"
             leftContent={
               <div>
                 <IconButton
@@ -47,13 +46,18 @@ class AddSet extends React.Component {
               </div>
             }
             rightContent={
-              <IconButton tooltip="Save" iconStyle={linkStyle}>
+              <IconButton
+                onClick={submitSet}
+                tooltip="Save"
+                iconStyle={linkStyle}
+              >
                 <DoneIcon />
               </IconButton>
             }
             centerContent="New card set"
             centerStyle={scss.whiteColor}
           />
+          {/* This is shown by handleDialogOpen */}
           <AlertDialog
             labelNo="Cancel"
             labelYes="Discard"
@@ -84,6 +88,7 @@ class AddSet extends React.Component {
 
 const mapDispatchToProps = dispatch => ({
   fetchUser: () => dispatch(fetchUser()),
+  submitSet: () => dispatch(submit('addset')),
 });
 
 function mapStateToProps(state) {
