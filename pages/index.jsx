@@ -92,7 +92,7 @@ class Index extends React.Component {
           <LastInfo
             rightLink="/settings"
             leftStyle={scss.doubleLineToolbarTitle}
-            rightStyle={[scss.smallCapsToolbarTitle, scss.pointerCursor].join(' ')}
+            rightStyle={scss.smallCapsToolbarTitle}
             leftContent={[
               <span key="Last studied">Last studied</span>,
               <br key="br" />,
@@ -123,7 +123,6 @@ class Index extends React.Component {
   }
 
   render() {
-    console.log(scss.serverClock);
     return (
       <Layout title="Rearn - index">
         {this.renderLayoutChildren()}

@@ -1,25 +1,32 @@
 import React from 'react';
 import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
 import Link from 'next/link';
+import scss from '../static/style.scss';
 
 class LastInfo extends React.Component {
   renderLeftSide() {
-    const { leftContent, leftStyle } = this.props;
+    const { leftContent, leftStyle, leftLink } = this.props;
     let lasttime = null;
     lasttime = (
       <ToolbarGroup>
-        <ToolbarTitle text={leftContent} className={leftStyle} />
+        <ToolbarTitle
+          text={leftContent}
+          className={[leftStyle, leftLink ? scss.pointerCursor : null].join(' ')}
+        />
       </ToolbarGroup>
     );
     return lasttime;
   }
 
   renderRightSide() {
-    const { rightContent, rightStyle } = this.props;
+    const { rightContent, rightStyle, rightLink } = this.props;
     let lastsetname = null;
     lastsetname = (
       <ToolbarGroup lastChild>
-        <ToolbarTitle text={rightContent} className={rightStyle} />
+        <ToolbarTitle
+          text={rightContent}
+          className={[rightStyle, rightLink ? scss.pointerCursor : null].join(' ')}
+        />
       </ToolbarGroup>
     );
     return lastsetname;
