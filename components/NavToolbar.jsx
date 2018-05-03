@@ -43,7 +43,7 @@ class NavToolbar extends React.Component {
     let center = null;
     if (centerContent != null) {
       center = (
-        <ToolbarGroup lastChild>
+        <ToolbarGroup>
           <ToolbarTitle
             text={centerContent}
             className={centerStyle}
