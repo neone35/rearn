@@ -12,3 +12,18 @@ $greenFloatBtn: #329553;
     font: 50px menlo, monaco, monospace;
     background-color: #000;
 }
+
+.doubleLineToolbarTitle {
+    color: white !important;
+    font-size: 0.8em !important; 
+    line-height: 1rem !important;
+}
+
+.smallCapsToolbarTitle {
+    color: white !important;
+    font-variant: small-caps !important; 
+}
+
+.pointerCursor {
+    cursor: pointer !important;
+}

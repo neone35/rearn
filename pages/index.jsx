@@ -89,7 +89,17 @@ class Index extends React.Component {
             labels={['10 sets', '612 cards', '8 folders']}
             pages={['/sets', '/cards', '/folders']}
           />
-          <LastInfo lastStudied="MAR10 14:38" lastSet="Flashcard folder 1" />
+          <LastInfo
+            rightLink="/settings"
+            leftStyle={scss.doubleLineToolbarTitle}
+            rightStyle={[scss.smallCapsToolbarTitle, scss.pointerCursor].join(' ')}
+            leftContent={[
+              <span key="Last studied">Last studied</span>,
+              <br key="br" />,
+              <span key="MAR10 14:38">MAR10 14:38</span>,
+            ]}
+            rightContent="Flashcard folder 1"
+          />
           <DemoList />
           { /*
           <CardsetLink title="Physics1" />
@@ -113,6 +123,7 @@ class Index extends React.Component {
   }
 
   render() {
+    console.log(scss.serverClock);
     return (
       <Layout title="Rearn - index">
         {this.renderLayoutChildren()}
