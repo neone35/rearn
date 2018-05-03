@@ -11,6 +11,7 @@ class NavToolbar extends React.Component {
       <ToolbarGroup>
         <ToolbarTitle
           text={leftContent}
+          style={{ overflow: 'visible' }}
           className={[leftStyle, leftLink ? scss.pointerCursor : null].join(' ')}
         />
       </ToolbarGroup>
@@ -25,6 +26,7 @@ class NavToolbar extends React.Component {
       <ToolbarGroup lastChild>
         <ToolbarTitle
           text={rightContent}
+          style={{ overflow: 'visible' }}
           className={[rightStyle, rightLink ? scss.pointerCursor : null].join(' ')}
         />
       </ToolbarGroup>
