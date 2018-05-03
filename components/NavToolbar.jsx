@@ -3,7 +3,7 @@ import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
 import Link from 'next/link';
 import scss from '../static/style.scss';
 
-class LastInfo extends React.Component {
+class NavToolbar extends React.Component {
   renderLeftSide() {
     const { leftContent, leftStyle, leftLink } = this.props;
     let lasttime = null;
@@ -47,4 +47,4 @@ class LastInfo extends React.Component {
   }
 }
 
-export default LastInfo;
+export default NavToolbar;

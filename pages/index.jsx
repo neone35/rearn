@@ -10,7 +10,7 @@ import Fade from 'react-reveal/Fade';
 import React from 'react';
 import Layout from '../lib/layout';
 import StatTabs from '../components/StatTabs';
-import LastInfo from '../components/LastInfo';
+import NavToolbar from '../components/NavToolbar';
 import DemoList from '../components/DemoList';
 import DrawerList from '../components/lists/DrawerList';
 import CreateTabs from '../components/CreateTabs';
@@ -89,7 +89,7 @@ class Index extends React.Component {
             labels={['10 sets', '612 cards', '8 folders']}
             pages={['/sets', '/cards', '/folders']}
           />
-          <LastInfo
+          <NavToolbar
             rightLink="/settings"
             leftStyle={scss.doubleLineToolbarTitle}
             rightStyle={scss.smallCapsToolbarTitle}

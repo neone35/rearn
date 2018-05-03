@@ -1,9 +1,14 @@
 import Error from 'next/error';
 import withRedux from 'next-redux-wrapper';
 import React from 'react';
+import DoneIcon from 'material-ui/svg-icons/navigation/check';
+import CancelIcon from 'material-ui/svg-icons/navigation/cancel';
+import IconButton from 'material-ui/IconButton';
 import { initStore, fetchUser } from '../server/store';
 import Layout from '../lib/layout';
 import SetForm from '../components/SetForm';
+import NavToolbar from '../components/NavToolbar';
+import { linkStyle } from '../lib/sharedStyles';
 
 
 class AddSet extends React.Component {
@@ -20,6 +25,19 @@ class AddSet extends React.Component {
     if (user) {
       addset = (
         <div>
+          <NavToolbar
+            rightLink="/settings"
+            leftContent={
+              <IconButton tooltip="Cancel" iconStyle={linkStyle}>
+                <CancelIcon />
+              </IconButton>
+            }
+            rightContent={
+              <IconButton tooltip="Save" iconStyle={linkStyle}>
+                <DoneIcon />
+              </IconButton>
+            }
+          />
           <SetForm />
         </div>
       );
