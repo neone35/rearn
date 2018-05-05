@@ -6,20 +6,23 @@ import AddIcon from 'material-ui/svg-icons/content/add';
 import CancelIcon from 'material-ui/svg-icons/navigation/close';
 import { green800, green600 } from 'material-ui/styles/colors';
 import { Card, CardText, CardHeader } from 'material-ui/Card';
+import Fade from 'react-reveal/Fade';
 import _ from 'lodash';
 
 const renderField = props => (
   <div className="input-row">
-    <TextField
-      id={props.name}
-      {...props.input}
-      hintText={props.hint}
-      floatingLabelText={props.label}
-      multiLine
-      fullWidth
-      rows={1}
-      rowsMax={4}
-    />
+    <Fade bottom>
+      <TextField
+        id={props.name}
+        {...props.input}
+        hintText={props.hint}
+        floatingLabelText={props.label}
+        multiLine
+        fullWidth
+        rows={1}
+        rowsMax={4}
+      />
+    </Fade>
   </div>
 );
 
@@ -73,21 +76,23 @@ class CardForm extends React.Component {
     const { fields } = this.props;
     const cardsMapped = fields.map((card, index) => (
       <div className="col-sm-4" key={['card', index].join('')}>
-        <Card>
-          <CardHeader
-            title={`Card ${index + 1}`}
-            showExpandableButton
-            closeIcon={// eslint-disable-next-line
+        <Fade left>
+          <Card>
+            <CardHeader
+              title={`Card ${index + 1}`}
+              showExpandableButton
+              closeIcon={// eslint-disable-next-line
                 <span onClick={() => fields.remove(index)}>
                   <CancelIcon />
                 </span>}
-            openIcon={// eslint-disable-next-line
+              openIcon={// eslint-disable-next-line
                 <span onClick={() => fields.remove(index)}>
                   <CancelIcon />
                 </span>}
-          />
-          {this.renderCardContents(card)}
-        </Card>
+            />
+            {this.renderCardContents(card)}
+          </Card>
+        </Fade>
       </div>));
     const cardsRows = _.chunk(cardsMapped, 3); // 3 rows
     return (

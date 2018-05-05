@@ -7083,7 +7083,13 @@ wordwrap@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
 
-workbox-background-sync@^3.0.1, workbox-background-sync@^3.1.0:
+workbox-background-sync@^3.0.1:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/workbox-background-sync/-/workbox-background-sync-3.2.0.tgz#08d4f79fb82fb61f72fbd0359c4b616cc75612d4"
+  dependencies:
+    workbox-core "^3.2.0"
+
+workbox-background-sync@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/workbox-background-sync/-/workbox-background-sync-3.1.0.tgz#8a7afcda4d2cd8ed4aa625c2fb740ed35ff25142"
   dependencies:
@@ -7129,9 +7135,9 @@ workbox-cacheable-response@^3.1.0:
   dependencies:
     workbox-core "^3.1.0"
 
-workbox-core@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/workbox-core/-/workbox-core-3.1.0.tgz#974637bf9398b9e37ebd58d73dc6016c0fdc1d23"
+workbox-core@^3.1.0, workbox-core@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/workbox-core/-/workbox-core-3.2.0.tgz#d1bd4209447f5350d8dd6b964c86f054c96ffa0a"
 
 workbox-google-analytics@^3.1.0:
   version "3.1.0"
