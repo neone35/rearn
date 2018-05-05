@@ -30,7 +30,7 @@ class AddSet extends React.Component {
     const { user, submitSet } = this.props;
     const statusCode = user ? false : 401;
     let addset = null;
-    console.log(this.props.form);
+    // console.log(this.props.form);
     if (user) {
       addset = (
         <div>
