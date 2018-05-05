@@ -18,7 +18,7 @@ class CardForm extends React.Component {
         <div className="input-row">
           <TextField
             id="card-question"
-            {...fields.cardQuestion.input}
+            {...fields.names[0].input}
             hintText={fields.hints[0]}
             floatingLabelText={fields.labels[0]}
             multiLine
@@ -26,13 +26,11 @@ class CardForm extends React.Component {
             rows={1}
             rowsMax={4}
           />
-          {fields.cardQuestion.meta.touched && fields.cardQuestion.meta.error &&
-            <span className="error">{fields.cardQuestion.meta.error}</span>}
         </div>
         <div className="input-row">
           <TextField
             id="card-answer"
-            {...fields.cardAnswer.input}
+            {...fields.names[1].input}
             hintText={fields.hints[1]}
             floatingLabelText={fields.labels[1]}
             multiLine
@@ -40,14 +38,12 @@ class CardForm extends React.Component {
             rows={1}
             rowsMax={4}
           />
-          {fields.cardAnswer.meta.touched && fields.cardAnswer.meta.error &&
-            <span className="error">{fields.cardAnswer.meta.error}</span>}
         </div>
         {this.state.hintExpanded ?
           <div className="input-row">
             <TextField
               id="card-hint"
-              {...fields.cardHint.input}
+              {...fields.names[2].input}
               hintText={fields.hints[2]}
               floatingLabelText={fields.labels[2]}
               multiLine
@@ -55,8 +51,6 @@ class CardForm extends React.Component {
               rows={1}
               rowsMax={4}
             />
-            {fields.cardHint.meta.touched && fields.cardHint.meta.error &&
-            <span className="error">{fields.cardHint.meta.error}</span>}
           </div>
         :
           <FlatButton
