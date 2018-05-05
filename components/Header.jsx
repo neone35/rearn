@@ -51,9 +51,16 @@ class Header extends React.Component {
     if (this.props.user) {
       appBarButtons = (
         <span>
-          <IconButton tooltip="Search" iconStyle={linkStyle}>
-            <ActionSearch onClick={this.handleSearchClick} />
-          </IconButton>
+          { this.state.showSearch ?
+
+            <IconButton tooltip="Close" iconStyle={linkStyle}>
+              <DrawerClose onClick={this.handleSearchClick} />
+            </IconButton>
+          :
+            <IconButton tooltip="Search" iconStyle={linkStyle}>
+              <ActionSearch onClick={this.handleSearchClick} />
+            </IconButton>
+         }
           <Link href="/settings">
             <IconButton tooltip="Settings" iconStyle={linkStyle}>
               <ActionSettings />
