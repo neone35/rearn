@@ -15,7 +15,6 @@ import DemoList from '../components/DemoList';
 import DrawerList from '../components/lists/DrawerList';
 import CreateTabs from '../components/CreateTabs';
 import { initStore, fetchUser, getUserAgent } from '../server/store';
-import { floatingBtnStyle } from '../lib/sharedStyles';
 import scss from '../static/style.scss';
 
 // const CardsetLink = props => (
@@ -57,7 +56,7 @@ class Index extends React.Component {
             <Jump duration={500}>
               <FloatingActionButton
                 backgroundColor={green800}
-                style={floatingBtnStyle}
+                className={scss.floatBtn}
                 onClick={this.handleFloatClick}
               >
                 <CloseIcon />
@@ -70,7 +69,7 @@ class Index extends React.Component {
           :
           <FloatingActionButton
             backgroundColor={green800}
-            style={floatingBtnStyle}
+            className={scss.floatBtn}
             onClick={this.handleFloatClick}
           >
             <ContentAdd />

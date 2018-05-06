@@ -1,16 +1,28 @@
 $gray: #999;
 $greenFloatBtn: #329553;
+$green800: #2E7D32;
+$green600: #43A047;
+$blue: #307F97;
+$blue700: #0097A7;
 
-.frontClock {
-    background-color: gray !important;
+.mainTitle {
+  cursor: pointer !important;
+  font-weight: bold !important;
 }
 
-.serverClock {
-    padding: 15px;
-    display: inline-block;
-    color: #82FA58;
-    font: 50px menlo, monaco, monospace;
-    background-color: #000;
+.avatar {
+  cursor: pointer !important;
+  margin-top: 3px !important;
+}
+
+.floatBtn {
+  position: absolute;
+  margin: 0px;
+  top: auto;
+  right: 20px;
+  bottom: 20px;
+  left: auto;
+  z-index: 2;
 }
 
 .doubleLineToolbarTitle {
@@ -18,10 +30,13 @@ $greenFloatBtn: #329553;
     font-size: 0.8em !important; 
     line-height: 1rem !important;
 }
-
 .smallCapsToolbarTitle {
     color: white !important;
     font-variant: small-caps !important; 
+}
+.smallCapsToolbarTitle:hover {
+    background-color: $blue700 !important;
+    padding-left: 1.2rem;
 }
 
 .pointerCursor {
@@ -29,5 +44,14 @@ $greenFloatBtn: #329553;
 }
 
 .whiteColor {
+    color: white !important;
+}
+
+.tab {
+    background-color: $green800 !important;
+    color: white !important;
+}
+.tab:hover {
+    background-color: $green600 !important;
     color: white !important;
 }

@@ -11,8 +11,8 @@ import Drawer from 'material-ui/Drawer';
 import Fade from 'react-reveal/Zoom';
 import Link from 'next/link';
 import React from 'react';
-import { linkStyle, titleStyle, avatarStyle } from '../lib/sharedStyles';
 import DrawerList from '../components/lists/DrawerList';
+import scss from '../static/style.scss';
 
 
 class Header extends React.Component {
@@ -52,17 +52,16 @@ class Header extends React.Component {
       appBarButtons = (
         <span>
           { this.state.showSearch ?
-
-            <IconButton tooltip="Close" iconStyle={linkStyle}>
+            <IconButton tooltip="Close" iconStyle={{ color: '#FFF' }}>
               <DrawerClose onClick={this.handleSearchClick} />
             </IconButton>
           :
-            <IconButton tooltip="Search" iconStyle={linkStyle}>
+            <IconButton tooltip="Search" iconStyle={{ color: '#FFF' }}>
               <ActionSearch onClick={this.handleSearchClick} />
             </IconButton>
          }
           <Link href="/settings">
-            <IconButton tooltip="Settings" iconStyle={linkStyle}>
+            <IconButton tooltip="Settings" iconStyle={{ color: '#FFF' }}>
               <ActionSettings />
             </IconButton>
           </Link>
@@ -94,11 +93,11 @@ class Header extends React.Component {
     const avatarMenu = (
       <div>
         { this.state.openDrawer ?
-          <IconButton iconStyle={linkStyle} onClick={this.handleDrawer}>
+          <IconButton iconStyle={{ color: '#FFF' }} onClick={this.handleDrawer}>
             <DrawerClose />
           </IconButton>
           :
-          <Avatar src={user.avatarUrl} onClick={this.handleDrawer} style={avatarStyle} />}
+          <Avatar src={user.avatarUrl} onClick={this.handleDrawer} style={scss.avatar} />}
       </div>
     );
     return avatarMenu;
@@ -106,7 +105,7 @@ class Header extends React.Component {
 
   renderLoginMenu() {
     const loginMenu = (
-      <IconButton iconStyle={linkStyle} onClick={this.handleDrawer}>
+      <IconButton iconStyle={{ color: '#FFF' }} onClick={this.handleDrawer}>
         { this.state.openDrawer ?
           <DrawerClose /> : <DrawerMenu /> }
       </IconButton>
@@ -121,7 +120,7 @@ class Header extends React.Component {
         <AppBar
           title={
             <Link href="/">
-              <span style={titleStyle}>REARN</span>
+              <span className={scss.mainTitle}>REARN</span>
             </Link>
           }
           iconElementLeft={

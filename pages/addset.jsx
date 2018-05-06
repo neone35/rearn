@@ -10,7 +10,6 @@ import Layout from '../lib/layout';
 import SetForm from '../components/SetForm';
 import NavToolbar from '../components/NavToolbar';
 import AlertDialog from '../components/AlertDialog';
-import { linkStyle } from '../lib/sharedStyles';
 import scss from '../static/style.scss';
 
 
@@ -40,7 +39,7 @@ class AddSet extends React.Component {
                 <IconButton
                   onClick={this.handleDialogOpen}
                   tooltip="Cancel"
-                  iconStyle={linkStyle}
+                  iconStyle={{ color: '#FFF' }}
                 >
                   <CancelIcon />
                 </IconButton>
@@ -50,7 +49,7 @@ class AddSet extends React.Component {
               <IconButton
                 onClick={submitSet}
                 tooltip="Save"
-                iconStyle={linkStyle}
+                iconStyle={{ color: '#FFF' }}
               >
                 <DoneIcon />
               </IconButton>
