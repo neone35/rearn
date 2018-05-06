@@ -4,6 +4,7 @@ require('babel-register');
 const getRootUrl = require('../lib/api/getRootUrl');
 const authGoogle = require('./google');
 const authRoutes = require('./routes/authRoutes');
+const setRoutes = require('./routes/setRoutes').default;
 
 const express = require('express');
 const expressSession = require('express-session');
@@ -13,6 +14,7 @@ const mongoose = require('mongoose');
 const MongoSessionStore = require('connect-mongo')(expressSession);
 const cors = require('cors');
 const compression = require('compression');
+const bodyParser = require('body-parser');
 
 const dev = process.env.NODE_ENV !== 'production';
 // eslint-disable-next-line
@@ -32,6 +34,7 @@ app.prepare().then(() => {
   const server = express();
   server.use(cors()); // allow to request files from external domains
   server.use(compression()); // compress files for faster load of PWA
+  server.use(bodyParser.json());
 
   server.use(expressSession({ // create session middleware object
     name: 'rearn.sid', // session objectID for browser, used to read from REQ / write to RES
@@ -49,6 +52,7 @@ app.prepare().then(() => {
 
   authGoogle({ server, ROOT_URL });
   authRoutes(server);
+  setRoutes(server);
 
   server.get('/service-worker.js', (req, res) => {
     const filePath = join(__dirname, '..', '.next', req.originalUrl);

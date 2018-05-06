@@ -1,10 +1,10 @@
 import mongoose, { Schema } from 'mongoose';
-import CardSchema from './Card';
+import Card from './Card';
 
 const { ObjectId } = mongoose.Schema.Types;
 
 const setSchema = new Schema({
-  cards: [CardSchema],
+  cards: [Card],
   createdAt: {
     type: Date,
     required: true,

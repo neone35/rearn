@@ -28,7 +28,7 @@ class AddSet extends React.Component {
     const { user, setForm } = this.props;
     const statusCode = user ? false : 401;
     let addset = null;
-    // console.log(this.props.form);
+    // console.log(setForm);
     if (user) {
       addset = (
         <div>
@@ -46,7 +46,7 @@ class AddSet extends React.Component {
             }
             rightContent={
               <IconButton
-                onClick={() => submitSet(setForm.values)}
+                onClick={() => this.props.submitSet(setForm.values)}
                 tooltip="Save"
                 iconStyle={{ color: '#FFF' }}
               >
@@ -85,16 +85,12 @@ class AddSet extends React.Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  fetchUser: () => dispatch(fetchUser()),
-  submitSet: () => dispatch(submitSet()),
-});
-
 function mapStateToProps(state) {
   return {
     user: state.authReducer,
-    setForm: state.formReducer.addset,
+    form: state.form,
+    setForm: state.form.addset,
   };
 }
 
-export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(AddSet);
+export default withRedux(initStore, mapStateToProps, { fetchUser, submitSet })(AddSet);
