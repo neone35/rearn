@@ -17,6 +17,8 @@ const userSchema = new Schema({
   },
   displayName: String,
   avatarUrl: String,
+  lastStudied: Date,
+  lastSetFolder: String, // last set/folder title
 });
 
 const User = mongoose.model('user', userSchema);
