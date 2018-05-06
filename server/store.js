@@ -1,15 +1,18 @@
+import Router from 'next/router';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import thunkMiddleware from 'redux-thunk';
 import axios from 'axios';
 import getRootUrl from '../lib/api/getRootUrl';
 
+const ROOT_URL = getRootUrl();
+
 const initialState = {
-  user: '0',
-  agent: '0',
+  authReducer: '0',
+  agentReducer: '0',
 };
 
-export const actionTypes = {
+const actionTypes = {
   FETCH_USER: 'FETCH_USER',
   USER_AGENT: 'USER_AGENT',
 };
@@ -33,23 +36,27 @@ const agentReducer = (state = null, action) => {
   }
 };
 
-export const rootReducer = combineReducers({
-  user: authReducer,
-  agent: agentReducer,
-  form: formReducer,
+const rootReducer = combineReducers({
+  authReducer,
+  agentReducer,
+  formReducer,
 });
 
 // ACTIONS
 export const fetchUser = () => async (dispatch) => {
-  const ROOT_URL = getRootUrl();
   const resUser = await axios.get(`${ROOT_URL}/api/current_user`);
   dispatch({ type: actionTypes.FETCH_USER, payload: resUser.data });
 };
 
 export const getUserAgent = () => async (dispatch) => {
-  const ROOT_URL = getRootUrl();
   const resAgent = await axios.get(`${ROOT_URL}/api/useragent`);
   dispatch({ type: actionTypes.USER_AGENT, payload: resAgent.data });
+};
+
+export const submitSet = values => async (dispatch) => {
+  const res = await axios.post(`${ROOT_URL}/api/newset`, values);
+  Router.push('/');
+  dispatch({ type: actionTypes.FETCH_USER, payload: res.data });
 };
 
 export const initStore = (newInitialState = initialState) =>

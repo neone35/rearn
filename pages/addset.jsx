@@ -1,11 +1,10 @@
 import Error from 'next/error';
-import { submit } from 'redux-form';
 import withRedux from 'next-redux-wrapper';
 import React from 'react';
 import DoneIcon from 'material-ui/svg-icons/navigation/check';
 import CancelIcon from 'material-ui/svg-icons/navigation/close';
 import IconButton from 'material-ui/IconButton';
-import { initStore, fetchUser } from '../server/store';
+import { initStore, fetchUser, submitSet } from '../server/store';
 import Layout from '../lib/layout';
 import SetForm from '../components/SetForm';
 import NavToolbar from '../components/NavToolbar';
@@ -26,7 +25,7 @@ class AddSet extends React.Component {
   handleDialogClose() { this.setState({ dialogOpen: false }); }
 
   renderAddSet() {
-    const { user, submitSet } = this.props;
+    const { user, setForm } = this.props;
     const statusCode = user ? false : 401;
     let addset = null;
     // console.log(this.props.form);
@@ -47,7 +46,7 @@ class AddSet extends React.Component {
             }
             rightContent={
               <IconButton
-                onClick={submitSet}
+                onClick={() => submitSet(setForm.values)}
                 tooltip="Save"
                 iconStyle={{ color: '#FFF' }}
               >
@@ -88,13 +87,13 @@ class AddSet extends React.Component {
 
 const mapDispatchToProps = dispatch => ({
   fetchUser: () => dispatch(fetchUser()),
-  submitSet: () => dispatch(submit('addset')),
+  submitSet: () => dispatch(submitSet()),
 });
 
 function mapStateToProps(state) {
   return {
-    user: state.user,
-    form: state.form,
+    user: state.authReducer,
+    setForm: state.formReducer.addset,
   };
 }
 

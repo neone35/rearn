@@ -159,7 +159,7 @@ class Header extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.user,
+    user: state.authReducer,
   };
 }
 

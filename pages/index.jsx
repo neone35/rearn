@@ -137,8 +137,8 @@ const mapDispatchToProps = dispatch => ({
 
 function mapStateToProps(state) {
   return {
-    user: state.user,
-    agent: state.agent,
+    user: state.authReducer,
+    agent: state.agentReducer,
   };
 }
 

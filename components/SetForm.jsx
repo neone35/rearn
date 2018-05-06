@@ -39,11 +39,4 @@ class SetForm extends React.Component {
   }
 }
 
-const customSubmit = (values) => {
-  console.log(values);
-};
-
-export default reduxForm({
-  form: 'addset',
-  onSubmit: customSubmit,
-})(SetForm);
+export default reduxForm({ form: 'addset' })(SetForm);

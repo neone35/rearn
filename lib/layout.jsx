@@ -41,7 +41,7 @@ class Layout extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    agent: state.agent,
+    agent: state.agentReducer,
   };
 }
 
