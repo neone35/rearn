@@ -20,16 +20,20 @@ class CardsList extends React.Component {
     const { sets } = this.props;
     if (sets) {
       setsList = sets.reverse().map((set, index) => (
-        <ListItem
+        <Link
+          href={`/cardset?title=${set.title}`}
           key={['set', index].join('')}
-          leftAvatar={<Avatar icon={<ViewCarousel />} backgroundColor={purple800} />}
-          rightIcon={<p style={scss.score}>{[set.score, '%'].join('')}</p>}
-          primaryText={set.title}
-          secondaryText={
+        >
+          <ListItem
+            leftAvatar={<Avatar icon={<ViewCarousel />} backgroundColor={purple800} />}
+            rightIcon={<p style={scss.score}>{[set.score, '%'].join('')}</p>}
+            primaryText={set.title}
+            secondaryText={
             [set.cards.length, set.cards.length > 1 ? 'cards' : 'card']
             .join(' ')
           }
-        />));
+          />
+        </Link>));
     } else {
       setsList = (
         <ListItem

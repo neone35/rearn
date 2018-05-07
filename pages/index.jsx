@@ -4,8 +4,6 @@ import { Card, CardHeader } from 'material-ui/Card';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import { green800 } from 'material-ui/styles/colors';
 import CloseIcon from 'material-ui/svg-icons/navigation/close';
-import Jump from 'react-reveal/Jump';
-import Fade from 'react-reveal/Fade';
 import React from 'react';
 import Layout from '../lib/layout';
 import StatTabs from '../components/StatTabs';
@@ -16,13 +14,6 @@ import CreateTabs from '../components/CreateTabs';
 import { initStore, fetchUser, getUserAgent } from '../server/store';
 import scss from '../static/style.scss';
 
-// const CardsetLink = props => (
-//   <li>
-//     <Link href={`/cardset?title=${props.title}`}>
-//       <a>{props.title}</a>
-//     </Link>
-//   </li>
-// );
 
 class Index extends React.Component {
   // static getInitialProps({ store, isServer }) {
@@ -96,11 +87,6 @@ class Index extends React.Component {
             rightContent="Flashcard folder 1"
           />
           <CardsList />
-          { /*
-          <CardsetLink title="Physics1" />
-          <RaisedButton label="Button test" />
-          */
-          }
           { this.renderCreateTabs() }
         </div>
       );

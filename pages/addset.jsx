@@ -11,7 +11,7 @@ import NavToolbar from '../components/NavToolbar';
 import AlertDialog from '../components/AlertDialog';
 import scss from '../static/style.scss';
 
-class AddSet extends React.Component {
+class addset extends React.Component {
   constructor(props) {
     super(props);
     this.state = { cancelDialogOpen: false, saveDialogOpen: false };
@@ -91,10 +91,10 @@ class AddSet extends React.Component {
   renderAddSet() {
     const { user } = this.props;
     const statusCode = user ? false : 401;
-    let addset = null;
+    let addSetPage = null;
     // console.log(submitSet);
     if (user) {
-      addset = (
+      addSetPage = (
         <div>
           {this.renderNav()}
           {this.renderDialogs()}
@@ -104,7 +104,7 @@ class AddSet extends React.Component {
     } else {
       return <Error statusCode={statusCode} />;
     }
-    return addset;
+    return addSetPage;
   }
 
   render() {
@@ -124,4 +124,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default withRedux(initStore, mapStateToProps, { fetchUser, submitSet })(AddSet);
+export default withRedux(initStore, mapStateToProps, { fetchUser, submitSet })(addset);
