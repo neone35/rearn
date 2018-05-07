@@ -27,7 +27,7 @@ class AddSet extends React.Component {
   openSaveDialog() { this.setState({ saveDialogOpen: true }); }
   closeSaveDialog() { this.setState({ saveDialogOpen: false }); }
 
-  renderAlerts() {
+  renderDialogs() {
     let alerts = null;
     const { setForm } = this.props;
     alerts = (
@@ -97,7 +97,7 @@ class AddSet extends React.Component {
       addset = (
         <div>
           {this.renderNav()}
-          {this.renderAlerts()}
+          {this.renderDialogs()}
           <SetForm />
         </div>
       );

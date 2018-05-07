@@ -13,8 +13,9 @@ const initialState = {
 };
 
 const actionTypes = {
-  FETCH_USER: 'FETCH_USER',
-  USER_AGENT: 'USER_AGENT',
+  FETCH_USER: 'fetch_user',
+  USER_AGENT: 'user_agent',
+  FETCH_SETS: 'fetch_sets',
 };
 
 // REDUCERS
@@ -36,10 +37,21 @@ const agentReducer = (state = null, action) => {
   }
 };
 
+const setsReducer = (state = [], action) => {
+  // console.log(action);
+  switch (action.type) {
+    case actionTypes.FETCH_SETS:
+      return action.payload || false;
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   authReducer,
   agentReducer,
   form: formReducer,
+  setsReducer,
 });
 
 // ACTIONS
@@ -53,10 +65,16 @@ export const getUserAgent = () => async (dispatch) => {
   dispatch({ type: actionTypes.USER_AGENT, payload: resAgent.data });
 };
 
-export const submitSet = values => async (dispatch) => {
-  const res = await axios.post(`${ROOT_URL}/api/newset`, values);
+export const submitSet = values => async () => {
+  await axios.post(`${ROOT_URL}/api/newset`, values);
   Router.push('/');
-  dispatch({ type: actionTypes.FETCH_USER, payload: res.data });
+  // user state (authReducer) update not needed (ex. user credits amount)
+  // dispatch({ type: actionTypes.FETCH_USER, payload: res.data });
+};
+
+export const fetchSets = () => async (dispatch) => {
+  const res = await axios.get(`${ROOT_URL}/api/sets`);
+  dispatch({ type: actionTypes.FETCH_SETS, payload: res.data });
 };
 
 export const initStore = (newInitialState = initialState) =>

@@ -11,7 +11,7 @@ import React from 'react';
 import Layout from '../lib/layout';
 import StatTabs from '../components/StatTabs';
 import NavToolbar from '../components/NavToolbar';
-import DemoList from '../components/DemoList';
+import CardsList from '../components/CardsList';
 import DrawerList from '../components/lists/DrawerList';
 import CreateTabs from '../components/CreateTabs';
 import { initStore, fetchUser, getUserAgent } from '../server/store';
@@ -81,7 +81,8 @@ class Index extends React.Component {
 
   renderLayoutChildren() {
     let layoutChildren = null;
-    if (this.props.user) {
+    const { user } = this.props;
+    if (user) {
       layoutChildren = (
         <div style={{ position: 'relative' }}>
           <StatTabs
@@ -99,7 +100,7 @@ class Index extends React.Component {
             ]}
             rightContent="Flashcard folder 1"
           />
-          <DemoList />
+          <CardsList />
           { /*
           <CardsetLink title="Physics1" />
           <RaisedButton label="Button test" />
@@ -130,11 +131,6 @@ class Index extends React.Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  fetchUser: bindActionCreators(fetchUser, dispatch),
-  getUserAgent: bindActionCreators(getUserAgent, dispatch),
-});
-
 function mapStateToProps(state) {
   return {
     user: state.authReducer,
@@ -142,4 +138,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(Index);
+export default withRedux(initStore, mapStateToProps, { fetchUser, getUserAgent })(Index);
