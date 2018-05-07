@@ -1,7 +1,7 @@
 // eslint-disable-next-line
-module.exports = (req, res, next) => {
+export default function requireLogin (req, res, next) {
   if (!req.user) {
     return res.status(401).send({ error: 'You are not logged in.' });
   }
   next();
-};
+}

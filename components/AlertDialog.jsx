@@ -2,14 +2,48 @@ import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import Link from 'next/link';
+import { connect } from 'react-redux';
+import { submitSet } from '../server/store';
 
 class AlertDialog extends React.Component {
+  componentDidMount() {
+
+  }
+
+  renderYesButton() {
+    let yesButton = null;
+    const {
+      yesLink, labelYes, highlightYes, setForm,
+    } = this.props;
+    if (this.props.yesLink) {
+      yesButton = (
+        <Link href={yesLink || ''}>
+          <FlatButton
+            label={labelYes}
+            primary
+            keyboardFocused={false || highlightYes}
+          />
+        </Link>
+      );
+    } else {
+      yesButton = (
+        <FlatButton
+          label={labelYes}
+          primary
+          onClick={() => this.props.submitSet(setForm.values)}
+          keyboardFocused={false || highlightYes}
+        />
+      );
+    }
+    return yesButton;
+  }
+
   render() {
     const {
-      labelNo, labelYes, dialogTitle, dialogSubtitle,
-      highlightNo, highlightYes, dialogOpen, onClose,
-      yesLink,
+      labelNo, dialogTitle, dialogSubtitle,
+      highlightNo, dialogOpen, onClose,
     } = this.props;
+    // console.log(submitSet);
     const actions = [
       <FlatButton
         label={labelNo}
@@ -17,14 +51,7 @@ class AlertDialog extends React.Component {
         onClick={onClose}
         keyboardFocused={false || highlightNo}
       />,
-      <Link href={yesLink || ''}>
-        <FlatButton
-          label={labelYes}
-          primary
-          onClick={this.handleOpen}
-          keyboardFocused={false || highlightYes}
-        />
-      </Link>,
+      this.renderYesButton(),
     ];
     return (
       <Dialog
@@ -40,4 +67,10 @@ class AlertDialog extends React.Component {
   }
 }
 
-export default AlertDialog;
+function mapStateToProps(state) {
+  return {
+    setForm: state.form.addset,
+  };
+}
+
+export default connect(mapStateToProps, { submitSet })(AlertDialog);
