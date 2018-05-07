@@ -1,5 +1,4 @@
 import withRedux from 'next-redux-wrapper';
-import { bindActionCreators } from 'redux';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import { Card, CardHeader } from 'material-ui/Card';
 import ContentAdd from 'material-ui/svg-icons/content/add';
@@ -53,18 +52,14 @@ class Index extends React.Component {
       <div>
         { this.state.floatClicked ?
           <div>
-            <Jump duration={500}>
-              <FloatingActionButton
-                backgroundColor={green800}
-                className={scss.floatBtn}
-                onClick={this.handleFloatClick}
-              >
-                <CloseIcon />
-              </FloatingActionButton>
-            </Jump>
-            <Fade duration={500} bottom>
-              <CreateTabs />
-            </Fade>
+            <FloatingActionButton
+              backgroundColor={green800}
+              className={scss.floatBtnOpen}
+              onClick={this.handleFloatClick}
+            >
+              <CloseIcon />
+            </FloatingActionButton>
+            <CreateTabs />
           </div>
           :
           <FloatingActionButton

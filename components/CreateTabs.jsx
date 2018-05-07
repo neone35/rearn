@@ -15,7 +15,10 @@ class CreateTabs extends React.Component {
 
   render() {
     return (
-      <Tabs inkBarStyle={{ display: 'none' }}>
+      <Tabs
+        inkBarStyle={{ display: 'none' }}
+        className={scss.fixedTabs}
+      >
         <Tab
           className={scss.tab}
           label="Folder"

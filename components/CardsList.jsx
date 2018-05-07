@@ -25,7 +25,10 @@ class CardsList extends React.Component {
           leftAvatar={<Avatar icon={<ViewCarousel />} backgroundColor={purple800} />}
           rightIcon={<p style={scss.score}>{[set.score, '%'].join('')}</p>}
           primaryText={set.title}
-          secondaryText={[set.cards.length, 'cards'].join(' ')}
+          secondaryText={
+            [set.cards.length, set.cards.length > 1 ? 'cards' : 'card']
+            .join(' ')
+          }
         />));
     } else {
       setsList = (
@@ -49,7 +52,9 @@ class CardsList extends React.Component {
           leftAvatar={<Avatar icon={<FileFolder />} backgroundColor={purple800} />}
           rightIcon={<p style={scss.score}>{[folder.score, '%'].join('')}</p>}
           primaryText={folder.title}
-          secondaryText={[folder.setIds.length, 'sets'].join(' ')}
+          secondaryText={
+            [folder.setIds.length, folder.setIds.length > 1 ? 'folders' : 'folder']
+          }
         />));
     } else {
       foldersList = (

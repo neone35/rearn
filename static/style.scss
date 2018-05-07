@@ -16,13 +16,23 @@ $blue700: #0097A7;
 }
 
 .floatBtn {
-  position: absolute;
-  margin: 0px;
-  top: auto;
-  right: 20px;
-  bottom: 20px;
-  left: auto;
-  z-index: 2;
+  position: fixed !important;
+  right: 20px !important;
+  bottom: 20px !important;
+  z-index: 3 !important;
+}
+.floatBtnOpen {
+  @extend .floatBtn;
+  bottom: 90px !important;
+}
+
+.fixedTabs {
+  position: fixed !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  z-index: 2 !important;
+  margin: 0 auto !important;
+  width: 100% !important;
 }
 
 .doubleLineToolbarTitle {
