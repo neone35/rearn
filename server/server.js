@@ -1,11 +1,12 @@
 // Only ES5 (old) is allowed in this file, but ES6 can be used in required files
 require('babel-register');
 
-const getRootUrl = require('../lib/api/getRootUrl');
-const authGoogle = require('./google');
-const authRoutes = require('./routes/authRoutes');
+// routes
+const getRootUrl = require('../lib/api/getRootUrl').default;
+const authGoogle = require('./google').default;
+const authRoutes = require('./routes/authRoutes').default;
 const setRoutes = require('./routes/setRoutes').default;
-
+// server dependencies
 const express = require('express');
 const expressSession = require('express-session');
 const next = require('next');
@@ -15,17 +16,18 @@ const MongoSessionStore = require('connect-mongo')(expressSession);
 const cors = require('cors');
 const compression = require('compression');
 const bodyParser = require('body-parser');
+const useragent = require('express-useragent');
 
 const dev = process.env.NODE_ENV !== 'production';
 // eslint-disable-next-line
 if (dev) require('dotenv').config(); // map .env file vars into process.env
 
+// server config
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const port = process.env.PORT || 4000;
 const ROOT_URL = getRootUrl();
 const { MONGO_URL, SESSION_SECRET } = process.env;
-const useragent = require('express-useragent');
 
 mongoose.connect(MONGO_URL);
 

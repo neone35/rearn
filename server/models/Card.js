@@ -12,6 +12,6 @@ const cardSchema = new Schema({
   hint: String,
 });
 
-const Card = mongoose.model('card', cardSchema);
+mongoose.model('cards', cardSchema); // model class (Mongoose) = collection (MongoDB)
 
-export default Card;
+export default cardSchema;

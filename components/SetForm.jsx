@@ -32,7 +32,7 @@ class SetForm extends React.Component {
               hint="Set name"
             />
           </CardTitle>
-          <FieldArray name="card" component={CardForm} />
+          <FieldArray name="cards" component={CardForm} />
         </div>
       </form>
     );

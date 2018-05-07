@@ -1,6 +1,6 @@
 const passport = require('passport');
 
-module.exports = function authRoutes(server) {
+export default function authRoutes(server) {
   server.get(
     '/auth/google',
     passport.authenticate('google', {
@@ -32,4 +32,4 @@ module.exports = function authRoutes(server) {
   server.get('/api/current_session', (req, res) => {
     res.send(req.session);
   });
-};
+}

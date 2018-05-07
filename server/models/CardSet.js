@@ -1,10 +1,10 @@
 import mongoose, { Schema } from 'mongoose';
-import Card from './Card';
+import cardSchema from './Card';
 
 const { ObjectId } = mongoose.Schema.Types;
 
 const setSchema = new Schema({
-  cards: [Card],
+  cards: [cardSchema],
   createdAt: {
     type: Date,
     required: true,
@@ -22,6 +22,6 @@ const setSchema = new Schema({
   },
 });
 
-const CardSet = mongoose.model('cardset', setSchema);
+const CardSet = mongoose.model('cardsets', setSchema); // model class (Mongoose)
 
 export default CardSet;

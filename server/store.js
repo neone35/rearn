@@ -56,7 +56,6 @@ export const getUserAgent = () => async (dispatch) => {
 export const submitSet = values => async (dispatch) => {
   const res = await axios.post(`${ROOT_URL}/api/newset`, values);
   Router.push('/');
-  console.log('submitSet action is created');
   dispatch({ type: actionTypes.FETCH_USER, payload: res.data });
 };
 

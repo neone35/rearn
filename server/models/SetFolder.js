@@ -21,6 +21,4 @@ const folderSchema = new Schema({
   },
 });
 
-const SetFolder = mongoose.model('setfolder', folderSchema);
-
-export default SetFolder;
+mongoose.model('setfolders', folderSchema);

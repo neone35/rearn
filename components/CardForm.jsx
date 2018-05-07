@@ -35,18 +35,18 @@ class CardForm extends React.Component {
 
   handleHintExpand() { this.setState({ hintExpanded: true }); }
 
-  renderCardContents(card) {
+  renderCardContents(cards) {
     const cardContents = (
       <CardText>
         <Field
-          name={`${card}.question`}
+          name={`${cards}.question`}
           label="Question"
           type="text"
           component={renderField}
           hint="Ask for what?"
         />
         <Field
-          name={`${card}.answer`}
+          name={`${cards}.answer`}
           label="Answer"
           type="text"
           component={renderField}
@@ -54,7 +54,7 @@ class CardForm extends React.Component {
         />
         {this.state.hintExpanded ?
           <Field
-            name={`${card}.hint`}
+            name={`${cards}.hint`}
             label="Hint"
             type="text"
             component={renderField}
@@ -74,7 +74,7 @@ class CardForm extends React.Component {
 
   render() {
     const { fields } = this.props;
-    const cardsMapped = fields.map((card, index) => (
+    const cardsMapped = fields.map((cards, index) => (
       <div className="col-sm-4" key={['card', index].join('')}>
         <Fade left>
           <Card>
@@ -90,7 +90,7 @@ class CardForm extends React.Component {
                   <CancelIcon />
                 </span>}
             />
-            {this.renderCardContents(card)}
+            {this.renderCardContents(cards)}
           </Card>
         </Fade>
       </div>));
