@@ -27,58 +27,77 @@ class AddSet extends React.Component {
   openSaveDialog() { this.setState({ saveDialogOpen: true }); }
   closeSaveDialog() { this.setState({ saveDialogOpen: false }); }
 
+  renderAlerts() {
+    let alerts = null;
+    const { setForm } = this.props;
+    alerts = (
+      <div>
+        <AlertDialog
+          labelNo="Cancel"
+          labelYes="Discard"
+          dialogTitle="Discard new set?"
+          dialogSubtitle="Changes won't be saved"
+          dialogOpen={this.state.cancelDialogOpen}
+          functionNo={this.closeCancelDialog}
+          highlightNo
+          linkYes="/"
+        />
+        <AlertDialog
+          labelNo="Cancel"
+          labelYes="Save"
+          dialogTitle="Save new set?"
+          dialogSubtitle="Are you sure?"
+          dialogOpen={this.state.saveDialogOpen}
+          functionNo={this.closeSaveDialog}
+          highlightNo
+          functionYes={() => this.props.submitSet(setForm.values)}
+        />
+      </div>
+    );
+    return alerts;
+  }
+
+  renderNav() {
+    let nav = null;
+    nav = (
+      <NavToolbar
+        leftContent={
+          <div>
+            <IconButton
+              onClick={this.openCancelDialog}
+              tooltip="Cancel"
+              iconStyle={{ color: '#FFF' }}
+            >
+              <CancelIcon />
+            </IconButton>
+          </div>
+        }
+        rightContent={
+          <IconButton
+            onClick={this.openSaveDialog}
+            tooltip="Save"
+            iconStyle={{ color: '#FFF' }}
+          >
+            <DoneIcon />
+          </IconButton>
+        }
+        centerContent="New card set"
+        centerStyle={scss.whiteColor}
+      />
+    );
+    return nav;
+  }
+
   renderAddSet() {
-    const { user, setForm } = this.props;
+    const { user } = this.props;
     const statusCode = user ? false : 401;
     let addset = null;
     // console.log(submitSet);
     if (user) {
       addset = (
         <div>
-          <NavToolbar
-            leftContent={
-              <div>
-                <IconButton
-                  onClick={this.openCancelDialog}
-                  tooltip="Cancel"
-                  iconStyle={{ color: '#FFF' }}
-                >
-                  <CancelIcon />
-                </IconButton>
-              </div>
-            }
-            rightContent={
-              <IconButton
-                onClick={this.openSaveDialog}
-                tooltip="Save"
-                iconStyle={{ color: '#FFF' }}
-              >
-                <DoneIcon />
-              </IconButton>
-            }
-            centerContent="New card set"
-            centerStyle={scss.whiteColor}
-          />
-          {/* These are shown by methods */}
-          <AlertDialog
-            labelNo="Cancel"
-            labelYes="Discard"
-            dialogTitle="Discard new set?"
-            dialogSubtitle="Changes won't be saved"
-            dialogOpen={this.state.cancelDialogOpen}
-            onClose={this.closeCancelDialog}
-            highlightNo
-            yesLink="/"
-          />
-          <AlertDialog
-            labelNo="Cancel"
-            labelYes="Save"
-            dialogTitle="Save new set?"
-            dialogSubtitle="Are you sure?"
-            dialogOpen={this.state.saveDialogOpen}
-            onClose={this.closeSaveDialog}
-            highlightNo
-          />
+          {this.renderNav()}
+          {this.renderAlerts()}
           <SetForm />
         </div>
       );

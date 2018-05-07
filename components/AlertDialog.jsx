@@ -2,8 +2,6 @@ import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import Link from 'next/link';
-import { connect } from 'react-redux';
-import { submitSet } from '../server/store';
 
 class AlertDialog extends React.Component {
   componentDidMount() {
@@ -13,11 +11,11 @@ class AlertDialog extends React.Component {
   renderYesButton() {
     let yesButton = null;
     const {
-      yesLink, labelYes, highlightYes, setForm,
+      linkYes, labelYes, highlightYes, functionYes,
     } = this.props;
-    if (this.props.yesLink) {
+    if (linkYes) {
       yesButton = (
-        <Link href={yesLink || ''}>
+        <Link href={linkYes || ''}>
           <FlatButton
             label={labelYes}
             primary
@@ -25,12 +23,12 @@ class AlertDialog extends React.Component {
           />
         </Link>
       );
-    } else {
+    } else if (functionYes) {
       yesButton = (
         <FlatButton
           label={labelYes}
           primary
-          onClick={() => this.props.submitSet(setForm.values)}
+          onClick={functionYes}
           keyboardFocused={false || highlightYes}
         />
       );
@@ -38,19 +36,29 @@ class AlertDialog extends React.Component {
     return yesButton;
   }
 
-  render() {
+  renderNoButton() {
+    let noButton = null;
     const {
-      labelNo, dialogTitle, dialogSubtitle,
-      highlightNo, dialogOpen, onClose,
+      labelNo, highlightNo, functionNo,
     } = this.props;
-    // console.log(submitSet);
-    const actions = [
+    noButton = (
       <FlatButton
         label={labelNo}
         primary
-        onClick={onClose}
+        onClick={functionNo}
         keyboardFocused={false || highlightNo}
-      />,
+      />
+    );
+    return noButton;
+  }
+
+  render() {
+    const {
+      dialogTitle, dialogSubtitle, dialogOpen, functionNo,
+    } = this.props;
+    // console.log(submitSet);
+    const actions = [
+      this.renderNoButton(),
       this.renderYesButton(),
     ];
     return (
@@ -59,7 +67,7 @@ class AlertDialog extends React.Component {
         actions={actions}
         modal={false}
         open={dialogOpen}
-        onRequestClose={onClose}
+        onRequestClose={functionNo}
       >
         {dialogSubtitle}
       </Dialog>
@@ -67,10 +75,5 @@ class AlertDialog extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    setForm: state.form.addset,
-  };
-}
 
-export default connect(mapStateToProps, { submitSet })(AlertDialog);
+export default AlertDialog;
