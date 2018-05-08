@@ -26,9 +26,9 @@ class StatTabs extends React.Component {
     });
   }
 
-  // TODO: replace dataroute=/settings with {propPages[index]}
+  // TODO: replace dataroute=/settings with {pages[index]}
   renderTabs() {
-    const { labels, pages } = this.props;
+    const { labels, pages, inkBar } = this.props;
     const useLabels = (labels == null) ? localLabels : labels;
     const usePages = (pages == null) ? localPages : pages; // eslint-disable-line
     const tabs = useLabels.map((useLabel, index) => // eslint-disable-line
@@ -46,7 +46,7 @@ class StatTabs extends React.Component {
       <Tabs
         value={this.state.value}
         onChange={this.handleChange}
-        inkBarStyle={{ backgroundColor: 'purple' }}
+        inkBarStyle={inkBar ? { backgroundColor: 'purple' } : { display: 'none' }}
       >
         {tabs}
       </Tabs>
