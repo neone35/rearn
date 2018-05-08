@@ -3,9 +3,6 @@ import Router from 'next/router';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import Paper from 'material-ui/Paper';
 
-const localLabels = ['8 sets', '235 cards', '2 folders'];
-const localPages = ['/sets', '/cards', '/folders'];
-
 function handleActive(tab) {
   const { dataroute } = tab.props;
   Router.push(dataroute);
@@ -29,8 +26,8 @@ class StatTabs extends React.Component {
   // TODO: replace dataroute=/settings with {pages[index]}
   renderTabs() {
     const { labels, pages, inkBar } = this.props;
-    const useLabels = (labels == null) ? localLabels : labels;
-    const usePages = (pages == null) ? localPages : pages; // eslint-disable-line
+    const useLabels = (labels == null) ? '' : labels;
+    const usePages = (pages == null) ? '' : pages; // eslint-disable-line
     const tabs = useLabels.map((useLabel, index) => // eslint-disable-line
       (
         <Tab
@@ -38,7 +35,7 @@ class StatTabs extends React.Component {
           label={useLabel}
           key={useLabel}
           onActive={handleActive}
-          dataroute="/settings"
+          dataroute={usePages[index]}
           value={useLabel}
         />
       ));
