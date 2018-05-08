@@ -61,8 +61,13 @@ app.prepare().then(() => {
     app.serveStatic(req, res, filePath);
   });
 
-  server.get('/cardset/:title', (req, res) => {
-    app.render(req, res);
+  server.get('/cardset/:id', (req, res) => {
+    const actualPage = '/set';
+    // console.log(req.params);
+    const queryParams = {
+      id: req.params.id,
+    };
+    app.render(req, res, actualPage, queryParams);
   });
 
   server.use(useragent.express());

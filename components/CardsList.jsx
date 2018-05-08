@@ -21,7 +21,8 @@ class CardsList extends React.Component {
     if (sets) {
       setsList = sets.reverse().map((set, index) => (
         <Link
-          href={`/cardset?title=${set.title}`}
+          as={`/set?title=${set.title.toLowerCase().trim()}`}
+          href={`/cardset/?id=${set._id}`} // eslint-disable-line
           key={['set', index].join('')}
         >
           <ListItem

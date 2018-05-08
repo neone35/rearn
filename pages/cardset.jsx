@@ -6,13 +6,22 @@ import Layout from '../lib/layout';
 
 
 class cardset extends React.Component {
-  componentDidMount() { this.props.fetchUser(); }
+  componentDidMount() {
+    this.props.fetchUser();
+  }
 
   renderSetPage() {
-    const { user } = this.props;
-    const { title } = this.props.url.query;
+    const { user, sets } = this.props;
+    const { id } = this.props.url.query;
     const statusCode = user ? false : 401;
+    let thisSet = null;
+    for (let i = 0; i < sets.length; i += 1) {
+      if (id === sets[i]._id) { // eslint-disable-line
+        thisSet = sets[i];
+      }
+    }
     let setPage = null;
+    const { title } = thisSet;
     if (user) {
       setPage = (
         <div>
@@ -27,9 +36,9 @@ class cardset extends React.Component {
   }
 
   render() {
-    const { title } = this.props.url.query;
+    const { id } = this.props.url.query;
     return (
-      <Layout title={['Rearn', title].join(' - ')}>
+      <Layout title={['Rearn', id].join(' - ')}>
         {this.renderSetPage()}
       </Layout>
     );
@@ -39,6 +48,7 @@ class cardset extends React.Component {
 function mapStateToProps(state) {
   return {
     user: state.authReducer,
+    sets: state.setsReducer,
   };
 }
 
