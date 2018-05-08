@@ -21,10 +21,32 @@ function getOneSet(sets, id) {
   return thisSet;
 }
 
+// function getSetCards(set) {
+//   let thisSet = null;
+//   for (let i = 0; i < sets.length; i += 1) {
+//     if (id === sets[i]._id) { // eslint-disable-line
+//       thisSet = sets[i];
+//     }
+//   }
+//   return thisSet;
+// }
+
 class cardset extends React.Component {
   componentDidMount() {
     this.props.fetchUser();
   }
+
+  // renderSetCards() {
+  //   const { sets } = this.props;
+  //   const { id } = this.props.url.query;
+  //   const thisSet = getOneSet(sets, id);
+  //   const setCards = getSetCards(thisSet);
+  //   const thisTitle = thisSet.title;
+  //   const cards = (
+  //     <p>hoho</p>
+  //   );
+  //   return cards;
+  // }
 
   renderSetToolbar() {
     const { sets } = this.props;
@@ -84,13 +106,10 @@ class cardset extends React.Component {
   }
 
   renderSetPage() {
-    const { user, sets } = this.props;
-    const { id } = this.props.url.query;
+    const { user } = this.props;
     const statusCode = user ? false : 401;
-    const thisSet = getOneSet(sets, id);
     let setPage = null;
-    const { title } = thisSet;
-    console.log(thisSet);
+    // console.log(thisSet);
     if (user) {
       setPage = (
         <div>
@@ -105,9 +124,11 @@ class cardset extends React.Component {
   }
 
   render() {
+    const { sets } = this.props;
     const { id } = this.props.url.query;
+    const thisSet = getOneSet(sets, id);
     return (
-      <Layout title={['Rearn', id].join(' - ')}>
+      <Layout title={['Rearn', thisSet.title].join(' - ')}>
         {this.renderSetPage()}
       </Layout>
     );
