@@ -1,7 +1,8 @@
 import React from 'react';
 import IconButton from 'material-ui/IconButton';
-import ActionSearch from 'material-ui/svg-icons/action/search';
-import ActionSettings from 'material-ui/svg-icons/action/settings';
+import ActionErase from 'material-ui/svg-icons/content/delete-sweep';
+import ActionEdit from 'material-ui/svg-icons/image/edit';
+import ActionPlay from 'material-ui/svg-icons/av/play-arrow';
 import { ToolbarTitle } from 'material-ui/Toolbar';
 import Error from 'next/error';
 import withRedux from 'next-redux-wrapper';
@@ -59,17 +60,29 @@ class cardset extends React.Component {
         leftStyle={scss.doubleLineToolbarTitle}
         rightStyle={scss.smallCapsToolbarTitle}
         leftContent={[
-          <IconButton tooltip="Close" iconStyle={{ color: '#FFF' }}>
-            <ActionSettings />
+          <IconButton
+            key="erase"
+            tooltip="Clear stats"
+            iconStyle={{ color: '#FFF' }}
+          >
+            <ActionErase />
           </IconButton>,
-          <IconButton tooltip="Search" iconStyle={{ color: '#FFF' }}>
-            <ActionSearch />
+          <IconButton
+            key="edit"
+            tooltip="Edit"
+            iconStyle={{ color: '#FFF' }}
+          >
+            <ActionEdit />
           </IconButton>,
         ]}
         rightContent={[
-          <ToolbarTitle text={thisTitle} />,
-          <IconButton tooltip="Search" iconStyle={{ color: '#FFF' }}>
-            <ActionSearch />
+          <ToolbarTitle key="title" text={thisTitle} />,
+          <IconButton
+            key="study"
+            tooltip="Study"
+            iconStyle={{ color: '#FFF', transform: 'scale(1.5)' }}
+          >
+            <ActionPlay />
           </IconButton>,
         ]}
       />

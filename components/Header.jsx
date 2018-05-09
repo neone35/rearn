@@ -120,7 +120,15 @@ class Header extends React.Component {
         <AppBar
           title={
             <Link href="/">
-              <span className={scss.mainTitle}>REARN</span>
+              <div>
+                <span className={scss.mainTitle}>REARN </span>
+                <span
+                  className={scss.lowerThinText}
+                  style={{ fontSize: '0.75em' }}
+                >
+                flashcards
+                </span>
+              </div>
             </Link>
           }
           iconElementLeft={
