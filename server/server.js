@@ -61,8 +61,17 @@ app.prepare().then(() => {
     app.serveStatic(req, res, filePath);
   });
 
-  server.get('/cardset/:id', (req, res) => {
-    const actualPage = '/set';
+  // server.get('/cardset/:id', (req, res) => {
+  //   const actualPage = '/set';
+  //   // console.log(req.params);
+  //   const queryParams = {
+  //     id: req.params.id,
+  //   };
+  //   app.render(req, res, actualPage, queryParams);
+  // });
+
+  server.get('/set:title', (req, res) => { // used by browser
+    const actualPage = '/cardset'; // used by server
     // console.log(req.params);
     const queryParams = {
       id: req.params.id,

@@ -21,8 +21,9 @@ class CardsList extends React.Component {
     if (sets) {
       setsList = sets.reverse().map((set, index) => (
         <Link
-          as={`/set?title=${set.title.toLowerCase().trim()}`}
-          href={`/cardset/?id=${set._id}`} // eslint-disable-line
+          as={`/set?title=${set.title.replace(/\s+/g, '')}`} // used by browser, no spaces
+          // eslint-disable-next-line
+          href={`/cardset?id=${set._id}`} // used by server
           key={['set', index].join('')}
         >
           <ListItem
