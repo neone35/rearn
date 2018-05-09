@@ -4,6 +4,7 @@ import ActionErase from 'material-ui/svg-icons/content/delete-sweep';
 import ActionEdit from 'material-ui/svg-icons/image/edit';
 import ActionPlay from 'material-ui/svg-icons/av/play-arrow';
 import { ToolbarTitle } from 'material-ui/Toolbar';
+import { List, ListItem } from 'material-ui/List';
 import Error from 'next/error';
 import withRedux from 'next-redux-wrapper';
 import { initStore, fetchUser } from '../server/store';
@@ -37,24 +38,22 @@ class cardset extends React.Component {
     this.props.fetchUser();
   }
 
-  // renderSetCards() {
-  //   const { sets } = this.props;
-  //   const { id } = this.props.url.query;
-  //   const thisSet = getOneSet(sets, id);
-  //   const setCards = getSetCards(thisSet);
-  //   const thisTitle = thisSet.title;
-  //   const cards = (
-  //     <p>hoho</p>
-  //   );
-  //   return cards;
-  // }
+  // eslint-disable-next-line
+  renderSetCards(thisSet) {
+    const thisSetCards = thisSet.cards;
+    const cardsList = thisSetCards.map((card, index) => (
+      <ListItem
+        key={['card', index].join('')}
+        primaryText={card.question}
+        secondaryText={card.answer}
+      />));
+    return cardsList;
+  }
 
-  renderSetToolbar() {
-    const { sets } = this.props;
-    const { id } = this.props.url.query;
-    const thisSet = getOneSet(sets, id);
+  // eslint-disable-next-line
+  renderSetToolbar(thisSet) {
     const thisTitle = thisSet.title;
-    const stats = (
+    const setStats = (
       <NavToolbar
         rightLink="/settings"
         leftStyle={scss.doubleLineToolbarTitle}
@@ -87,13 +86,11 @@ class cardset extends React.Component {
         ]}
       />
     );
-    return stats;
+    return setStats;
   }
 
-  renderSetStats() {
-    const { sets } = this.props;
-    const { id } = this.props.url.query;
-    const thisSet = getOneSet(sets, id);
+  // eslint-disable-next-line
+  renderSetStats(thisSet) {
     const thisScore = [thisSet.score, '%'].join('');
     const thisTime = [thisSet.timespent ? thisSet.timespent : '0', 'ms'].join(' ');
     const stats = (
@@ -118,7 +115,7 @@ class cardset extends React.Component {
     return stats;
   }
 
-  renderSetPage() {
+  renderSetPage(thisSet) {
     const { user } = this.props;
     const statusCode = user ? false : 401;
     let setPage = null;
@@ -126,8 +123,11 @@ class cardset extends React.Component {
     if (user) {
       setPage = (
         <div>
-          {this.renderSetStats()}
-          {this.renderSetToolbar()}
+          {this.renderSetStats(thisSet)}
+          {this.renderSetToolbar(thisSet)}
+          <List>
+            {this.renderSetCards(thisSet)}
+          </List>
         </div>
       );
     } else {
@@ -142,7 +142,7 @@ class cardset extends React.Component {
     const thisSet = getOneSet(sets, id);
     return (
       <Layout title={['Rearn', thisSet.title].join(' - ')}>
-        {this.renderSetPage()}
+        {this.renderSetPage(thisSet)}
       </Layout>
     );
   }

@@ -8,7 +8,7 @@ import React from 'react';
 import Layout from '../lib/layout';
 import StatTabs from '../components/StatTabs';
 import NavToolbar from '../components/NavToolbar';
-import CardsList from '../components/CardsList';
+import MainList from '../components/MainList';
 import DrawerList from '../components/lists/DrawerList';
 import CreateTabs from '../components/CreateTabs';
 import { initStore, fetchUser, getUserAgent } from '../server/store';
@@ -86,7 +86,7 @@ class Index extends React.Component {
             ]}
             rightContent="Flashcard folder 1"
           />
-          <CardsList />
+          <MainList />
           { this.renderCreateTabs() }
         </div>
       );

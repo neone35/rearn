@@ -10,7 +10,7 @@ import { fetchSets } from '../server/store';
 import scss from '../static/style.scss';
 
 
-class CardsList extends React.Component {
+class MainList extends React.Component {
   componentDidMount() {
     this.props.fetchSets();
   }
@@ -90,4 +90,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fetchSets })(CardsList);
+export default connect(mapStateToProps, { fetchSets })(MainList);
