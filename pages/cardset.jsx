@@ -34,14 +34,31 @@ function getOneSet(sets, id) {
 // }
 
 class cardset extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      studying: false,
+      sure: 0,
+      unsure: 0,
+      unknown: 0,
+      // timeSpent: 0,
+    };
+    this.startStudyMode = this.startStudyMode.bind(this);
+  }
+
   componentDidMount() {
     this.props.fetchUser();
   }
 
+  startStudyMode() { this.setState({ studying: !this.state.studying }); }
+  addSure() { this.setState({ sure: this.state.sure + 1 }); }
+  addUnsure() { this.setState({ unsure: this.state.unsure + 1 }); }
+  addUnknown() { this.setState({ unknown: this.state.unknown + 1 }); }
+
   // eslint-disable-next-line
   renderSetCards(thisSet) {
-    const thisSetCards = thisSet.cards;
-    const cardsList = thisSetCards.map((card, index) => (
+    const { cards } = thisSet;
+    const cardsList = cards.map((card, index) => (
       <ListItem
         key={['card', index].join('')}
         primaryText={card.question}
@@ -80,6 +97,7 @@ class cardset extends React.Component {
             key="study"
             tooltip="Study"
             iconStyle={{ color: '#FFF', transform: 'scale(1.5)' }}
+            onClick={this.startStudyMode}
           >
             <ActionPlay />
           </IconButton>,
@@ -123,11 +141,28 @@ class cardset extends React.Component {
     if (user) {
       setPage = (
         <div>
-          {this.renderSetStats(thisSet)}
-          {this.renderSetToolbar(thisSet)}
-          <List>
-            {this.renderSetCards(thisSet)}
-          </List>
+          { this.state.studying ?
+            // <StudyMode
+            //   closeStudyMode={this.startStudyMode}
+            //   sure={this.state.sureCount}
+            //   unsure={this.state.unsureCount}
+            //   unknown={this.state.unknownCount}
+            //   addSure={this.addSure}
+            //   addUnsure={this.addUnsure}
+            //   addUnknown={this.addUnknown}
+            //   timeSpent={this.state.timeSpent}
+            //   saveStats={() => this.updateStats(setForm.values)}
+            // />
+            <p>Study mode soon!</p>
+            :
+            <div>
+              {this.renderSetStats(thisSet)}
+              {this.renderSetToolbar(thisSet)}
+              <List>
+                {this.renderSetCards(thisSet)}
+              </List>
+            </div>
+          }
         </div>
       );
     } else {

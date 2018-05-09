@@ -74,6 +74,7 @@ class Index extends React.Component {
           <StatTabs
             labels={['10 sets', '612 cards', '8 folders']}
             pages={['/sets', '/cards', '/folders']}
+            inkBar
           />
           <NavToolbar
             rightLink="/settings"

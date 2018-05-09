@@ -97,7 +97,11 @@ class Header extends React.Component {
             <DrawerClose />
           </IconButton>
           :
-          <Avatar src={user.avatarUrl} onClick={this.handleDrawer} className={scss.avatar} />}
+          <Avatar
+            src={user.avatarUrl}
+            onClick={this.handleDrawer}
+            className={scss.avatar}
+          />}
       </div>
     );
     return avatarMenu;

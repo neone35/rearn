@@ -4,10 +4,6 @@ import Dialog from 'material-ui/Dialog';
 import Link from 'next/link';
 
 class AlertDialog extends React.Component {
-  componentDidMount() {
-
-  }
-
   renderYesButton() {
     let yesButton = null;
     const {

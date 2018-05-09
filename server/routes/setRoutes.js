@@ -34,8 +34,6 @@ export default function setRoutes(server) {
   );
 
   server.get('/api/sets', requireLogin, async (req, res) => {
-    // const surveys = await Survey.find({ _user: req.user.id });
-    // getting surveys with a lot of recipients
     const sets = await CardSet.find({ _user: req.user.id })
       .select('cards createdAt title score timeSpent');
     res.send(sets);
