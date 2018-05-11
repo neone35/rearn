@@ -7,15 +7,22 @@ class NavToolbar extends React.Component {
   renderLeftSide() {
     const { leftContent, leftStyle, leftLink } = this.props;
     let leftside = null;
+    const leftTemplate = (
+      <ToolbarGroup>
+        <ToolbarTitle
+          text={leftContent}
+          style={{ overflow: 'visible' }}
+          className={[leftStyle, leftLink ? scss.pointerCursor : null].join(' ')}
+        />
+      </ToolbarGroup>
+    );
     if (leftContent != null) {
+      leftside = leftTemplate;
+    } else if (leftLink != null) {
       leftside = (
-        <ToolbarGroup>
-          <ToolbarTitle
-            text={leftContent}
-            style={{ overflow: 'visible' }}
-            className={[leftStyle, leftLink ? scss.pointerCursor : null].join(' ')}
-          />
-        </ToolbarGroup>
+        <Link href={leftLink}>
+          {leftTemplate}
+        </Link>
       );
     }
     return leftside;
@@ -24,15 +31,22 @@ class NavToolbar extends React.Component {
   renderRightSide() {
     const { rightContent, rightStyle, rightLink } = this.props;
     let rightside = null;
+    const rightTemplate = (
+      <ToolbarGroup lastChild>
+        <ToolbarTitle
+          text={rightContent}
+          style={{ overflow: 'visible' }}
+          className={[rightStyle, rightLink ? scss.pointerCursor : null].join(' ')}
+        />
+      </ToolbarGroup>
+    );
     if (rightContent != null) {
+      rightside = rightTemplate;
+    } else if (rightLink != null) {
       rightside = (
-        <ToolbarGroup lastChild>
-          <ToolbarTitle
-            text={rightContent}
-            style={{ overflow: 'visible' }}
-            className={[rightStyle, rightLink ? scss.pointerCursor : null].join(' ')}
-          />
-        </ToolbarGroup>
+        <Link href={rightLink}>
+          {rightTemplate}
+        </Link>
       );
     }
     return rightside;
@@ -55,16 +69,11 @@ class NavToolbar extends React.Component {
   }
 
   render() {
-    const { rightLink, leftLink } = this.props;
     return (
       <Toolbar>
-        <Link href={leftLink || ''}>
-          {this.renderLeftSide()}
-        </Link>
+        {this.renderLeftSide()}
         {this.renderCenter()}
-        <Link href={rightLink || ''}>
-          {this.renderRightSide()}
-        </Link>
+        {this.renderRightSide()}
       </Toolbar>
     );
   }
