@@ -5,8 +5,10 @@ import ActionEdit from 'material-ui/svg-icons/image/edit';
 import ActionPlay from 'material-ui/svg-icons/av/play-arrow';
 import ActionBack from 'material-ui/svg-icons/navigation/arrow-back';
 import ActionHint from 'material-ui/svg-icons/image/wb-incandescent';
+import { Card, CardActions, CardText } from 'material-ui/Card';
 import { ToolbarTitle } from 'material-ui/Toolbar';
 import { List, ListItem } from 'material-ui/List';
+import FlatButton from 'material-ui/FlatButton';
 import Error from 'next/error';
 import withRedux from 'next-redux-wrapper';
 import { initStore, fetchUser, fetchSets } from '../server/store';
@@ -53,6 +55,10 @@ class cardset extends React.Component {
       unsure: 0,
       unknown: 0,
       studyTime: 0,
+      setScore: 0,
+      currentCard: 0,
+      showHint: false,
+      showAnswer: false,
     };
     this.turnOnStudyState = this.turnOnStudyState.bind(this);
   }
@@ -68,6 +74,20 @@ class cardset extends React.Component {
   turnOnStudyState() {
     this.setState({ studying: true });
     this.setState({ studyTime: (new Date()).getTime() });
+    this.setState({ setScore: 0 });
+  }
+
+  turnOffStudyState(cardsNum) {
+    this.setState({ studying: false });
+    const currentTime = new Date().getTime();
+    this.setState({ studyTime: currentTime - this.state.studyTime });
+    const { sure, unsure, unknown } = this.state;
+    const currentScore = (sure * 1) + (unsure * 0.5) + (unknown * 0);
+    const currentPercent = (currentScore * 100) / cardsNum;
+    this.setState({ setScore: currentPercent });
+    console.log(this.state.studyTime);
+    console.log(this.state.setScore);
+    Router.back();
   }
 
   redirectToStudyMode() {
@@ -79,9 +99,29 @@ class cardset extends React.Component {
     Router.replace(learnPath, pathMask, { shallow: true });
   }
 
-  addSure() { this.setState({ sure: this.state.sure + 1 }); }
-  addUnsure() { this.setState({ unsure: this.state.unsure + 1 }); }
-  addUnknown() { this.setState({ unknown: this.state.unknown + 1 }); }
+  addSure() {
+    this.setState({ sure: this.state.sure + 1 });
+    this.switchCard();
+  }
+  addUnsure() {
+    this.setState({
+      unsure: this.state.unsure + 1,
+      showHint: true,
+    });
+  }
+  addUnknown() {
+    this.setState({
+      unknown: this.state.unknown + 1,
+      showAnswer: true,
+    });
+  }
+  switchCard() {
+    this.setState({
+      currentCard: this.state.currentCard + 1,
+      showHint: false,
+      showAnswer: false,
+    });
+  }
 
 
   renderStudyStats() {
@@ -121,6 +161,7 @@ class cardset extends React.Component {
             key="back"
             tooltip="Back"
             iconStyle={{ color: '#FFF' }}
+            onClick={this.turnOffStudyState(thisSet.cards.length)}
           >
             <ActionBack />
           </IconButton>
@@ -133,7 +174,7 @@ class cardset extends React.Component {
             key="hint"
             tooltip="Hint"
             iconStyle={{ color: '#FFF' }}
-            onClick={() => this.redirectToStudyMode()}
+            onClick={this.addUnsure}
           >
             <ActionHint />
           </IconButton>
@@ -153,6 +194,33 @@ class cardset extends React.Component {
         secondaryText={card.answer}
       />));
     return cardsList;
+  }
+
+  // eslint-disable-next-line
+  renderStudyCards(thisSet) {
+    const { cards } = thisSet;
+    const cardCount = cards.length;
+    const { currentCard, showHint, showAnswer } = this.state;
+    let currentCardUI = null;
+    if (currentCard <= cardCount) {
+      const cardQuestion = cards[this.state.currentCard].question;
+      const cardAnswer = cards[this.state.currentCard].answer;
+      const cardHint = cards[this.state.currentCard].hint;
+      currentCardUI = (
+        <Card>
+          <CardText>
+            {showHint ? cardHint : cardQuestion}
+            {showAnswer ? cardAnswer : cardQuestion}
+          </CardText>
+          <CardActions>
+            <FlatButton label="Sure" onClick={this.addSure} />
+            <FlatButton label="Unsure" onClick={this.addUnsure} />
+            <FlatButton label="Unknown" onClick={this.addUnknown} />
+          </CardActions>
+        </Card>
+      );
+    }
+    return currentCardUI;
   }
 
   // eslint-disable-next-line
@@ -235,6 +303,7 @@ class cardset extends React.Component {
             <div>
               { this.renderStudyStats() }
               { this.renderStudyToolbar(thisSet) }
+              { this.renderStudyCards(thisSet) }
             </div>
             :
             <div>
