@@ -16,6 +16,7 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+          <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
           <link rel="manifest" href="/static/manifest.json" />
           <link rel="stylesheet" href="/_next/static/style.css" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />

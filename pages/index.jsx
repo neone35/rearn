@@ -23,7 +23,12 @@ class Index extends React.Component {
   // }
   constructor(props) {
     super(props);
-    this.state = { floatClicked: false };
+    this.state = {
+      floatClicked: false,
+      // showMainList: true,
+      // showSetList: false,
+      // showFolderList: false,
+    };
     this.handleFloatClick = this.handleFloatClick.bind(this);
   }
 

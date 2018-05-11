@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link';
+import Router from 'next/router';
 import IconButton from 'material-ui/IconButton';
 import ActionErase from 'material-ui/svg-icons/content/delete-sweep';
 import ActionEdit from 'material-ui/svg-icons/image/edit';
@@ -23,6 +25,10 @@ function getOneSet(sets, id) {
   return thisSet;
 }
 
+Router.onRouteChangeStart = (url) => {
+  console.log('App is changing to: ', url);
+};
+
 // function getSetCards(set) {
 //   let thisSet = null;
 //   for (let i = 0; i < sets.length; i += 1) {
@@ -34,6 +40,10 @@ function getOneSet(sets, id) {
 // }
 
 class cardset extends React.Component {
+  static async getInitialProps({ query }) {
+    return query;
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -72,7 +82,6 @@ class cardset extends React.Component {
     const thisTitle = thisSet.title;
     const setStats = (
       <NavToolbar
-        rightLink="/settings"
         leftStyle={scss.doubleLineToolbarTitle}
         rightStyle={scss.smallCapsToolbarTitle}
         leftContent={[
@@ -97,7 +106,7 @@ class cardset extends React.Component {
             key="study"
             tooltip="Study"
             iconStyle={{ color: '#FFF', transform: 'scale(1.5)' }}
-            onClick={this.startStudyMode}
+            onClick={() => Router.push('/about')}
           >
             <ActionPlay />
           </IconButton>,

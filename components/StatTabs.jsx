@@ -12,7 +12,7 @@ class StatTabs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: (this.props.labels[1] != null) ? this.props.labels[1] : localLabels[1],
+      value: this.props.labels[1],
     };
     this.handleChange = this.handleChange.bind(this);
   }
