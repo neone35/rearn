@@ -5,7 +5,7 @@ routes
   .add('about', '/about')
   .add('settings', '/settings')
   .add('addset', '/addset')
-  .add('cardset', '/cardset')
-  .add('set', '/set/:id', 'cardset');
+  .add('set', '/set/:id', 'cardset')
+  .add('/set/:id/learn', 'cardset');
 
 module.exports = routes;

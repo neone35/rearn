@@ -1,6 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
-import Router from 'next/router';
 import IconButton from 'material-ui/IconButton';
 import ActionErase from 'material-ui/svg-icons/content/delete-sweep';
 import ActionEdit from 'material-ui/svg-icons/image/edit';
@@ -10,6 +8,7 @@ import { List, ListItem } from 'material-ui/List';
 import Error from 'next/error';
 import withRedux from 'next-redux-wrapper';
 import { initStore, fetchUser, fetchSets } from '../server/store';
+import { Router } from '../server/routes';
 import Layout from '../lib/layout';
 import StatTabs from '../components/StatTabs';
 import NavToolbar from '../components/NavToolbar';
@@ -40,6 +39,10 @@ Router.onRouteChangeStart = (url) => {
 // }
 
 class cardset extends React.Component {
+  static async getInitialProps({ query }) {
+    console.log(query);
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -49,15 +52,30 @@ class cardset extends React.Component {
       unknown: 0,
       // timeSpent: 0,
     };
-    this.startStudyMode = this.startStudyMode.bind(this);
+    this.turnOnStudyState = this.turnOnStudyState.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchUser();
     this.props.fetchSets();
+    const { asPath } = this.props.url;
+    const isLearnUrl = asPath.indexOf('learn') > -1;
+    if (isLearnUrl) this.turnOnStudyState();
   }
 
-  startStudyMode() { this.setState({ studying: !this.state.studying }); }
+  turnOnStudyState() {
+    this.setState({ studying: true });
+  }
+
+  redirectToStudyMode() {
+    console.log(this.props.url);
+    const { asPath } = this.props.url;
+    const currentPath = asPath;
+    const learnPath = `${currentPath}/learn`; // eslint-disable-line
+    const pathMask = learnPath;
+    Router.replace(learnPath, pathMask, { shallow: true });
+  }
+
   addSure() { this.setState({ sure: this.state.sure + 1 }); }
   addUnsure() { this.setState({ unsure: this.state.unsure + 1 }); }
   addUnknown() { this.setState({ unknown: this.state.unknown + 1 }); }
@@ -103,7 +121,7 @@ class cardset extends React.Component {
             key="study"
             tooltip="Study"
             iconStyle={{ color: '#FFF', transform: 'scale(1.5)' }}
-            onClick={() => Router.push('/about')}
+            onClick={() => this.redirectToStudyMode(thisSet)}
           >
             <ActionPlay />
           </IconButton>,
@@ -148,18 +166,10 @@ class cardset extends React.Component {
       setPage = (
         <div>
           { this.state.studying ?
-            // <StudyMode
-            //   closeStudyMode={this.startStudyMode}
-            //   sure={this.state.sureCount}
-            //   unsure={this.state.unsureCount}
-            //   unknown={this.state.unknownCount}
-            //   addSure={this.addSure}
-            //   addUnsure={this.addUnsure}
-            //   addUnknown={this.addUnknown}
-            //   timeSpent={this.state.timeSpent}
-            //   saveStats={() => this.updateStats(setForm.values)}
-            // />
-            <p>Study mode soon!</p>
+            <div>
+              {this.renderSetStats(thisSet)}
+              {this.renderSetToolbar(thisSet)}
+            </div>
             :
             <div>
               { this.renderSetStats(thisSet) }
@@ -180,11 +190,12 @@ class cardset extends React.Component {
   render() {
     const { sets } = this.props;
     const { id } = this.props.url.query;
-    console.log(this.props);
+    console.log(this.props.url);
     const thisSet = getOneSet(sets, id);
     return (
       thisSet ?
         <Layout title={['Rearn', thisSet.title].join(' - ')}>
+          <button onClick={() => this.redirectToStudyMode()}>learn</button>
           {this.renderSetPage(thisSet)}
         </Layout>
         :

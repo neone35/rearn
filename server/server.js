@@ -85,7 +85,7 @@ app.prepare().then(() => {
     res.send(req.useragent);
   });
 
-  server.get('*', (req, res) => handler(req, res));
+  // server.get('*', (req, res) => handler(req, res));
 
   server.use(handler).listen(port, (err) => {
     if (err) throw err; // eslint-disable-next-line no-console
