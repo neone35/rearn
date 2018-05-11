@@ -1,11 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { List, ListItem } from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import FileFolder from 'material-ui/svg-icons/file/folder';
 import ViewCarousel from 'material-ui/svg-icons/action/view-carousel';
 import { purple800 } from 'material-ui/styles/colors';
-import Link from 'next/link';
-import { connect } from 'react-redux';
+import { Link } from '../server/routes';
 import { fetchSets } from '../server/store';
 import scss from '../static/style.scss';
 
@@ -21,9 +21,9 @@ class MainList extends React.Component {
     if (sets) {
       setsList = sets.reverse().map((set, index) => (
         <Link
-          as={`/set?title=${set.title.replace(/\s+/g, '')}`} // used by browser, no spaces
+          route="set"
           // eslint-disable-next-line
-          href={`/cardset?id=${set._id}`} // used by server
+          params={{ id: set._id }}
           key={['set', index].join('')}
         >
           <ListItem

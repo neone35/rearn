@@ -9,7 +9,7 @@ import { ToolbarTitle } from 'material-ui/Toolbar';
 import { List, ListItem } from 'material-ui/List';
 import Error from 'next/error';
 import withRedux from 'next-redux-wrapper';
-import { initStore, fetchUser } from '../server/store';
+import { initStore, fetchUser, fetchSets } from '../server/store';
 import Layout from '../lib/layout';
 import StatTabs from '../components/StatTabs';
 import NavToolbar from '../components/NavToolbar';
@@ -40,10 +40,6 @@ Router.onRouteChangeStart = (url) => {
 // }
 
 class cardset extends React.Component {
-  static async getInitialProps({ query }) {
-    return query;
-  }
-
   constructor(props) {
     super(props);
     this.state = {
@@ -58,6 +54,7 @@ class cardset extends React.Component {
 
   componentDidMount() {
     this.props.fetchUser();
+    this.props.fetchSets();
   }
 
   startStudyMode() { this.setState({ studying: !this.state.studying }); }
@@ -165,10 +162,10 @@ class cardset extends React.Component {
             <p>Study mode soon!</p>
             :
             <div>
-              {this.renderSetStats(thisSet)}
-              {this.renderSetToolbar(thisSet)}
+              { this.renderSetStats(thisSet) }
+              { this.renderSetToolbar(thisSet) }
               <List>
-                {this.renderSetCards(thisSet)}
+                { this.renderSetCards(thisSet) }
               </List>
             </div>
           }
@@ -183,11 +180,21 @@ class cardset extends React.Component {
   render() {
     const { sets } = this.props;
     const { id } = this.props.url.query;
+    console.log(this.props);
     const thisSet = getOneSet(sets, id);
     return (
-      <Layout title={['Rearn', thisSet.title].join(' - ')}>
-        {this.renderSetPage(thisSet)}
-      </Layout>
+      thisSet ?
+        <Layout title={['Rearn', thisSet.title].join(' - ')}>
+          {this.renderSetPage(thisSet)}
+        </Layout>
+        :
+        <Layout title={['Rearn', 'no set'].join(' - ')}>
+          <List>
+            <ListItem
+              primaryText="Receiving data..."
+            />
+          </List>
+        </Layout>
     );
   }
 }
@@ -199,4 +206,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default withRedux(initStore, mapStateToProps, { fetchUser })(cardset);
+export default withRedux(initStore, mapStateToProps, { fetchUser, fetchSets })(cardset);

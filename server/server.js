@@ -6,6 +6,7 @@ const getRootUrl = require('../lib/api/getRootUrl').default;
 const authGoogle = require('./google').default;
 const authRoutes = require('./routes/authRoutes').default;
 const setRoutes = require('./routes/setRoutes').default;
+const routes = require('./routes');
 // server dependencies
 const express = require('express');
 const expressSession = require('express-session');
@@ -24,7 +25,7 @@ if (dev) require('dotenv').config(); // map .env file vars into process.env
 
 // server config
 const app = next({ dev });
-const handle = app.getRequestHandler();
+const handler = routes.getRequestHandler(app);
 const port = process.env.PORT || 4000;
 const ROOT_URL = getRootUrl();
 const { MONGO_URL, SESSION_SECRET } = process.env;
@@ -70,23 +71,23 @@ app.prepare().then(() => {
   //   app.render(req, res, actualPage, queryParams);
   // });
 
-  server.get('/set:title', (req, res) => { // used by browser
-    const actualPage = '/cardset'; // used by server
-    // console.log(req.params);
-    const queryParams = {
-      id: req.params.id,
-    };
-    app.render(req, res, actualPage, queryParams);
-  });
+  // server.get('/set:title', (req, res) => { // used by browser
+  //   const actualPage = '/cardset'; // used by server
+  //   // console.log(req.params);
+  //   const queryParams = {
+  //     id: req.params.id,
+  //   };
+  //   app.render(req, res, actualPage, queryParams);
+  // });
 
   server.use(useragent.express());
   server.get('/api/useragent', (req, res) => {
     res.send(req.useragent);
   });
 
-  server.get('*', (req, res) => handle(req, res));
+  server.get('*', (req, res) => handler(req, res));
 
-  server.listen(port, (err) => {
+  server.use(handler).listen(port, (err) => {
     if (err) throw err; // eslint-disable-next-line no-console
     console.log(`> Ready on ${ROOT_URL}`);
   });
