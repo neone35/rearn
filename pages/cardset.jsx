@@ -5,10 +5,12 @@ import ActionEdit from 'material-ui/svg-icons/image/edit';
 import ActionPlay from 'material-ui/svg-icons/av/play-arrow';
 import ActionBack from 'material-ui/svg-icons/navigation/arrow-back';
 import ActionHint from 'material-ui/svg-icons/image/wb-incandescent';
+import CircularProgress from 'material-ui/CircularProgress';
 import { Card, CardActions, CardText } from 'material-ui/Card';
 import { ToolbarTitle } from 'material-ui/Toolbar';
+import { Table, TableBody, TableRow, TableRowColumn } from 'material-ui/Table';
 import { List, ListItem } from 'material-ui/List';
-import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 import Error from 'next/error';
 import withRedux from 'next-redux-wrapper';
 import { initStore, fetchUser, fetchSets } from '../server/store';
@@ -28,9 +30,9 @@ function getOneSet(sets, id) {
   return thisSet;
 }
 
-// Router.onRouteChangeStart = (url) => {
-//   console.log('App is changing to: ', url);
-// };
+Router.onRouteChangeStart = (url) => {
+  console.log('App is changing to: ', url);
+};
 
 // function getSetCards(set) {
 //   let thisSet = null;
@@ -55,7 +57,6 @@ class cardset extends React.Component {
       unsure: 0,
       unknown: 0,
       studyTime: 0,
-      setScore: 0,
       currentCard: 0,
       showHint: false,
       showAnswer: false,
@@ -74,19 +75,11 @@ class cardset extends React.Component {
   turnOnStudyState() {
     this.setState({ studying: true });
     this.setState({ studyTime: (new Date()).getTime() });
-    this.setState({ setScore: 0 });
   }
 
-  turnOffStudyState(cardsNum) {
+  turnOffStudyState() {
     this.setState({ studying: false });
-    const currentTime = new Date().getTime();
-    this.setState({ studyTime: currentTime - this.state.studyTime });
-    const { sure, unsure, unknown } = this.state;
-    const currentScore = (sure * 1) + (unsure * 0.5) + (unknown * 0);
-    const currentPercent = (currentScore * 100) / cardsNum;
-    this.setState({ setScore: currentPercent });
-    console.log(this.state.studyTime);
-    console.log(this.state.setScore);
+    // send timeSpent and currentPercent to backend for update
     Router.back();
   }
 
@@ -161,7 +154,7 @@ class cardset extends React.Component {
             key="back"
             tooltip="Back"
             iconStyle={{ color: '#FFF' }}
-            onClick={this.turnOffStudyState(thisSet.cards.length)}
+            onClick={() => this.turnOffStudyState(thisSet.cards.length)}
           >
             <ActionBack />
           </IconButton>
@@ -174,7 +167,7 @@ class cardset extends React.Component {
             key="hint"
             tooltip="Hint"
             iconStyle={{ color: '#FFF' }}
-            onClick={this.addUnsure}
+            onClick={() => this.addUnsure()}
           >
             <ActionHint />
           </IconButton>
@@ -199,25 +192,84 @@ class cardset extends React.Component {
   // eslint-disable-next-line
   renderStudyCards(thisSet) {
     const { cards } = thisSet;
-    const cardCount = cards.length;
+    const cardCount = cards.length - 1; // second card = currentCard = 1
     const { currentCard, showHint, showAnswer } = this.state;
     let currentCardUI = null;
+    console.log(cardCount);
+    console.log(currentCard);
     if (currentCard <= cardCount) {
-      const cardQuestion = cards[this.state.currentCard].question;
-      const cardAnswer = cards[this.state.currentCard].answer;
-      const cardHint = cards[this.state.currentCard].hint;
+      const cardQuestion = cards[currentCard].question ?
+        cards[currentCard].question : 'No question defined :(';
+      const cardAnswer = cards[currentCard].answer ?
+        cards[currentCard].answer : 'No answer defined :(';
+      const cardHint = cards[currentCard].hint ?
+        cards[currentCard].hint : 'No hint defined :(';
+      const nextCardButton = (
+        <RaisedButton label="Next" onClick={() => this.switchCard()} />
+      );
+      if (showHint) {
+        currentCardUI = (
+          <Card>
+            <CardText>{cardHint}</CardText>
+            <CardActions>{nextCardButton}</CardActions>
+          </Card>
+        );
+      } else if (showAnswer) {
+        currentCardUI = (
+          <Card>
+            <CardText>{cardAnswer}</CardText>
+            <CardActions>{nextCardButton}</CardActions>
+          </Card>
+        );
+      } else {
+        currentCardUI = (
+          <Card>
+            <CardText>{cardQuestion}</CardText>
+            <CardActions>
+              <RaisedButton label="Sure" onClick={() => this.addSure()} />
+              <RaisedButton label="Unsure" onClick={() => this.addUnsure()} />
+              <RaisedButton label="Unknown" onClick={() => this.addUnknown()} />
+            </CardActions>
+          </Card>
+        );
+      }
+    } else {
+      const currentTime = new Date().getTime();
+      const secondsSpent = (currentTime - this.state.studyTime) / 1000;
+      const { sure, unsure, unknown } = this.state;
+      const currentScore = (sure * 1) + (unsure * 0.5) + (unknown * 0);
+      const currentPercent = (currentScore * 100) / cards.length;
       currentCardUI = (
-        <Card>
-          <CardText>
-            {showHint ? cardHint : cardQuestion}
-            {showAnswer ? cardAnswer : cardQuestion}
-          </CardText>
-          <CardActions>
-            <FlatButton label="Sure" onClick={this.addSure} />
-            <FlatButton label="Unsure" onClick={this.addUnsure} />
-            <FlatButton label="Unknown" onClick={this.addUnknown} />
-          </CardActions>
-        </Card>
+        <div>
+          <Table>
+            <TableBody displayRowCheckbox={false}>
+              <TableRow>
+                <TableRowColumn>
+                  Score
+                </TableRowColumn>
+                <TableRowColumn>Time</TableRowColumn>
+              </TableRow>
+              <TableRow>
+                <TableRowColumn>
+                  {[currentPercent, '% '].join('')}
+                  <CircularProgress
+                    mode="determinate"
+                    value={currentPercent}
+                    size={10}
+                    thickness={2}
+                  />
+                </TableRowColumn>
+                <TableRowColumn>{[secondsSpent, 's'].join('')}</TableRowColumn>
+              </TableRow>
+            </TableBody>
+          </Table>
+          <RaisedButton
+            primary
+            fullWidth
+            label="Back to list"
+            onClick={() => this.turnOffStudyState(cards.length)}
+          />
+        </div>
       );
     }
     return currentCardUI;

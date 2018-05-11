@@ -23,7 +23,7 @@ class MainList extends React.Component {
         <Link
           route="set"
           // eslint-disable-next-line
-          params={{ id: set._id, title: set.title.replace(/\s/g, '') }}
+          params={{ id: set._id }}
           key={['set', index].join('')}
         >
           <ListItem
