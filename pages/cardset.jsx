@@ -31,6 +31,17 @@ function getOneSet(sets, id) {
   return thisSet;
 }
 
+function getOneCardSide(text, buttons) {
+  return (
+    <div>
+      <Card>
+          <CardText>{text}</CardText>
+        </Card>
+      {buttons}
+    </div>
+  );
+}
+
 Router.onRouteChangeStart = (url) => {
   console.log('App is changing to: ', url);
 };
@@ -208,6 +219,7 @@ class cardset extends React.Component {
         cards[currentCard].hint : 'No hint defined :(';
       const nextCardButton = (
         <CreateTabs
+          classNames={false}
           labels={['Next']}
           icons={false}
           routes={false}
@@ -228,33 +240,11 @@ class cardset extends React.Component {
         />
       );
       if (showHint) {
-        currentCardUI = (
-          <div>
-            <Card>
-              <CardText>{cardHint}</CardText>
-            </Card>
-            { nextCardButton }
-          </div>
-
-        );
+        currentCardUI = getOneCardSide(cardHint, nextCardButton);
       } else if (showAnswer) {
-        currentCardUI = (
-          <div>
-            <Card>
-              <CardText>{cardAnswer}</CardText>
-            </Card>
-            { nextCardButton }
-          </div>
-        );
+        currentCardUI = getOneCardSide(cardAnswer, nextCardButton);
       } else {
-        currentCardUI = (
-          <div>
-            <Card>
-              <CardText>{cardQuestion}</CardText>
-            </Card>
-            { mainStudyButtons }
-          </div>
-        );
+        currentCardUI = getOneCardSide(cardQuestion, mainStudyButtons);
       }
     } else {
       const currentTime = new Date().getTime();
