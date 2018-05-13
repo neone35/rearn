@@ -19,6 +19,7 @@ import Layout from '../lib/layout';
 import StatTabs from '../components/StatTabs';
 import CreateTabs from '../components/CreateTabs';
 import NavToolbar from '../components/NavToolbar';
+import AlertDialog from '../components/AlertDialog';
 import scss from '../static/style.scss';
 
 function getOneSet(sets, id) {
@@ -62,8 +63,11 @@ class cardset extends React.Component {
       currentCard: 0,
       showHint: false,
       showAnswer: false,
+      cancelDialogOpen: false,
     };
     this.turnOnStudyState = this.turnOnStudyState.bind(this);
+    this.openCancelDialog = this.openCancelDialog.bind(this);
+    this.closeCancelDialog = this.closeCancelDialog.bind(this);
   }
 
   componentDidMount() {
@@ -73,6 +77,9 @@ class cardset extends React.Component {
     const isLearnUrl = asPath.indexOf('learn') > -1;
     if (isLearnUrl) this.turnOnStudyState();
   }
+
+  openCancelDialog() { this.setState({ cancelDialogOpen: true }); }
+  closeCancelDialog() { this.setState({ cancelDialogOpen: false }); }
 
   turnOnStudyState() {
     this.setState({ studying: true });
@@ -118,7 +125,6 @@ class cardset extends React.Component {
     });
   }
 
-
   renderStudyStats() {
     const { sure, unsure, unknown } = this.state;
     const stats = (
@@ -144,38 +150,59 @@ class cardset extends React.Component {
     return stats;
   }
 
+  renderDialogs(thisSet) {
+    let alert = null;
+    alert = (
+      <AlertDialog
+        labelNo="Cancel"
+        labelYes="Go back"
+        dialogTitle="Delete current session stats?"
+        dialogSubtitle="Changes won't be saved"
+        dialogOpen={this.state.cancelDialogOpen}
+        functionNo={this.closeCancelDialog}
+        highlightNo
+        functionYes={() => this.turnOffStudyState(thisSet)}
+      />
+    );
+    return alert;
+  }
+
   // eslint-disable-next-line
   renderStudyToolbar(thisSet) {
     const thisTitle = thisSet.title;
     const setStats = (
-      <NavToolbar
-        leftStyle={scss.whiteColor}
-        rightStyle={scss.whiteColor}
-        centerStyle={scss.whiteColor}
-        leftContent={
-          <IconButton
-            key="back"
-            tooltip="Back"
-            iconStyle={{ color: '#FFF' }}
-            onClick={() => this.turnOffStudyState(thisSet.cards.length)}
-          >
-            <ActionBack />
-          </IconButton>
+      <div>
+        <NavToolbar
+          leftStyle={scss.whiteColor}
+          rightStyle={scss.whiteColor}
+          centerStyle={scss.whiteColor}
+          leftContent={
+            <IconButton
+              key="back"
+              tooltip="Back"
+              iconStyle={{ color: '#FFF' }}
+              onClick={this.openCancelDialog}
+            >
+              <ActionBack />
+            </IconButton>
         }
-        centerContent={
-          <ToolbarTitle key="title" text={thisTitle} />
+          centerContent={
+            <ToolbarTitle key="title" text={thisTitle} />
         }
-        rightContent={
-          <IconButton
-            key="hint"
-            tooltip="Hint"
-            iconStyle={{ color: '#FFF' }}
-            onClick={() => this.addUnsure()}
-          >
-            <ActionHint />
-          </IconButton>
+          rightContent={
+            <IconButton
+              key="hint"
+              tooltip="Hint"
+              iconStyle={{ color: '#FFF' }}
+              onClick={() => this.addUnsure()}
+            >
+              <ActionHint />
+            </IconButton>
         }
-      />
+        />
+        {this.renderDialogs(thisSet)}
+      </div>
+
     );
     return setStats;
   }
@@ -198,8 +225,8 @@ class cardset extends React.Component {
     const cardCount = cards.length - 1; // second card = currentCard = 1
     const { currentCard, showHint, showAnswer } = this.state;
     let currentCardUI = null;
-    console.log(cardCount);
-    console.log(currentCard);
+    // console.log(cardCount);
+    // console.log(currentCard);
     if (currentCard <= cardCount) {
       const cardQuestion = cards[currentCard].question ?
         cards[currentCard].question : 'No question defined :(';
