@@ -6,7 +6,7 @@ import ActionPlay from 'material-ui/svg-icons/av/play-arrow';
 import ActionBack from 'material-ui/svg-icons/navigation/arrow-back';
 import ActionHint from 'material-ui/svg-icons/image/wb-incandescent';
 import CircularProgress from 'material-ui/CircularProgress';
-import { Card, CardText } from 'material-ui/Card';
+import { Card, CardHeader, CardText } from 'material-ui/Card';
 import { ToolbarTitle } from 'material-ui/Toolbar';
 import { Table, TableBody, TableRow, TableRowColumn } from 'material-ui/Table';
 import { List, ListItem } from 'material-ui/List';
@@ -31,30 +31,20 @@ function getOneSet(sets, id) {
   return thisSet;
 }
 
-function getOneCardSide(text, buttons) {
+function getOneCardSide(label, index, num, text, buttons) {
   return (
     <div>
       <Card>
-          <CardText>{text}</CardText>
-        </Card>
+        <CardHeader
+          title={['#', index, '/', num].join(' ')}
+          subtitle={label}
+        />
+        <CardText>{text}</CardText>
+      </Card>
       {buttons}
     </div>
   );
 }
-
-Router.onRouteChangeStart = (url) => {
-  console.log('App is changing to: ', url);
-};
-
-// function getSetCards(set) {
-//   let thisSet = null;
-//   for (let i = 0; i < sets.length; i += 1) {
-//     if (id === sets[i]._id) { // eslint-disable-line
-//       thisSet = sets[i];
-//     }
-//   }
-//   return thisSet;
-// }
 
 class cardset extends React.Component {
   // static async getInitialProps({ query }) {
@@ -240,11 +230,14 @@ class cardset extends React.Component {
         />
       );
       if (showHint) {
-        currentCardUI = getOneCardSide(cardHint, nextCardButton);
+        currentCardUI =
+          getOneCardSide('Hint', currentCard + 1, cards.length, cardHint, nextCardButton);
       } else if (showAnswer) {
-        currentCardUI = getOneCardSide(cardAnswer, nextCardButton);
+        currentCardUI =
+          getOneCardSide('Answer', currentCard + 1, cards.length, cardAnswer, nextCardButton);
       } else {
-        currentCardUI = getOneCardSide(cardQuestion, mainStudyButtons);
+        currentCardUI =
+          getOneCardSide('Question', currentCard + 1, cards.length, cardQuestion, mainStudyButtons);
       }
     } else {
       const currentTime = new Date().getTime();
