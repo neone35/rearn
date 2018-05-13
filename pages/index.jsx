@@ -4,6 +4,8 @@ import { Card, CardHeader } from 'material-ui/Card';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import { green800 } from 'material-ui/styles/colors';
 import CloseIcon from 'material-ui/svg-icons/navigation/close';
+import FileFolder from 'material-ui/svg-icons/file/folder';
+import ViewCarousel from 'material-ui/svg-icons/action/view-carousel';
 import React from 'react';
 import Layout from '../lib/layout';
 import StatTabs from '../components/StatTabs';
@@ -67,7 +69,13 @@ class Index extends React.Component {
             >
               <CloseIcon />
             </FloatingActionButton>
-            <CreateTabs />
+            <CreateTabs
+              labels={['Folder', 'Set']}
+              icons={[<FileFolder color="white" />, <ViewCarousel color="white" />]}
+              routes={['/about', '/addset']}
+              onSelect={false}
+              classNames={false}
+            />
           </div>
           :
           <FloatingActionButton

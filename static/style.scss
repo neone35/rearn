@@ -1,9 +1,10 @@
-$gray: #999;
-$greenFloatBtn: #329553;
-$green800: #2E7D32;
+$greenFloatBtn: #2E7D32;
+$greenDark: #339A83;
 $green600: #43A047;
-$blue: #307F97;
-$blue700: #0097A7;
+$cyanDark: #307F97;
+$cyan700: #0097A7;
+$purpleDark: #4D2F75;
+$purple700: #512DA8;
 
 .mainTitle {
   cursor: pointer !important;
@@ -45,7 +46,7 @@ $blue700: #0097A7;
     font-variant: small-caps !important; 
 }
 .smallCapsToolbarTitle:hover {
-    background-color: $blue700 !important;
+    background-color: $cyan700 !important;
     padding-left: 1.2rem;
 }
 
@@ -57,12 +58,36 @@ $blue700: #0097A7;
     color: white !important;
 }
 
-.tab {
-    background-color: $green800 !important;
+.createTab {
+    background-color: $greenFloatBtn !important;
     color: white !important;
 }
-.tab:hover {
+.createTab:hover {
     background-color: $green600 !important;
+    color: white !important;
+}
+.sureTab {
+    background-color: $purpleDark !important;
+    color: white !important;
+}
+.sureTab:hover {
+    background-color: $purple700 !important;
+    color: white !important;
+}
+.unsureTab {
+    background-color: $greenDark !important;
+    color: white !important;
+}
+.unsureTab:hover {
+    background-color: $green600 !important;
+    color: white !important;
+}
+.unknownTab {
+    background-color: $cyanDark !important;
+    color: white !important;
+}
+.unknownTab:hover {
+    background-color: $cyan700 !important;
     color: white !important;
 }
 

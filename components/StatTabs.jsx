@@ -3,18 +3,14 @@ import { Tabs, Tab } from 'material-ui/Tabs';
 import Paper from 'material-ui/Paper';
 
 class StatTabs extends React.Component {
-  // TODO: replace dataroute=/settings with {pages[index]}
   renderTabs() {
     const { labels, tabFunctions, inkBar } = this.props;
-    const useLabels = (labels == null) ? '' : labels;
-    console.log(this.props.labels[1]);
-    console.log(this.state);
-    const tabs = useLabels.map((useLabel, index) => // eslint-disable-line
+    const tabs = labels.map((label, index) =>
       (
         <Tab
           buttonStyle={{ backgroundColor: 'white', color: 'grey' }}
-          label={useLabel}
-          key={useLabel}
+          label={label}
+          key={label}
           onActive={tabFunctions[index]}
         />
       ));

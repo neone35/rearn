@@ -6,7 +6,7 @@ import ActionPlay from 'material-ui/svg-icons/av/play-arrow';
 import ActionBack from 'material-ui/svg-icons/navigation/arrow-back';
 import ActionHint from 'material-ui/svg-icons/image/wb-incandescent';
 import CircularProgress from 'material-ui/CircularProgress';
-import { Card, CardActions, CardText } from 'material-ui/Card';
+import { Card, CardText } from 'material-ui/Card';
 import { ToolbarTitle } from 'material-ui/Toolbar';
 import { Table, TableBody, TableRow, TableRowColumn } from 'material-ui/Table';
 import { List, ListItem } from 'material-ui/List';
@@ -17,6 +17,7 @@ import { initStore, fetchUser, fetchSets } from '../server/store';
 import { Router } from '../server/routes';
 import Layout from '../lib/layout';
 import StatTabs from '../components/StatTabs';
+import CreateTabs from '../components/CreateTabs';
 import NavToolbar from '../components/NavToolbar';
 import scss from '../static/style.scss';
 
@@ -136,6 +137,7 @@ class cardset extends React.Component {
           ],
         ]}
         inkBar={false}
+        tabFunctions={false}
       />
     );
     return stats;
@@ -205,32 +207,53 @@ class cardset extends React.Component {
       const cardHint = cards[currentCard].hint ?
         cards[currentCard].hint : 'No hint defined :(';
       const nextCardButton = (
-        <RaisedButton label="Next" onClick={() => this.switchCard()} />
+        <CreateTabs
+          labels={['Next']}
+          icons={false}
+          routes={false}
+          onSelect={[() => this.switchCard()]}
+        />
+      );
+      const mainStudyButtons = (
+        <CreateTabs
+          classNames={[scss.sureTab, scss.unsureTab, scss.unknownTab]}
+          labels={['Sure', 'Unsure', 'Unknown']}
+          icons={false}
+          routes={false}
+          onSelect={[
+            () => this.addSure(),
+            () => this.addUnsure(),
+            () => this.addUnknown(),
+          ]}
+        />
       );
       if (showHint) {
         currentCardUI = (
-          <Card>
-            <CardText>{cardHint}</CardText>
-            <CardActions>{nextCardButton}</CardActions>
-          </Card>
+          <div>
+            <Card>
+              <CardText>{cardHint}</CardText>
+            </Card>
+            { nextCardButton }
+          </div>
+
         );
       } else if (showAnswer) {
         currentCardUI = (
-          <Card>
-            <CardText>{cardAnswer}</CardText>
-            <CardActions>{nextCardButton}</CardActions>
-          </Card>
+          <div>
+            <Card>
+              <CardText>{cardAnswer}</CardText>
+            </Card>
+            { nextCardButton }
+          </div>
         );
       } else {
         currentCardUI = (
-          <Card>
-            <CardText>{cardQuestion}</CardText>
-            <CardActions>
-              <RaisedButton label="Sure" onClick={() => this.addSure()} />
-              <RaisedButton label="Unsure" onClick={() => this.addUnsure()} />
-              <RaisedButton label="Unknown" onClick={() => this.addUnknown()} />
-            </CardActions>
-          </Card>
+          <div>
+            <Card>
+              <CardText>{cardQuestion}</CardText>
+            </Card>
+            { mainStudyButtons }
+          </div>
         );
       }
     } else {
@@ -337,6 +360,7 @@ class cardset extends React.Component {
             <span className={scss.lowerThinText} key="studied">studied</span>,
           ],
         ]}
+        tabFunctions={false}
         inkBar={false}
       />
     );
