@@ -25,11 +25,13 @@ class Index extends React.Component {
     super(props);
     this.state = {
       floatClicked: false,
-      // showMainList: true,
-      // showSetList: false,
-      // showFolderList: false,
+      showSetList: false,
+      showFolderList: false,
     };
     this.handleFloatClick = this.handleFloatClick.bind(this);
+    this.handleShowSets = this.handleShowSets.bind(this);
+    this.handleShowMain = this.handleShowMain.bind(this);
+    this.handleShowFolders = this.handleShowFolders.bind(this);
   }
 
   componentDidMount() {
@@ -42,6 +44,15 @@ class Index extends React.Component {
     this.setState({
       floatClicked: !this.state.floatClicked,
     });
+  }
+  handleShowSets() {
+    this.setState({ showFolderList: false, showSetList: true });
+  }
+  handleShowMain() {
+    this.setState({ showFolderList: false, showSetList: false });
+  }
+  handleShowFolders() {
+    this.setState({ showSetList: false, showFolderList: true });
   }
 
   renderCreateTabs() {
@@ -87,7 +98,11 @@ class Index extends React.Component {
               [allCardsNum || 0, 'cards'].join(' '),
               [null || 0, 'folders'].join(' '),
               ]}
-            pages={['/sets', '/cards', '/folders']}
+            tabFunctions={[
+              this.handleShowSets,
+              this.handleShowMain,
+              this.handleShowFolders,
+            ]}
             inkBar
           />
           <NavToolbar
@@ -101,7 +116,10 @@ class Index extends React.Component {
             ]}
             rightContent="Flashcard folder 1"
           />
-          <MainList />
+          <MainList
+            showSets={this.state.showSetList}
+            showFolders={this.state.showFolderList}
+          />
           { this.renderCreateTabs() }
         </div>
       );

@@ -75,11 +75,22 @@ class MainList extends React.Component {
   }
 
   render() {
+    const { showSets, showFolders } = this.props;
+    let whichList;
+    if (showSets) {
+      whichList = (<List>{this.renderSets()}</List>);
+    } else if (showFolders) {
+      whichList = (<List>{this.renderFolders()}</List>);
+    } else {
+      whichList = (
+        <List>
+          {this.renderFolders()}
+          {this.renderSets()}
+        </List>
+      );
+    }
     return (
-      <List>
-        {this.renderFolders()}
-        {this.renderSets()}
-      </List>
+      whichList
     );
   }
 }
