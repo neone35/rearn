@@ -45,9 +45,9 @@ Router.onRouteChangeStart = (url) => {
 // }
 
 class cardset extends React.Component {
-  static async getInitialProps({ query }) {
-    console.log(query);
-  }
+  // static async getInitialProps({ query }) {
+  //   console.log(query);
+  // }
 
   constructor(props) {
     super(props);

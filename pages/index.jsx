@@ -11,7 +11,7 @@ import NavToolbar from '../components/NavToolbar';
 import MainList from '../components/MainList';
 import DrawerList from '../components/lists/DrawerList';
 import CreateTabs from '../components/CreateTabs';
-import { initStore, fetchUser, getUserAgent } from '../server/store';
+import { initStore, fetchUser, getUserAgent, fetchSets } from '../server/store';
 import scss from '../static/style.scss';
 
 
@@ -35,6 +35,7 @@ class Index extends React.Component {
   componentDidMount() {
     this.props.fetchUser();
     this.props.getUserAgent();
+    this.props.fetchSets();
   }
 
   handleFloatClick() {
@@ -72,12 +73,20 @@ class Index extends React.Component {
 
   renderLayoutChildren() {
     let layoutChildren = null;
-    const { user } = this.props;
+    const { user, sets } = this.props;
+    let allCardsNum = 0;
+    for (let i = 0; i < sets.length; i += 1) {
+      allCardsNum += sets[i].cards.length;
+    }
     if (user) {
       layoutChildren = (
         <div style={{ position: 'relative' }}>
           <StatTabs
-            labels={['10 sets', '612 cards', '8 folders']}
+            labels={[
+              [sets.length || 0, 'sets'].join(' '),
+              [allCardsNum || 0, 'cards'].join(' '),
+              [null || 0, 'folders'].join(' '),
+              ]}
             pages={['/sets', '/cards', '/folders']}
             inkBar
           />
@@ -122,7 +131,12 @@ function mapStateToProps(state) {
   return {
     user: state.authReducer,
     agent: state.agentReducer,
+    sets: state.setsReducer,
   };
 }
 
-export default withRedux(initStore, mapStateToProps, { fetchUser, getUserAgent })(Index);
+export default withRedux(
+  initStore,
+  mapStateToProps,
+  { fetchUser, getUserAgent, fetchSets },
+)(Index);
