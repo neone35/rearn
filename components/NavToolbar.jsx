@@ -1,53 +1,53 @@
 import React from 'react';
 import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
-import Link from 'next/link';
+import { Link } from '../server/routes';
 import scss from '../static/style.scss';
 
 class NavToolbar extends React.Component {
   renderLeftSide() {
-    const { leftContent, leftStyle, leftLink } = this.props;
+    const { leftContent, leftStyle, leftRoute } = this.props;
     let leftside = null;
     const leftTemplate = (
       <ToolbarGroup>
         <ToolbarTitle
           text={leftContent}
           style={{ overflow: 'visible' }}
-          className={[leftStyle, leftLink ? scss.pointerCursor : null].join(' ')}
+          className={[leftStyle, leftRoute ? scss.pointerCursor : null].join(' ')}
         />
       </ToolbarGroup>
     );
-    if (leftContent != null) {
-      leftside = leftTemplate;
-    } else if (leftLink != null) {
+    if (leftRoute != null) {
       leftside = (
-        <Link href={leftLink}>
+        <Link route={leftRoute}>
           {leftTemplate}
         </Link>
       );
+    } else {
+      leftside = leftTemplate;
     }
     return leftside;
   }
 
   renderRightSide() {
-    const { rightContent, rightStyle, rightLink } = this.props;
+    const { rightContent, rightStyle, rightRoute } = this.props;
     let rightside = null;
     const rightTemplate = (
       <ToolbarGroup lastChild>
         <ToolbarTitle
           text={rightContent}
           style={{ overflow: 'visible' }}
-          className={[rightStyle, rightLink ? scss.pointerCursor : null].join(' ')}
+          className={[rightStyle, rightRoute ? scss.pointerCursor : null].join(' ')}
         />
       </ToolbarGroup>
     );
-    if (rightContent != null) {
-      rightside = rightTemplate;
-    } else if (rightLink != null) {
+    if (rightRoute != null) {
       rightside = (
-        <Link href={rightLink}>
+        <Link route={rightRoute}>
           {rightTemplate}
         </Link>
       );
+    } else {
+      rightside = rightTemplate;
     }
     return rightside;
   }

@@ -5,7 +5,7 @@ import Avatar from 'material-ui/Avatar';
 import AcountCircle from 'material-ui/svg-icons/action/account-circle';
 import InfoIcon from 'material-ui/svg-icons/action/info';
 import { purple800 } from 'material-ui/styles/colors';
-import Link from 'next/link';
+import { Link } from '../../server/routes';
 
 
 class DrawerList extends React.Component {
@@ -19,7 +19,7 @@ class DrawerList extends React.Component {
             leftAvatar={<Avatar src={user.avatarUrl} />}
             primaryText={user.displayName}
           />
-          <Link href="/api/logout">
+          <Link route="logout">
             <ListItem
               leftAvatar={<Avatar icon={<AcountCircle />} backgroundColor={purple800} />}
               primaryText="Logout"
@@ -29,7 +29,7 @@ class DrawerList extends React.Component {
       );
     } else {
       authButton = (
-        <Link href="/auth/google">
+        <Link route="login-google">
           <ListItem
             leftAvatar={<Avatar icon={<AcountCircle />} backgroundColor={purple800} />}
             primaryText="Login"
@@ -44,7 +44,7 @@ class DrawerList extends React.Component {
     return (
       <List>
         {this.renderAuthList()}
-        <Link href="/about">
+        <Link route="about">
           <ListItem
             leftAvatar={<Avatar icon={<InfoIcon />} backgroundColor={purple800} />}
             primaryText="About"

@@ -1,3 +1,4 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
@@ -9,8 +10,7 @@ import AutoComplete from 'material-ui/AutoComplete';
 import Avatar from 'material-ui/Avatar';
 import Drawer from 'material-ui/Drawer';
 import Fade from 'react-reveal/Zoom';
-import Link from 'next/link';
-import React from 'react';
+import { Link } from '../server/routes';
 import DrawerList from '../components/lists/DrawerList';
 import scss from '../static/style.scss';
 
@@ -60,7 +60,7 @@ class Header extends React.Component {
               <ActionSearch onClick={this.handleSearchClick} />
             </IconButton>
          }
-          <Link href="/settings">
+          <Link route="settings">
             <IconButton tooltip="Settings" iconStyle={{ color: '#FFF' }}>
               <ActionSettings />
             </IconButton>
@@ -123,7 +123,7 @@ class Header extends React.Component {
       <div>
         <AppBar
           title={
-            <Link href="/">
+            <Link route="index">
               <div>
                 <span className={scss.mainTitle}>REARN </span>
                 <span

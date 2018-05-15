@@ -114,7 +114,7 @@ class Index extends React.Component {
             inkBar
           />
           <NavToolbar
-            rightLink="/settings"
+            rightRoute="settings"
             leftStyle={scss.doubleLineToolbarTitle}
             rightStyle={scss.smallCapsToolbarTitle}
             leftContent={[

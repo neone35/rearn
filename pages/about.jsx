@@ -1,9 +1,9 @@
 import withRedux from 'next-redux-wrapper';
-import Link from 'next/link';
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import React from 'react';
 import Layout from '../lib/layout';
+import { Link } from '../server/routes';
 import { initStore } from '../server/store';
 
 
@@ -21,12 +21,12 @@ class About extends React.Component {
           />
           <CardActions>
             <FlatButton label={
-              <Link href="https://github.com/neone35/rearn">
+              <Link route="github-ext">
             Github
               </Link>}
             />
             <FlatButton label={
-              <Link href="https://www.facebook.com/artur.maslov">
+              <Link route="facebook-ext">
             Facebook
               </Link>}
             />
