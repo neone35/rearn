@@ -1,4 +1,5 @@
 import withRedux from 'next-redux-wrapper';
+import moment from 'moment';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import { Card, CardHeader } from 'material-ui/Card';
 import ContentAdd from 'material-ui/svg-icons/content/add';
@@ -93,6 +94,9 @@ class Index extends React.Component {
   renderLayoutChildren() {
     let layoutChildren = null;
     const { user, sets } = this.props;
+    const { lastStudied, lastSet } = this.props.user;
+    const lastSetTime = moment(lastStudied).format('MMMD H:m').toUpperCase();
+    const lastSetTitle = lastSet;
     let allCardsNum = 0;
     for (let i = 0; i < sets.length; i += 1) {
       allCardsNum += sets[i].cards.length;
@@ -118,11 +122,11 @@ class Index extends React.Component {
             leftStyle={scss.doubleLineToolbarTitle}
             rightStyle={scss.smallCapsToolbarTitle}
             leftContent={[
-              <span key="Last studied">Last studied</span>,
+              <span key="lastStudied">Last studied</span>,
               <br key="br" />,
-              <span key="MAR10 14:38">MAR10 14:38</span>,
+              <span key="monthTime">{lastSetTime}</span>,
             ]}
-            rightContent="Flashcard folder 1"
+            rightContent={lastSetTitle}
           />
           <MainList
             showSets={this.state.showSetList}
@@ -145,7 +149,6 @@ class Index extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <Layout title="Rearn - index">
         {this.renderLayoutChildren()}
