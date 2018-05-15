@@ -145,6 +145,7 @@ class Index extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <Layout title="Rearn - index">
         {this.renderLayoutChildren()}
@@ -164,5 +165,7 @@ function mapStateToProps(state) {
 export default withRedux(
   initStore,
   mapStateToProps,
-  { fetchUser, getUserAgent, fetchSets },
+  {
+    fetchUser, getUserAgent, fetchSets,
+  },
 )(Index);

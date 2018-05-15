@@ -13,7 +13,7 @@ import { List, ListItem } from 'material-ui/List';
 import RaisedButton from 'material-ui/RaisedButton';
 import Error from 'next/error';
 import withRedux from 'next-redux-wrapper';
-import { initStore, fetchUser, fetchSets } from '../server/store';
+import { initStore, fetchUser, fetchSets, setLastSet } from '../server/store';
 import { Router } from '../server/routes';
 import Layout from '../lib/layout';
 import StatTabs from '../components/StatTabs';
@@ -86,9 +86,10 @@ class cardset extends React.Component {
     this.setState({ studyTime: (new Date()).getTime() });
   }
 
-  turnOffStudyState() {
+  turnOffStudyState(thisSet) {
     this.setState({ studying: false });
     // send timeSpent and currentPercent to backend for update
+    this.props.setLastSet(thisSet.title, new Date().getTime());
     Router.back();
   }
 
@@ -300,7 +301,7 @@ class cardset extends React.Component {
             primary
             fullWidth
             label="Back to list"
-            onClick={() => this.turnOffStudyState(cards.length)}
+            onClick={() => this.turnOffStudyState(thisSet)}
           />
         </div>
       );
@@ -409,6 +410,7 @@ class cardset extends React.Component {
   }
 
   render() {
+    // console.log(this.props);
     const { sets } = this.props;
     const { id } = this.props.url.query;
     // console.log(this.props.url);
@@ -434,7 +436,12 @@ function mapStateToProps(state) {
   return {
     user: state.authReducer,
     sets: state.setsReducer,
+    lastInfo: state.lastSetReducer,
   };
 }
 
-export default withRedux(initStore, mapStateToProps, { fetchUser, fetchSets })(cardset);
+export default withRedux(
+  initStore,
+  mapStateToProps,
+  { fetchUser, fetchSets, setLastSet },
+)(cardset);

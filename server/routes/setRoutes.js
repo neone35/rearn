@@ -1,5 +1,6 @@
 import requireLogin from '../middlewares/requireLogin';
 import CardSet from '../models/CardSet';
+import User from '../models/User';
 
 export default function setRoutes(server) {
   server.post(
@@ -37,5 +38,20 @@ export default function setRoutes(server) {
     const sets = await CardSet.find({ _user: req.user.id })
       .select('cards createdAt title score timeSpent');
     res.send(sets);
+  });
+
+  server.post('/api/lastset', requireLogin, async (req, res) => {
+    const { setTitle, lastTime } = req.body;
+    User.findOneAndUpdate({
+      _id: req.user._id, // eslint-disable-line
+    }, {
+      $set: {
+        lastStudied: lastTime,
+        lastSet: setTitle,
+      },
+    }, (error) => {
+      if (error) console.error(error); // eslint-disable-line
+    }).exec();
+    res.send({});
   });
 }

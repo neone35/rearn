@@ -8,8 +8,9 @@ import getRootUrl from '../lib/api/getRootUrl';
 const ROOT_URL = getRootUrl();
 
 const initialState = {
-  authReducer: '0',
-  agentReducer: '0',
+  authReducer: 0,
+  agentReducer: 0,
+  setsReducer: [],
 };
 
 const actionTypes = {
@@ -75,6 +76,11 @@ export const submitSet = values => async () => {
 export const fetchSets = () => async (dispatch) => {
   const res = await axios.get(`${ROOT_URL}/api/sets`);
   dispatch({ type: actionTypes.FETCH_SETS, payload: res.data });
+};
+
+export const setLastSet = (setTitle, lastTime) => async () => {
+  const lastInfo = { setTitle, lastTime };
+  await axios.post(`${ROOT_URL}/api/lastset`, lastInfo);
 };
 
 export const initStore = (newInitialState = initialState) =>
