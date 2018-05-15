@@ -41,17 +41,17 @@ export default function setRoutes(server) {
   });
 
   server.post('/api/lastset', requireLogin, async (req, res) => {
-    const { setTitle, lastTime } = req.body;
+    const { setID, lastTime } = req.body;
     User.findOneAndUpdate({
       _id: req.user._id, // eslint-disable-line
     }, {
       $set: {
         lastStudied: lastTime,
-        lastSet: setTitle,
+        lastSetID: setID,
       },
     }, (error) => {
       if (error) console.error(error); // eslint-disable-line
     }).exec();
-    res.send({});
+    res.send({}); // success
   });
 }

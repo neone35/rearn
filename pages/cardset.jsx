@@ -89,7 +89,10 @@ class cardset extends React.Component {
   turnOffStudyState(thisSet) {
     this.setState({ studying: false });
     // send timeSpent and currentPercent to backend for update
-    this.props.setLastSet(thisSet.title, new Date().getTime());
+    this.props.setLastSet(
+      thisSet._id, // eslint-disable-line
+      new Date().getTime(),
+    );
     Router.back();
   }
 

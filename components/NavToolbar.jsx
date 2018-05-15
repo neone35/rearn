@@ -29,7 +29,9 @@ class NavToolbar extends React.Component {
   }
 
   renderRightSide() {
-    const { rightContent, rightStyle, rightRoute } = this.props;
+    const {
+      rightContent, rightStyle, rightRoute, rightParams,
+    } = this.props;
     let rightside = null;
     const rightTemplate = (
       <ToolbarGroup lastChild>
@@ -42,7 +44,10 @@ class NavToolbar extends React.Component {
     );
     if (rightRoute != null) {
       rightside = (
-        <Link route={rightRoute}>
+        <Link
+          route={rightRoute}
+          params={rightParams}
+        >
           {rightTemplate}
         </Link>
       );

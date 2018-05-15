@@ -17,13 +17,24 @@ import CreateTabs from '../components/CreateTabs';
 import { initStore, fetchUser, getUserAgent, fetchSets } from '../server/store';
 import scss from '../static/style.scss';
 
+function getOneSet(sets, id) {
+  let thisSet = null;
+  for (let i = 0; i < sets.length; i += 1) {
+    if (id === sets[i]._id) { // eslint-disable-line
+      thisSet = sets[i];
+    }
+  }
+  return thisSet;
+}
 
 class Index extends React.Component {
   // static getInitialProps({ store, isServer }) {
   //   store.dispatch(fetchUser());
+  //   store.dispatch(fetchSets());
   //   store.dispatch(getUserAgent());
   //   return { isServer };
   // }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -94,14 +105,14 @@ class Index extends React.Component {
   renderLayoutChildren() {
     let layoutChildren = null;
     const { user, sets } = this.props;
-    const { lastStudied, lastSet } = this.props.user;
-    const lastSetTime = moment(lastStudied).format('MMMD H:m').toUpperCase();
-    const lastSetTitle = lastSet;
     let allCardsNum = 0;
     for (let i = 0; i < sets.length; i += 1) {
       allCardsNum += sets[i].cards.length;
     }
     if (user) {
+      const { lastStudied, lastSetID } = user;
+      const lastSetTime = moment(lastStudied).format('MMMD H:m').toUpperCase();
+      const lastSet = getOneSet(sets, lastSetID);
       layoutChildren = (
         <div style={{ position: 'relative' }}>
           <StatTabs
@@ -118,7 +129,9 @@ class Index extends React.Component {
             inkBar
           />
           <NavToolbar
-            rightRoute="settings"
+            rightRoute="set"
+            // eslint-disable-next-line
+            rightParams={{ id: lastSet ? lastSet._id : 'none' }}
             leftStyle={scss.doubleLineToolbarTitle}
             rightStyle={scss.smallCapsToolbarTitle}
             leftContent={[
@@ -126,7 +139,7 @@ class Index extends React.Component {
               <br key="br" />,
               <span key="monthTime">{lastSetTime}</span>,
             ]}
-            rightContent={lastSetTitle}
+            rightContent={lastSet ? lastSet.title : 'none'}
           />
           <MainList
             showSets={this.state.showSetList}
@@ -149,6 +162,7 @@ class Index extends React.Component {
   }
 
   render() {
+    // console.log(this.props);
     return (
       <Layout title="Rearn - index">
         {this.renderLayoutChildren()}

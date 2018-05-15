@@ -78,8 +78,8 @@ export const fetchSets = () => async (dispatch) => {
   dispatch({ type: actionTypes.FETCH_SETS, payload: res.data });
 };
 
-export const setLastSet = (setTitle, lastTime) => async () => {
-  const lastInfo = { setTitle, lastTime };
+export const setLastSet = (setID, lastTime) => async () => {
+  const lastInfo = { setID, lastTime };
   await axios.post(`${ROOT_URL}/api/lastset`, lastInfo);
 };
 
