@@ -83,5 +83,10 @@ export const setLastSet = (setID, lastTime) => async () => {
   await axios.post(`${ROOT_URL}/api/lastset`, lastInfo);
 };
 
+export const updateSetStats = (setID, percent, seconds) => async () => {
+  const setStats = { setID, percent, seconds };
+  await axios.post(`${ROOT_URL}/api/setstats`, setStats);
+};
+
 export const initStore = (newInitialState = initialState) =>
   createStore(rootReducer, newInitialState, compose(applyMiddleware(thunkMiddleware)));

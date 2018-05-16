@@ -54,4 +54,20 @@ export default function setRoutes(server) {
     }).exec();
     res.send({}); // success
   });
+
+  server.post('/api/setstats', requireLogin, async (req, res) => {
+    const { setID, percent, seconds } = req.body;
+    CardSet.findOne({ _id: setID })
+      .then((thisSet, err) =>
+        CardSet.updateOne({
+          _id: thisSet._id, // eslint-disable-line
+        }, {
+          $set: { score: (thisSet.score + percent) / 2 },
+          $inc: { timeSpent: seconds },
+        }).exec(() => {
+          if (err) console.error(err); // eslint-disable-line
+        }));
+    console.log(setID, percent, seconds);
+    res.send({}); // success
+  });
 }

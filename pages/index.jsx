@@ -84,7 +84,7 @@ class Index extends React.Component {
             <CreateTabs
               labels={['Folder', 'Set']}
               icons={[<FileFolder color="white" />, <ViewCarousel color="white" />]}
-              routes={['/about', '/addset']}
+              routes={['', '/addset']}
               onSelect={false}
               classNames={false}
             />
@@ -137,7 +137,7 @@ class Index extends React.Component {
             leftContent={[
               <span key="lastStudied">Last studied</span>,
               <br key="br" />,
-              <span key="monthTime">{lastSetTime}</span>,
+              <span key="monthTime">{lastSetTime || 'never'}</span>,
             ]}
             rightContent={lastSet ? lastSet.title : 'none'}
           />
@@ -164,7 +164,7 @@ class Index extends React.Component {
   render() {
     // console.log(this.props);
     return (
-      <Layout title="Rearn - index">
+      <Layout title="Rearn - index" showSearchBtn>
         {this.renderLayoutChildren()}
       </Layout>
     );

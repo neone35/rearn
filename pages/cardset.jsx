@@ -13,7 +13,7 @@ import { List, ListItem } from 'material-ui/List';
 import RaisedButton from 'material-ui/RaisedButton';
 import Error from 'next/error';
 import withRedux from 'next-redux-wrapper';
-import { initStore, fetchUser, fetchSets, setLastSet } from '../server/store';
+import { initStore, fetchUser, fetchSets, setLastSet, updateSetStats } from '../server/store';
 import { Router } from '../server/routes';
 import Layout from '../lib/layout';
 import StatTabs from '../components/StatTabs';
@@ -45,6 +45,12 @@ function getOneCardSide(label, index, num, text, buttons) {
       {buttons}
     </div>
   );
+}
+
+function removeLastDir(currentUrl) {
+  const slashSplitUrl = currentUrl.split('/');
+  slashSplitUrl.pop(); // remove last element (learn)
+  return (slashSplitUrl.join('/'));
 }
 
 class cardset extends React.Component {
@@ -86,14 +92,21 @@ class cardset extends React.Component {
     this.setState({ studyTime: (new Date()).getTime() });
   }
 
-  turnOffStudyState(thisSet) {
+  turnOffStudyState(thisSet, percent, sSpent) {
     this.setState({ studying: false });
-    // send timeSpent and currentPercent to backend for update
+    // update last studied set in front page
     this.props.setLastSet(
       thisSet._id, // eslint-disable-line
       new Date().getTime(),
     );
-    Router.back();
+    // update studied set stats in cardset page
+    this.props.updateSetStats(
+      thisSet._id, // eslint-disable-line
+      percent,
+      sSpent,
+    );
+    const setPath = removeLastDir(this.props.url.asPath); // remove /learn
+    Router.replace(setPath);
   }
 
   redirectToStudyMode() {
@@ -304,7 +317,7 @@ class cardset extends React.Component {
             primary
             fullWidth
             label="Back to list"
-            onClick={() => this.turnOffStudyState(thisSet)}
+            onClick={() => this.turnOffStudyState(thisSet, currentPercent, secondsSpent)}
           />
         </div>
       );
@@ -356,8 +369,9 @@ class cardset extends React.Component {
 
   // eslint-disable-next-line
   renderSetStats(thisSet) {
-    const thisScore = [thisSet.score, '%'].join('');
-    const thisTime = [thisSet.timespent ? thisSet.timespent : '0', 'ms'].join(' ');
+    const thisScore = [thisSet.score || '0', '%'].join('');
+    const thisTime = [thisSet.timeSpent || '0', 's'].join(' ');
+    // console.log(thisSet);
     const stats = (
       <StatTabs
         labels={[
@@ -439,12 +453,13 @@ function mapStateToProps(state) {
   return {
     user: state.authReducer,
     sets: state.setsReducer,
-    lastInfo: state.lastSetReducer,
   };
 }
 
 export default withRedux(
   initStore,
   mapStateToProps,
-  { fetchUser, fetchSets, setLastSet },
+  {
+    fetchUser, fetchSets, setLastSet, updateSetStats,
+  },
 )(cardset);
