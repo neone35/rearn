@@ -16,6 +16,7 @@ class MainList extends React.Component {
   }
 
   renderSets() {
+    this.props.fetchSets();
     let setsList = null;
     const { sets } = this.props;
     if (sets) {
@@ -28,7 +29,17 @@ class MainList extends React.Component {
         >
           <ListItem
             leftAvatar={<Avatar icon={<ViewCarousel />} backgroundColor={purple800} />}
-            rightIcon={<p style={scss.score}>{[set.score, '%'].join('')}</p>}
+            rightIcon={
+              <p className={
+                // eslint-disable-next-line
+                set.score >= 80 ? scss.scoreGood
+                  : set.score >= 50 ? scss.scoreNormal
+                    : scss.scoreBad
+              }
+              >
+                {[set.score.toFixed(0), '%'].join('')}
+              </p>
+            }
             primaryText={set.title}
             secondaryText={
             [set.cards.length, set.cards.length > 1 ? 'cards' : 'card']

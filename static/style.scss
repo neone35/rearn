@@ -91,10 +91,19 @@ $purple700: #512DA8;
     color: white !important;
 }
 
-.score {
-    color: blue !important;
-    margin-right: 1.5em !important; 
-    font-size: 1.5em !important;
+.scoreNormal {
+    color: $purpleDark !important;
+    margin-right: 1.2em !important; 
+    font-size: 1em !important;
+    font-weight: 400;
+}
+.scoreBad {
+  @extend .scoreNormal;
+  color: red !important;
+}
+.scoreGood {
+  @extend .scoreNormal;
+  color: $greenFloatBtn !important;
 }
 
 .lowerThinText {

@@ -111,7 +111,7 @@ class Index extends React.Component {
     }
     if (user) {
       const { lastStudied, lastSetID } = user;
-      const lastSetTime = moment(lastStudied).format('MMMD H:m').toUpperCase();
+      const lastSetTime = moment(lastStudied).format('MMMMDD HH:mm').toUpperCase();
       const lastSet = getOneSet(sets, lastSetID);
       layoutChildren = (
         <div style={{ position: 'relative' }}>

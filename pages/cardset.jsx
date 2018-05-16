@@ -369,8 +369,8 @@ class cardset extends React.Component {
 
   // eslint-disable-next-line
   renderSetStats(thisSet) {
-    const thisScore = [thisSet.score || '0', '%'].join('');
-    const thisTime = [thisSet.timeSpent || '0', 's'].join(' ');
+    const thisScore = [thisSet.score.toFixed(0) || '0', '%'].join('');
+    const thisTime = [thisSet.timeSpent.toFixed(2) || '0', 's'].join(' ');
     // console.log(thisSet);
     const stats = (
       <StatTabs

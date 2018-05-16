@@ -67,7 +67,7 @@ export default function setRoutes(server) {
         }).exec(() => {
           if (err) console.error(err); // eslint-disable-line
         }));
-    console.log(setID, percent, seconds);
+    // console.log(setID, percent, seconds);
     res.send({}); // success
   });
 }
