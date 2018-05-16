@@ -62,7 +62,7 @@ export default function setRoutes(server) {
         CardSet.updateOne({
           _id: thisSet._id, // eslint-disable-line
         }, {
-          $set: { score: (thisSet.score + percent) / 2 },
+          $set: { score: (thisSet.score === 0) ? percent : (thisSet.score + percent) / 2 },
           $inc: { timeSpent: seconds },
         }).exec(() => {
           if (err) console.error(err); // eslint-disable-line

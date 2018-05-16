@@ -40,7 +40,7 @@ function getOneCardSide(label, index, num, text, buttons) {
           title={['#', index, '/', num].join(' ')}
           subtitle={label}
         />
-        <CardText>{text}</CardText>
+        <CardText className={scss.cardText}>{text}</CardText>
       </Card>
       {buttons}
     </div>
