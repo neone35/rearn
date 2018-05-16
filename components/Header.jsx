@@ -14,7 +14,6 @@ import { Link } from '../server/routes';
 import DrawerList from '../components/lists/DrawerList';
 import scss from '../static/style.scss';
 
-
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -25,12 +24,15 @@ class Header extends React.Component {
   }
 
   handleUpdateInput(value) {
+    const { sets } = this.props;
     this.setState({
-      dataSource: [
-        value,
-        value + value,
-        value + value + value,
-      ],
+      dataSource:
+        sets.map(set => (
+          set.title.toLowerCase().indexOf(value) !== -1 ?
+            set.title.toLowerCase()
+            :
+            null
+        )),
     });
   }
 
@@ -172,6 +174,7 @@ class Header extends React.Component {
 function mapStateToProps(state) {
   return {
     user: state.authReducer,
+    sets: state.setsReducer,
   };
 }
 
