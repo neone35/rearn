@@ -14,7 +14,7 @@ import NavToolbar from '../components/NavToolbar';
 import MainList from '../components/MainList';
 import DrawerList from '../components/lists/DrawerList';
 import CreateTabs from '../components/CreateTabs';
-import { initStore, fetchUser, getUserAgent, fetchSets } from '../server/store';
+import { initStore, fetchUser, fetchSets } from '../server/store';
 import scss from '../static/style.scss';
 
 function getOneSet(sets, id) {
@@ -50,7 +50,6 @@ class Index extends React.Component {
 
   componentDidMount() {
     this.props.fetchUser();
-    this.props.getUserAgent();
     this.props.fetchSets();
   }
 
@@ -174,7 +173,6 @@ class Index extends React.Component {
 function mapStateToProps(state) {
   return {
     user: state.authReducer,
-    agent: state.agentReducer,
     sets: state.setsReducer,
   };
 }
@@ -182,7 +180,5 @@ function mapStateToProps(state) {
 export default withRedux(
   initStore,
   mapStateToProps,
-  {
-    fetchUser, getUserAgent, fetchSets,
-  },
+  { fetchUser, fetchSets },
 )(Index);

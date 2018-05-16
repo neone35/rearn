@@ -4,8 +4,13 @@ import Head from 'next/head';
 import React from 'react';
 import Header from '../components/Header';
 import rearnTheme from './rearnTheme';
+import { getUserAgent } from '../server/store';
 
 class Layout extends React.Component {
+  componentDidMount() {
+    this.props.getUserAgent();
+  }
+
   renderRoot() {
     let layoutContent = null;
     const { isDesktop } = this.props.agent;
@@ -45,4 +50,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Layout);
+export default connect(mapStateToProps, { getUserAgent })(Layout);
